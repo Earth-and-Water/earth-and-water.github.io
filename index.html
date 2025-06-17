@@ -12,6 +12,14 @@
             box-sizing: border-box;
         }
 
+        /* Prevent image blurring for pixel art */
+        img {
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
         body {
             font-family: 'Dosis', sans-serif;
             background-image: url('background.png');
@@ -386,6 +394,7 @@
             margin-bottom: 10px;
         }
 
+        /* Creators Section */
         .creators-section {
             position: relative;
             overflow: hidden;
@@ -477,6 +486,7 @@
             margin-bottom: 15px;
         }
 
+        /* Responsive */
         @media (max-width: 1200px) {
             .main-container {
                 max-width: 98vw;
@@ -528,6 +538,7 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <div class="header">
         <div class="header-content">
             <div class="logo">
