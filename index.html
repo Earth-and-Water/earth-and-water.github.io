@@ -21,6 +21,7 @@
             color: #e6e6e6;
             line-height: 1.4;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .header {
@@ -31,8 +32,7 @@
         }
 
         .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -50,7 +50,7 @@
 
         .search-container {
             flex: 1;
-            max-width: 400px;
+            max-width: 500px;
             margin: 0 20px;
         }
 
@@ -72,8 +72,7 @@
         }
 
         .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100%;
             display: flex;
             padding: 0 20px;
         }
@@ -92,49 +91,50 @@
         }
 
         .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100vw;
+            height: calc(100vh - 120px);
             display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: 1fr 400px;
+            gap: 0;
+            padding: 0;
         }
 
         .content {
             background: #2b2f39;
-            border: 1px solid #4a4a4a;
-            border-radius: 6px;
-            padding: 20px;
+            border-right: 1px solid #4a4a4a;
+            padding: 30px;
+            overflow-y: auto;
+            height: 100%;
         }
 
         .page-title {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 25px;
             color: #4CAF50;
             border-bottom: 2px solid #4a4a4a;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             font-family: 'Dosis', sans-serif;
             font-weight: 700;
         }
 
         .featured-section {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .featured-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
         }
 
         .featured-card {
             background-image: url('spring_to_life.png');
             background-size: cover;
             background-position: center;
-            border-radius: 6px;
-            padding: 15px;
-            min-height: 120px;
+            border-radius: 8px;
+            padding: 25px;
+            min-height: 150px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -157,9 +157,9 @@
         }
 
         .card-title {
-            font-size: 18px;
+            font-size: 22px;
             color: white;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-family: 'Dosis', sans-serif;
             font-weight: 700;
             position: relative;
@@ -168,7 +168,7 @@
 
         .card-content {
             color: #e6e6e6;
-            font-size: 14px;
+            font-size: 16px;
             font-family: 'Dosis', sans-serif;
             position: relative;
             z-index: 1;
@@ -177,8 +177,8 @@
         .category-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin: 20px 0;
+            gap: 25px;
+            margin: 25px 0;
             width: 100%;
         }
 
@@ -186,12 +186,12 @@
             background-image: url('mobs_button.png');
             background-size: cover;
             background-position: center;
-            border-radius: 6px;
-            padding: 25px;
+            border-radius: 8px;
+            padding: 35px;
             text-align: center;
             cursor: pointer;
             transition: all 0.5s ease;
-            min-height: 140px;
+            min-height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -216,7 +216,7 @@
         .category-item.history:hover { background-image: url('hovering_history_button.png'); }
 
         .category-name {
-            font-size: 18px;
+            font-size: 20px;
             color: white;
             font-family: 'Dosis', sans-serif;
             font-weight: 600;
@@ -224,19 +224,19 @@
         }
 
         .latest-versions {
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         .versions-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             cursor: pointer;
         }
 
         .versions-title {
-            font-size: 18px;
+            font-size: 20px;
             color: #4CAF50;
             font-family: 'Dosis', sans-serif;
             font-weight: 700;
@@ -245,7 +245,7 @@
         .dropdown-arrow {
             color: #4CAF50;
             transition: transform 0.3s ease;
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .dropdown-arrow.open {
@@ -254,8 +254,8 @@
 
         .versions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
@@ -268,10 +268,10 @@
         .version-item {
             background-size: cover;
             background-position: center;
-            border-radius: 6px;
-            padding: 15px;
+            border-radius: 8px;
+            padding: 20px;
             text-align: center;
-            min-height: 80px;
+            min-height: 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -291,7 +291,7 @@
         }
 
         .version-name {
-            font-size: 14px;
+            font-size: 16px;
             color: white;
             font-family: 'Dosis', sans-serif;
             font-weight: 600;
@@ -301,21 +301,28 @@
         .sidebar {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 0;
+            height: 100%;
+            background: #2b2f39;
         }
 
         .sidebar-section {
             background: #2b2f39;
-            border: 1px solid #4a4a4a;
-            border-radius: 6px;
-            padding: 15px;
+            border-bottom: 1px solid #4a4a4a;
+            border-left: 1px solid #4a4a4a;
+            padding: 25px;
+            flex: 1;
+        }
+
+        .sidebar-section:last-child {
+            border-bottom: none;
         }
 
         .sidebar-title {
-            font-size: 16px;
+            font-size: 20px;
             color: #4CAF50;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #4a4a4a;
             font-family: 'Dosis', sans-serif;
             font-weight: 700;
@@ -326,9 +333,10 @@
         }
 
         .sidebar-list li {
-            padding: 6px 0;
-            font-size: 13px;
+            padding: 10px 0;
+            font-size: 15px;
             font-family: 'Dosis', sans-serif;
+            line-height: 1.4;
         }
 
         .sidebar-list a {
@@ -343,23 +351,25 @@
 
         .stats {
             background: linear-gradient(135deg, #4CAF50, #45a049);
-            border-radius: 6px;
-            padding: 15px;
+            border-radius: 8px;
+            padding: 25px;
             text-align: center;
             color: white;
+            margin: -5px;
         }
 
         .stat-number {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 700;
             display: block;
             font-family: 'Dosis', sans-serif;
         }
 
         .stat-label {
-            font-size: 12px;
+            font-size: 16px;
             opacity: 0.9;
             font-family: 'Dosis', sans-serif;
+            margin-bottom: 10px;
         }
 
         /* Creators Section */
@@ -387,7 +397,7 @@
         }
 
         .creator {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .creator:last-child {
@@ -395,9 +405,9 @@
         }
 
         .creator-name {
-            font-size: 16px;
+            font-size: 18px;
             color: #4CAF50;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             font-family: 'Dosis', sans-serif;
             font-weight: 700;
         }
@@ -405,16 +415,16 @@
         .creator-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .creator-link {
             background: rgba(76, 175, 80, 0.2);
             color: #4CAF50;
             text-decoration: none;
-            padding: 4px 8px;
+            padding: 6px 12px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 13px;
             border: 1px solid rgba(76, 175, 80, 0.3);
             transition: all 0.3s ease;
             font-family: 'Dosis', sans-serif;
@@ -426,29 +436,50 @@
             border-color: #4CAF50;
         }
 
+        .about-section {
+            margin-top: 35px;
+        }
+
+        .about-section h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-family: 'Dosis', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .about-section p {
+            color: #cccccc;
+            line-height: 1.6;
+            font-family: 'Dosis', sans-serif;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .main-container {
-                max-width: 1200px;
-            }
-            
-            .header-content {
-                max-width: 1200px;
-            }
-            
-            .nav-content {
-                max-width: 1200px;
+                grid-template-columns: 1fr 350px;
             }
         }
 
         @media (max-width: 768px) {
             .main-container {
                 grid-template-columns: 1fr;
-                padding: 10px;
+                height: auto;
             }
             
-            .nav-content {
-                overflow-x: auto;
+            .content {
+                border-right: none;
+                border-bottom: 1px solid #4a4a4a;
+            }
+            
+            .sidebar {
+                height: auto;
+            }
+            
+            .sidebar-section {
+                border-left: none;
             }
             
             .featured-grid {
@@ -457,16 +488,16 @@
             
             .category-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+                gap: 20px;
             }
             
             .category-item {
-                min-height: 100px;
-                padding: 20px;
+                min-height: 140px;
+                padding: 25px;
             }
             
             .category-name {
-                font-size: 16px;
+                font-size: 18px;
             }
         }
 
@@ -476,12 +507,12 @@
             }
             
             .category-item {
-                min-height: 80px;
-                padding: 15px;
+                min-height: 120px;
+                padding: 20px;
             }
             
             .category-name {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     </style>
@@ -527,7 +558,7 @@
                 </div>
             </div>
 
-            <h2 style="color: #4CAF50; margin-bottom: 15px; font-family: 'Dosis', sans-serif; font-weight: 700;">Mod Categories</h2>
+            <h2 style="color: #4CAF50; margin-bottom: 20px; font-family: 'Dosis', sans-serif; font-weight: 700; font-size: 22px;">Mod Categories</h2>
             <div class="category-grid">
                 <div class="category-item mobs">
                     <div class="category-name">Mobs</div>
@@ -573,12 +604,12 @@
                 </div>
             </div>
 
-            <div style="margin-top: 30px;">
-                <h2 style="color: #4CAF50; margin-bottom: 15px; font-family: 'Dosis', sans-serif; font-weight: 700;">About the Mod</h2>
-                <p style="color: #cccccc; line-height: 1.6; font-family: 'Dosis', sans-serif;">
+            <div class="about-section">
+                <h2>About the Mod</h2>
+                <p>
                     <strong>Earth & Water</strong> is a comprehensive Minecraft mod that enhances the natural world with powerful earth and water mechanics. Discover new biomes, master elemental abilities, and explore ancient structures filled with mystical powers.
                 </p>
-                <p style="color: #cccccc; line-height: 1.6; margin-top: 15px; font-family: 'Dosis', sans-serif;">
+                <p>
                     From terraforming landscapes to controlling the flow of rivers, Earth & Water brings a new dimension of gameplay that seamlessly integrates with vanilla Minecraft while adding depth and wonder to your adventures.
                 </p>
             </div>
@@ -588,7 +619,7 @@
             <div class="sidebar-section stats">
                 <div class="stat-number">1,247</div>
                 <div class="stat-label">articles</div>
-                <div style="margin: 10px 0;">•</div>
+                <div style="margin: 15px 0;">•</div>
                 <div class="stat-number">3,892</div>
                 <div class="stat-label">files</div>
             </div>
@@ -599,6 +630,8 @@
                     <li>...that water spirits can be befriended with specific offerings?</li>
                     <li>...that earth golems can help terraform large areas?</li>
                     <li>...that combining earth and water magic creates unique clay abilities?</li>
+                    <li>...that ancient earth temples contain powerful enchantments?</li>
+                    <li>...that water crystals can store magical energy for later use?</li>
                 </ul>
             </div>
 
