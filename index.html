@@ -32,7 +32,8 @@
         }
 
         .header-content {
-            width: 100%;
+            max-width: 95vw;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -41,11 +42,13 @@
 
         .logo {
             height: 40px;
+            width: auto;
         }
 
         .logo img {
             height: 100%;
             width: auto;
+            object-fit: contain;
         }
 
         .search-container {
@@ -58,8 +61,8 @@
             width: 100%;
             padding: 8px 12px;
             background: #3a3a3a;
-            border: 1px solid #555;
-            border-radius: 4px;
+            border: none;
+            border-radius: 0;
             color: #e6e6e6;
             font-size: 14px;
             font-family: 'Dosis', sans-serif;
@@ -72,7 +75,8 @@
         }
 
         .nav-content {
-            width: 100%;
+            max-width: 95vw;
+            margin: 0 auto;
             display: flex;
             padding: 0 20px;
         }
@@ -91,20 +95,21 @@
         }
 
         .main-container {
-            width: 100vw;
-            height: calc(100vh - 120px);
+            max-width: 95vw;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 0;
-            padding: 0;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            padding: 20px;
+            min-height: calc(100vh - 140px);
         }
 
         .content {
             background: #2b2f39;
-            border-right: 1px solid #4a4a4a;
-            padding: 30px;
+            border: none;
+            border-radius: 0;
+            padding: 25px;
             overflow-y: auto;
-            height: 100%;
         }
 
         .page-title {
@@ -129,21 +134,24 @@
         }
 
         .featured-card {
-            background-image: url('spring_to_life.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            padding: 25px;
+            border-radius: 0;
             min-height: 150px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             position: relative;
             overflow: hidden;
+            background: #666;
         }
 
-        .featured-card.chase-skies {
-            background-image: url('chase_the_skies.png');
+        .featured-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .featured-card::before {
@@ -154,6 +162,7 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
         }
 
         .card-title {
@@ -163,7 +172,8 @@
             font-family: 'Dosis', sans-serif;
             font-weight: 700;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            padding: 0 25px;
         }
 
         .card-content {
@@ -171,7 +181,8 @@
             font-size: 16px;
             font-family: 'Dosis', sans-serif;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            padding: 0 25px 25px 25px;
         }
 
         .category-grid {
@@ -183,37 +194,42 @@
         }
 
         .category-item {
-            background-image: url('mobs_button.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            padding: 35px;
+            border-radius: 0;
             text-align: center;
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             min-height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #666;
         }
 
-        .category-item.blocks { background-image: url('blocks_button.png'); }
-        .category-item.items { background-image: url('items_button.png'); }
-        .category-item.biomes { background-image: url('biomes_button.png'); }
-        .category-item.effects { background-image: url('effects_button.png'); }
-        .category-item.smithing { background-image: url('smithing_button.png'); }
-        .category-item.structures { background-image: url('structures_button.png'); }
-        .category-item.history { background-image: url('history_button.png'); }
+        .category-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: opacity 0.3s ease;
+        }
 
-        .category-item:hover { background-image: url('hovering_mobs_button.png'); }
-        .category-item.blocks:hover { background-image: url('hovering_blocks_button.png'); }
-        .category-item.items:hover { background-image: url('hovering_items_button.png'); }
-        .category-item.biomes:hover { background-image: url('hovering_biomes_button.png'); }
-        .category-item.effects:hover { background-image: url('hovering_effects_button.png'); }
-        .category-item.smithing:hover { background-image: url('hovering_smithing_button.png'); }
-        .category-item.structures:hover { background-image: url('hovering_structures_button.png'); }
-        .category-item.history:hover { background-image: url('hovering_history_button.png'); }
+        .category-item .hover-img {
+            opacity: 0;
+        }
+
+        .category-item:hover .default-img {
+            opacity: 0;
+        }
+
+        .category-item:hover .hover-img {
+            opacity: 1;
+        }
 
         .category-name {
             font-size: 20px;
@@ -221,6 +237,8 @@
             font-family: 'Dosis', sans-serif;
             font-weight: 600;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 1;
         }
 
         .latest-versions {
@@ -266,28 +284,26 @@
         }
 
         .version-item {
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 0;
             text-align: center;
             min-height: 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #666;
         }
 
-        .version-item.modrinth {
-            background-image: url('modrinth_button.png');
-        }
-
-        .version-item.curseforge {
-            background-image: url('curseforge_button.png');
-        }
-
-        .version-item.planetmc {
-            background-image: url('planetmc_button.png');
+        .version-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .version-name {
@@ -296,22 +312,21 @@
             font-family: 'Dosis', sans-serif;
             font-weight: 600;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 1;
         }
 
         .sidebar {
             display: flex;
             flex-direction: column;
-            gap: 0;
-            height: 100%;
-            background: #2b2f39;
+            gap: 20px;
         }
 
         .sidebar-section {
             background: #2b2f39;
-            border-bottom: 1px solid #4a4a4a;
-            border-left: 1px solid #4a4a4a;
-            padding: 25px;
-            flex: 1;
+            border: none;
+            border-radius: 0;
+            padding: 20px;
         }
 
         .sidebar-section:last-child {
@@ -351,11 +366,10 @@
 
         .stats {
             background: linear-gradient(135deg, #4CAF50, #45a049);
-            border-radius: 8px;
-            padding: 25px;
+            border-radius: 0;
+            padding: 20px;
             text-align: center;
             color: white;
-            margin: -5px;
         }
 
         .stat-number {
@@ -374,11 +388,19 @@
 
         /* Creators Section */
         .creators-section {
-            background-image: url('creators_background.png');
-            background-size: cover;
-            background-position: center;
             position: relative;
             overflow: hidden;
+            background: #2b2f39;
+        }
+
+        .creators-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .creators-section::before {
@@ -389,11 +411,12 @@
             right: 0;
             bottom: 0;
             background: rgba(43, 47, 57, 0.8);
+            z-index: 1;
         }
 
         .creators-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .creator {
@@ -423,9 +446,9 @@
             color: #4CAF50;
             text-decoration: none;
             padding: 6px 12px;
-            border-radius: 4px;
+            border-radius: 0;
             font-size: 13px;
-            border: 1px solid rgba(76, 175, 80, 0.3);
+            border: none;
             transition: all 0.3s ease;
             font-family: 'Dosis', sans-serif;
             font-weight: 500;
@@ -433,7 +456,6 @@
 
         .creator-link:hover {
             background: rgba(76, 175, 80, 0.3);
-            border-color: #4CAF50;
         }
 
         .about-section {
@@ -459,23 +481,15 @@
         /* Responsive */
         @media (max-width: 1200px) {
             .main-container {
-                grid-template-columns: 1fr 350px;
+                max-width: 98vw;
+                grid-template-columns: 1fr 300px;
             }
         }
 
         @media (max-width: 768px) {
             .main-container {
                 grid-template-columns: 1fr;
-                height: auto;
-            }
-            
-            .content {
-                border-right: none;
-                border-bottom: 1px solid #4a4a4a;
-            }
-            
-            .sidebar {
-                height: auto;
+                max-width: 95vw;
             }
             
             .sidebar-section {
@@ -493,7 +507,6 @@
             
             .category-item {
                 min-height: 140px;
-                padding: 25px;
             }
             
             .category-name {
@@ -508,7 +521,6 @@
             
             .category-item {
                 min-height: 120px;
-                padding: 20px;
             }
             
             .category-name {
@@ -543,16 +555,18 @@
             <div class="featured-section">
                 <div class="featured-grid">
                     <div class="featured-card">
-                        <div class="card-title">🌸 Spring to Life</div>
+                        <img src="dripstone_content.png" alt="Dripstone Content">
+                        <div class="card-title">Dripstone</div>
                         <div class="card-content">
-                            Discover the latest Earth & Water updates with beautiful new biomes, enhanced earth mechanics, and exciting aquatic features!
+                            Dripstone, the "Earth" part of Earth & Water. E&W adds a new dripstone brick set, an entire underground structure, and mob, the Bore. Not to mention Dark Dripstone and its set.
                         </div>
                     </div>
                     
-                    <div class="featured-card chase-skies">
-                        <div class="card-title">🌊 Chase the Skies</div>
+                    <div class="featured-card">
+                        <img src="prismarine_content.png" alt="Prismarine Content">
+                        <div class="card-title">Prismarine</div>
                         <div class="card-content">
-                            Explore the newest adventure with enhanced weather systems, mystical water spells, and ancient earth structures.
+                            Prismarine, the obvious "Water" part of Earth & Water. E&W adds Prismarine Pillars, Prismarine Tiles, an Conduit themed structure, a mob known as the Brine, and the block everyone needed: the Dark Prismarine Wall.
                         </div>
                     </div>
                 </div>
@@ -560,28 +574,44 @@
 
             <h2 style="color: #4CAF50; margin-bottom: 20px; font-family: 'Dosis', sans-serif; font-weight: 700; font-size: 22px;">Mod Categories</h2>
             <div class="category-grid">
-                <div class="category-item mobs">
+                <div class="category-item">
+                    <img src="mobs_button.png" alt="Mobs" class="default-img">
+                    <img src="hovering_mobs_button.png" alt="Mobs Hover" class="hover-img">
                     <div class="category-name">Mobs</div>
                 </div>
-                <div class="category-item blocks">
+                <div class="category-item">
+                    <img src="blocks_button.png" alt="Blocks" class="default-img">
+                    <img src="hovering_blocks_button.png" alt="Blocks Hover" class="hover-img">
                     <div class="category-name">Blocks</div>
                 </div>
-                <div class="category-item items">
+                <div class="category-item">
+                    <img src="items_button.png" alt="Items" class="default-img">
+                    <img src="hovering_items_button.png" alt="Items Hover" class="hover-img">
                     <div class="category-name">Items</div>
                 </div>
-                <div class="category-item biomes">
+                <div class="category-item">
+                    <img src="biomes_button.png" alt="Biomes" class="default-img">
+                    <img src="hovering_biomes_button.png" alt="Biomes Hover" class="hover-img">
                     <div class="category-name">Biomes</div>
                 </div>
-                <div class="category-item effects">
+                <div class="category-item">
+                    <img src="effects_button.png" alt="Effects" class="default-img">
+                    <img src="hovering_effects_button.png" alt="Effects Hover" class="hover-img">
                     <div class="category-name">Effects</div>
                 </div>
-                <div class="category-item smithing">
+                <div class="category-item">
+                    <img src="smithing_button.png" alt="Smithing" class="default-img">
+                    <img src="hovering_smithing_button.png" alt="Smithing Hover" class="hover-img">
                     <div class="category-name">Smithing</div>
                 </div>
-                <div class="category-item structures">
+                <div class="category-item">
+                    <img src="structures_button.png" alt="Structures" class="default-img">
+                    <img src="hovering_structures_button.png" alt="Structures Hover" class="hover-img">
                     <div class="category-name">Structures</div>
                 </div>
-                <div class="category-item history">
+                <div class="category-item">
+                    <img src="history_button.png" alt="History" class="default-img">
+                    <img src="hovering_history_button.png" alt="History Hover" class="hover-img">
                     <div class="category-name">History</div>
                 </div>
             </div>
@@ -592,13 +622,16 @@
                     <div class="dropdown-arrow" id="dropdown-arrow">⌄</div>
                 </div>
                 <div class="versions-grid" id="versions-grid">
-                    <div class="version-item modrinth">
+                    <div class="version-item">
+                        <img src="modrinth_button.png" alt="Modrinth">
                         <div class="version-name">Modrinth</div>
                     </div>
-                    <div class="version-item curseforge">
+                    <div class="version-item">
+                        <img src="curseforge_button.png" alt="CurseForge">
                         <div class="version-name">CurseForge</div>
                     </div>
-                    <div class="version-item planetmc">
+                    <div class="version-item">
+                        <img src="planetmc_button.png" alt="Planet Minecraft">
                         <div class="version-name">Planet Minecraft</div>
                     </div>
                 </div>
@@ -627,35 +660,36 @@
             <div class="sidebar-section">
                 <div class="sidebar-title">Did you know...</div>
                 <ul class="sidebar-list">
-                    <li>...that water spirits can be befriended with specific offerings?</li>
-                    <li>...that earth golems can help terraform large areas?</li>
-                    <li>...that combining earth and water magic creates unique clay abilities?</li>
-                    <li>...that ancient earth temples contain powerful enchantments?</li>
-                    <li>...that water crystals can store magical energy for later use?</li>
+                    <li>...that one of the mod's creators ships Bore and Dark Bore?</li>
+                    <li>...that Dark Chiseled Dripstone Bricks only lights up when players are near it?</li>
+                    <li>...that there was an intended "Shockwave" particle planned for the Water Charge?</li>
                 </ul>
             </div>
 
             <div class="sidebar-section creators-section">
+                <img src="creators_background.png" alt="Creators Background">
                 <div class="creators-content">
                     <div class="sidebar-title">Creators</div>
                     
                     <div class="creator">
                         <div class="creator-name">PotatoWolfie</div>
                         <div class="creator-links">
-                            <a href="#" class="creator-link">YouTube</a>
-                            <a href="#" class="creator-link">Twitch</a>
-                            <a href="#" class="creator-link">Planet MC</a>
-                            <a href="#" class="creator-link">CurseForge</a>
-                            <a href="#" class="creator-link">Modrinth</a>
+                            <a href="https://www.youtube.com/@PotatoWolfie" class="creator-link">YouTube</a>
+                            <a href="https://www.twitch.tv/potatowolfie64" class="creator-link">Twitch</a>
+                            <a href="https://www.planetminecraft.com/member/potatowolfie/" class="creator-link">Planet Minecraft</a>
+                            <a href="https://www.curseforge.com/members/potatowolfie/projects" class="creator-link">CurseForge</a>
+                            <a href="https://modrinth.com/user/PotatoWolfie" class="creator-link">Modrinth</a>
+                            <a href="https://github.com/PotatoWolfie" class="creator-link">Github</a>
                         </div>
                     </div>
                     
                     <div class="creator">
                         <div class="creator-name">Demidiant</div>
                         <div class="creator-links">
-                            <a href="#" class="creator-link">YouTube</a>
-                            <a href="#" class="creator-link">Planet MC</a>
-                            <a href="#" class="creator-link">Modrinth</a>
+                            <a href="https://www.youtube.com/@DemidiantTheBuilder" class="creator-link">YouTube</a>
+                            <a href="https://www.planetminecraft.com/member/demidiant_/" class="creator-link">Planet Minecraft</a>
+                            <a href="https://modrinth.com/user/Demidiant" class="creator-link">Modrinth</a>
+                            <a href="https://github.com/Demidiant" class="creator-link">Github</a>
                         </div>
                     </div>
                 </div>
