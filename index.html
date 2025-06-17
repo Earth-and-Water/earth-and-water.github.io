@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earth & Water Wiki</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Minecraftia';
+            src: url('data:font/truetype;charset=utf-8;base64,AAEAAAAOAIAAAwBgT1MvMlgGUjkAAADsAAAAYGNtYXAAUQC3AAABTAAAAJRjdnQgACICiAAAAeAAAAAEZnBnbQAAAFYAAAGGAAAAE2dhc3AAADwAAAK8AAAACGdseWZPVYJkAAACxAAAAhxoZWFkB9kKoAAABOAAAAA2aGhlYQX/A5EAAAQ4AAAAJGhtdHgHCwC1AAAEXAAAABRsb2NhATwBhAAABHAAAAAMbWF4cABSAFsAAARgAAAAIG5hbWUAOAHTAAAEgAAAAFJwb3N0//8AAgAABNQAAAAgAAEAAAAKAIAAAwAGREZMVAAIAAEAFWxhdG4ADAAEAAAAAP//AAEAAAAF1QAAAABbWwAA') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
     <style>
         * {
             margin: 0;
@@ -24,7 +34,7 @@
         }
 
         body {
-            font-family: 'Dosis', sans-serif;
+            font-family: 'Press Start 2P', monospace;
             background-image: url('background.png');
             background-size: auto;
             background-repeat: repeat;
@@ -38,7 +48,7 @@
         .header {
             background: rgba(45, 45, 45, 0.9);
             border-bottom: 3px solid #4a4a4a;
-            padding: 8px 0;
+            padding: 15px 0;
             backdrop-filter: blur(10px);
         }
 
@@ -52,7 +62,7 @@
         }
 
         .logo {
-            height: 40px;
+            height: 60px;
             width: auto;
         }
 
@@ -76,7 +86,7 @@
             border-radius: 0;
             color: #e6e6e6;
             font-size: 14px;
-            font-family: 'Dosis', sans-serif;
+            font-family: 'Press Start 2P', monospace;
         }
 
         .nav-tabs {
@@ -101,8 +111,8 @@
             cursor: pointer;
             font-size: 14px;
             color: white;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 600;
+            font-family: 'Press Start 2P', monospace;
+            font-weight: normal;
         }
 
         .main-container {
@@ -112,7 +122,7 @@
             grid-template-columns: 1fr 350px;
             gap: 20px;
             padding: 20px;
-            min-height: calc(100vh - 140px);
+            min-height: calc(100vh - 170px);
         }
 
         .content {
@@ -129,8 +139,8 @@
             color: #4CAF50;
             border-bottom: 2px solid #4a4a4a;
             padding-bottom: 15px;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 700;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
         }
 
         .featured-section {
@@ -163,6 +173,8 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            object-fit: cover;
+            object-position: center;
         }
 
         .featured-card::before {
@@ -180,8 +192,8 @@
             font-size: 22px;
             color: white;
             margin-bottom: 8px;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 700;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
             position: relative;
             z-index: 2;
             padding: 0 25px;
@@ -189,11 +201,12 @@
 
         .card-content {
             color: #e6e6e6;
-            font-size: 16px;
-            font-family: 'Dosis', sans-serif;
+            font-size: 14px;
+            font-family: 'Minecraft Ten', monospace;
             position: relative;
             z-index: 2;
             padding: 0 25px 25px 25px;
+            line-height: 1.6;
         }
 
         .category-grid {
@@ -245,8 +258,8 @@
         .category-name {
             font-size: 20px;
             color: white;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 600;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
             position: relative;
             z-index: 1;
@@ -283,8 +296,8 @@
             z-index: 2;
             font-size: 20px;
             color: white;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 700;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
@@ -375,8 +388,8 @@
             margin-bottom: 20px;
             padding-bottom: 12px;
             border-bottom: 1px solid #4a4a4a;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 700;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
         }
 
         .sidebar-list {
@@ -385,15 +398,15 @@
 
         .sidebar-list li {
             padding: 10px 0;
-            font-size: 15px;
-            font-family: 'Dosis', sans-serif;
-            line-height: 1.4;
+            font-size: 14px;
+            font-family: 'Minecraft Ten', monospace;
+            line-height: 1.6;
         }
 
         .sidebar-list a {
             color: #a0a0a0;
             text-decoration: none;
-            font-family: 'Dosis', sans-serif;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
         }
 
         .sidebar-list a:hover {
@@ -410,15 +423,15 @@
 
         .stat-number {
             font-size: 32px;
-            font-weight: 700;
+            font-weight: normal;
             display: block;
-            font-family: 'Dosis', sans-serif;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
         }
 
         .stat-label {
             font-size: 16px;
             opacity: 0.9;
-            font-family: 'Dosis', sans-serif;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
             margin-bottom: 10px;
         }
 
@@ -466,8 +479,8 @@
             font-size: 18px;
             color: #4CAF50;
             margin-bottom: 12px;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 700;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
         }
 
         .creator-links {
@@ -485,8 +498,8 @@
             font-size: 13px;
             border: none;
             transition: all 0.3s ease;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 500;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
         }
 
         .creator-link:hover {
@@ -500,15 +513,15 @@
         .about-section h2 {
             color: #4CAF50;
             margin-bottom: 20px;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 700;
+            font-family: 'Minecraft Ten', 'Press Start 2P', monospace;
+            font-weight: normal;
             font-size: 22px;
         }
 
         .about-section p {
             color: #cccccc;
             line-height: 1.6;
-            font-family: 'Dosis', sans-serif;
+            font-family: 'Minecraft Ten', monospace;
             font-size: 16px;
             margin-bottom: 15px;
         }
@@ -605,7 +618,7 @@
                 </div>
             </div>
 
-            <h2 style="color: #4CAF50; margin-bottom: 20px; font-family: 'Dosis', sans-serif; font-weight: 700; font-size: 22px;">Mod Categories</h2>
+            <h2 style="color: #4CAF50; margin-bottom: 20px; font-family: 'Minecraft Ten', 'Press Start 2P', monospace; font-weight: normal; font-size: 22px;">Mod Categories</h2>
             <div class="category-grid">
                 <div class="category-item">
                     <img src="mobs_button.png" alt="Mobs" class="default-img">
