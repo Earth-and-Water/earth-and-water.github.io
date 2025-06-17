@@ -17,6 +17,10 @@
             image-rendering: -webkit-crisp-edges;
             image-rendering: pixelated;
             image-rendering: crisp-edges;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         body {
@@ -255,39 +259,66 @@
         .versions-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             margin-bottom: 20px;
             cursor: pointer;
+            position: relative;
+            height: 60px;
+            overflow: hidden;
+            background: #666;
         }
 
-        .versions-title {
+        .versions-header img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .versions-header-text {
+            position: relative;
+            z-index: 2;
             font-size: 20px;
-            color: #4CAF50;
+            color: white;
             font-family: 'Dosis', sans-serif;
             font-weight: 700;
-        }
-
-        .dropdown-arrow {
-            color: #4CAF50;
-            transition: transform 0.3s ease;
-            font-size: 24px;
-        }
-
-        .dropdown-arrow.open {
-            transform: rotate(180deg);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .versions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            position: relative;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
+            background: #666;
         }
 
         .versions-grid.open {
-            max-height: 500px;
+            max-height: 200px;
+        }
+
+        .versions-grid img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .versions-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            min-height: 200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            align-items: center;
         }
 
         .version-item {
@@ -301,6 +332,14 @@
             position: relative;
             overflow: hidden;
             background: #666;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease;
+        }
+
+        .version-item:hover {
+            transform: scale(1.05);
         }
 
         .version-item img {
@@ -311,16 +350,6 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-        }
-
-        .version-name {
-            font-size: 16px;
-            color: white;
-            font-family: 'Dosis', sans-serif;
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            position: relative;
-            z-index: 1;
         }
 
         .sidebar {
@@ -622,21 +651,21 @@
 
             <div class="latest-versions">
                 <div class="versions-header" onclick="toggleVersions()">
-                    <div class="versions-title">Latest versions</div>
-                    <div class="dropdown-arrow" id="dropdown-arrow">⌄</div>
+                    <img src="latest_versions_header.png" alt="Latest Versions Header">
+                    <div class="versions-header-text">Latest Versions</div>
                 </div>
                 <div class="versions-grid" id="versions-grid">
-                    <div class="version-item">
-                        <img src="modrinth_button.png" alt="Modrinth">
-                        <div class="version-name">Modrinth</div>
-                    </div>
-                    <div class="version-item">
-                        <img src="curseforge_button.png" alt="CurseForge">
-                        <div class="version-name">CurseForge</div>
-                    </div>
-                    <div class="version-item">
-                        <img src="planetmc_button.png" alt="Planet Minecraft">
-                        <div class="version-name">Planet Minecraft</div>
+                    <img src="latest_versions_dropdown.png" alt="Latest Versions Dropdown Background">
+                    <div class="versions-content">
+                        <a href="https://modrinth.com" class="version-item" target="_blank">
+                            <img src="modrinth_button.png" alt="Modrinth">
+                        </a>
+                        <a href="https://curseforge.com" class="version-item" target="_blank">
+                            <img src="curseforge_button.png" alt="CurseForge">
+                        </a>
+                        <a href="https://planetminecraft.com" class="version-item" target="_blank">
+                            <img src="planetmc_button.png" alt="Planet Minecraft">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -644,10 +673,10 @@
             <div class="about-section">
                 <h2>About the Mod</h2>
                 <p>
-                    <strong>Earth & Water</strong> is a comprehensive Minecraft mod that enhances the natural world with powerful earth and water mechanics. Discover new biomes, master elemental abilities, and explore ancient structures filled with mystical powers.
+                    <strong>Earth & Water</strong> is a mod that expands on elemental mobs. Minecraft has the Blaze and Breeze, which fills in half the elemental mobs. E&W adds the other two elemental mobs, the Bore and Brine! These two mobs come with their own blocks and structures that fit them respectively.
                 </p>
                 <p>
-                    From terraforming landscapes to controlling the flow of rivers, Earth & Water brings a new dimension of gameplay that seamlessly integrates with vanilla Minecraft while adding depth and wonder to your adventures.
+                    TEMPORARY TEXT
                 </p>
             </div>
         </div>
@@ -704,10 +733,8 @@
     <script>
         function toggleVersions() {
             const grid = document.getElementById('versions-grid');
-            const arrow = document.getElementById('dropdown-arrow');
             
             grid.classList.toggle('open');
-            arrow.classList.toggle('open');
         }
 
         document.querySelectorAll('.category-item').forEach(item => {
