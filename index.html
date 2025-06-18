@@ -630,6 +630,20 @@ version-item-image-container {
     z-index: 4;
 }
 
+.version-item-image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-top: -10px;
+}
+	    
 .version-item-image-section {
     flex: 2;
     position: relative;
@@ -641,14 +655,16 @@ version-item-image-container {
     margin-bottom: 0;
 }
 
-.version-item-image-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: #565960;
+.version-item-image-section {
+    flex: 2;
+    position: relative;
+    background: #3e414a;
+    z-index: 3;
+    transition: transform 0.15s ease;
+    overflow: hidden;
+    margin: 4px;
+    margin-bottom: 0;
+    display: block;
 }
 
 .version-item-button-section {
@@ -1189,9 +1205,10 @@ version-item-image-container {
     <div class="version-item-right-outline"></div>
     <div class="version-item-top-highlight"></div>
 
-    <div class="version-item-image-section">
-        <img src="assets/wiki/buttons/modrinth_button.png" alt="Modrinth">
-    </div>
+   <div class="version-item-image-container">
+    <img src="assets/wiki/buttons/modrinth_button.png" alt="Modrinth">
+</div>
+<div class="version-item-image-section"></div>
 
     <div class="version-item-button-section">
         <div class="version-item-name">Modrinth</div>
@@ -1208,9 +1225,10 @@ version-item-image-container {
     <div class="version-item-right-outline"></div>
     <div class="version-item-top-highlight"></div>
 
-    <div class="version-item-image-section">
-        <img src="assets/wiki/buttons/curseforge_button.png" alt="Curseforge">
-    </div>
+   <div class="version-item-image-container">
+    <img src="assets/wiki/buttons/curseforge_button.png" alt="Curseforge">
+</div>
+<div class="version-item-image-section"></div>
 
     <div class="version-item-button-section">
         <div class="version-item-name">Curseforge</div>
@@ -1227,9 +1245,10 @@ version-item-image-container {
     <div class="version-item-right-outline"></div>
     <div class="version-item-top-highlight"></div>
 
-    <div class="version-item-image-section">
-        <img src="assets/wiki/buttons/planet_minecraft_button.png" alt="Planet Minecraft">
-    </div>
+   <div class="version-item-image-container">
+    <img src="assets/wiki/buttons/planet_minecraft_button.png" alt="Planet Minecraft">
+</div>
+<div class="version-item-image-section"></div>
 
     <div class="version-item-button-section">
         <div class="version-item-name">Planet Minecraft</div>
