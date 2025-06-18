@@ -641,7 +641,7 @@ version-item-image-container {
     justify-content: center;
     width: 80px;
     height: 80px;
-    margin-top: -10px;
+    margin-top: -20px;
 }
 	    
 .version-item-image-section {
@@ -653,6 +653,7 @@ version-item-image-container {
     overflow: hidden;
     margin: 4px;
     margin-bottom: 0;
+    display: block;
 }
 
 .version-item-image-section {
@@ -751,6 +752,16 @@ version-item-image-container {
 
 .version-item:hover .version-item-button-section {
     background: #414242;
+}
+
+	    .version-item-image-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: #565960;
 }
 
 .version-item:hover .version-item-dark-strip {
