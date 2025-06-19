@@ -1843,6 +1843,7 @@ document.querySelectorAll('.version-item').forEach(item => {
 let targetRotation = 0;
 let currentRotation = 0;
 let isArrowAnimating = false;
+	    let isDropdownAnimating = false;
 
 function updateArrow() {
     if (currentRotation === targetRotation || isArrowAnimating) return;
@@ -1881,25 +1882,32 @@ function toggleVersions() {
     const grid = document.getElementById('versions-grid');
     const container = document.querySelector('.latest-versions');
 
+    if (isDropdownAnimating) return; // Prevent spam
+
+    isDropdownAnimating = true;
+
     if (grid.classList.contains('open')) {
-        grid.style.maxHeight = grid.scrollHeight + 'px';
+        const fullHeight = grid.scrollHeight + 'px';
+        grid.style.maxHeight = fullHeight;
         requestAnimationFrame(() => {
             grid.style.maxHeight = '0px';
         });
     } else {
         grid.classList.add('open');
-        const scrollHeight = grid.scrollHeight + 'px';
         grid.style.maxHeight = '0px';
         requestAnimationFrame(() => {
-            grid.style.maxHeight = scrollHeight;
+            grid.style.maxHeight = grid.scrollHeight + 'px';
         });
     }
 
     grid.addEventListener('transitionend', function handler() {
-        if (!grid.classList.contains('open')) {
+        grid.removeEventListener('transitionend', handler);
+
+        if (grid.style.maxHeight === '0px') {
             grid.classList.remove('open');
         }
-        grid.removeEventListener('transitionend', handler);
+
+        isDropdownAnimating = false;
     });
 
     container.classList.toggle('expanded');
