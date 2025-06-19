@@ -431,6 +431,15 @@
 	min-height: 60px;
 	 border-bottom: 0px solid #2e313a;
     transition: all 0.3s ease;
+	 user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+
+.latest-versions a,
+.latest-versions .version-item-name {
+    user-select: text;
 }
 
 .latest-versions::before {
@@ -478,6 +487,14 @@
     font-weight: normal;
     text-shadow: none;
     margin-bottom: 8px;
+}
+
+.versions-header-text,
+.versions-header-arrow {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
 }
 
         .versions-grid {
@@ -795,6 +812,37 @@ version-item-image-container {
     z-index: 2;
     white-space: nowrap;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+}
+
+.versions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    position: relative;
+}
+
+.versions-header-arrow {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+    transform: rotate(0deg);
+}
+
+.versions-header-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+.versions-header-arrow.spinback-clockwise {
+    transform: rotate(360deg);
+}
+
+.versions-header-arrow.spinback-counter {
+    transform: rotate(-360deg);
 }
 
         .sidebar {
@@ -1205,9 +1253,12 @@ version-item-image-container {
 
             <div class="latest-versions">
                 <div class="versions-header" onclick="toggleVersions()">
-				 <div class="versions-inset-shadow"></div>
-                    <div class="versions-header-text">Latest Versions</div>
-                </div>
+    <div class="versions-inset-shadow"></div>
+    <div class="versions-header-text">Latest Versions</div>
+    <div class="versions-header-arrow">
+        <img src="assets/wiki/buttons/dropdown_arrow.png" alt="Dropdown Arrow">
+    </div>
+</div>
                 <div class="versions-grid" id="versions-grid">
                     <div class="versions-content">
                         <a href="https://modrinth.com/mod/earth-and-water" class="version-item" target="_blank">
@@ -1589,12 +1640,55 @@ document.querySelectorAll('.version-item').forEach(item => {
     </div>
 
     <script>
-        function toggleVersions() {
+let targetRotation = 0;
+let currentRotation = 0;
+let isArrowAnimating = false;
+
+function updateArrow() {
+    if (currentRotation === targetRotation || isArrowAnimating) return;
+    
+    const arrow = document.querySelector('.versions-header-arrow');
+    isArrowAnimating = true;
+    
+    let nextRotation = currentRotation + 180;
+    
+    arrow.style.transform = `rotate(${nextRotation}deg)`;
+    
+    arrow.addEventListener('transitionend', function handler(e) {
+        if (e.propertyName !== 'transform') return;
+        
+        arrow.removeEventListener('transitionend', handler);
+        
+        currentRotation = nextRotation;
+        
+        if (currentRotation >= 360) {
+            arrow.style.transition = 'none';
+            currentRotation -= 360;
+            targetRotation -= 360;
+            arrow.style.transform = `rotate(${currentRotation}deg)`;
+            
+            void arrow.offsetWidth;
+            arrow.style.transition = 'transform 0.4s ease';
+        }
+        
+        isArrowAnimating = false;
+        
+        setTimeout(updateArrow, 10);
+    });
+}
+
+function toggleVersions() {
     const grid = document.getElementById('versions-grid');
     const container = document.querySelector('.latest-versions');
-    
+
     grid.classList.toggle('open');
     container.classList.toggle('expanded');
+    
+    targetRotation += 180;
+    
+    if (!isArrowAnimating) {
+        updateArrow();
+    }
 }
 
         document.querySelectorAll('.category-item').forEach(item => {
