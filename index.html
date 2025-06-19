@@ -549,7 +549,7 @@
 }
 
 .versions-grid.open {
-    max-height: 200px;
+    max-height: none;
 }
 
         .versions-content {
@@ -1881,11 +1881,30 @@ function toggleVersions() {
     const grid = document.getElementById('versions-grid');
     const container = document.querySelector('.latest-versions');
 
-    grid.classList.toggle('open');
+    if (grid.classList.contains('open')) {
+        grid.style.maxHeight = grid.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+            grid.style.maxHeight = '0px';
+        });
+    } else {
+        grid.classList.add('open');
+        const scrollHeight = grid.scrollHeight + 'px';
+        grid.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+            grid.style.maxHeight = scrollHeight;
+        });
+    }
+
+    grid.addEventListener('transitionend', function handler() {
+        if (!grid.classList.contains('open')) {
+            grid.classList.remove('open');
+        }
+        grid.removeEventListener('transitionend', handler);
+    });
+
     container.classList.toggle('expanded');
-    
+
     targetRotation += 180;
-    
     if (!isArrowAnimating) {
         updateArrow();
     }
