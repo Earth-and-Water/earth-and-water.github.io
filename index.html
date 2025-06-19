@@ -125,14 +125,14 @@
 }
 
         .main-container {
-            max-width: 70vw;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 20px;
-            padding: 20px;
-            min-height: calc(100vh - 170px);
-        }
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 170px);
+}
 
         .content {
             background: #2b2f39;
@@ -1014,67 +1014,267 @@ version-item-image-container {
             font-size: 22px;
         }
 
-        @media (max-width: 1200px) {
-            .main-container {
-                max-width: 98vw;
-                grid-template-columns: 1fr 300px;
-            }
-        }
+        @media (max-width: 1400px) {
+    .main-container {
+        max-width: 95vw;
+        grid-template-columns: 1fr 350px;
+    }
+}
 
-        @media (max-width: 768px) {
-            .main-container {
-                grid-template-columns: 1fr;
-                max-width: 95vw;
-            }
-            
-            .sidebar-section {
-                border-left: none;
-            }
-            
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .category-item {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .category-item img {
-                width: 28px;
-                height: 28px;
-            }
-            
-            .category-name {
-                font-size: 12px;
-            }
-        }
+@media (max-width: 1200px) {
+    .main-container {
+        max-width: 95vw;
+        grid-template-columns: 1fr 300px;
+        gap: 15px;
+    }
+    
+    .nav-tab {
+        padding: 8px 40px;
+        font-size: 16px;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .category-item {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .category-item img {
+        width: 70px;
+        height: 70px;
+    }
+}
 
-        @media (max-width: 480px) {
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            
-            .category-item {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .category-item img {
-                width: 24px;
-                height: 24px;
-            }
-            
-            .category-name {
-                font-size: 10px;
-            }
-        }
+@media (max-width: 992px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
+    .search-container {
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    .nav-content {
+        justify-content: center;
+    }
+    
+    .nav-tab {
+        padding: 8px 30px;
+        font-size: 15px;
+    }
+    
+    .main-container {
+        grid-template-columns: 1fr 280px;
+        gap: 15px;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .category-item {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .category-item img {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .versions-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .version-item {
+        width: 200px;
+        height: 130px;
+    }
+    
+    .version-item img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 10px;
+        gap: 10px;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .nav-content {
+        flex-direction: column;
+        gap: 5px;
+        padding: 0 10px;
+    }
+    
+    .nav-tab {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+    
+    .main-container {
+        grid-template-columns: 1fr;
+        max-width: 95vw;
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .page-title {
+        font-size: 28px;
+    }
+    
+    .sidebar-section {
+        border-left: none;
+        padding: 20px;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .featured-card {
+        min-height: 250px;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        justify-items: center;
+    }
+    
+    .category-item {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .category-item img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .category-name {
+        font-size: 14px;
+    }
+    
+    .versions-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        justify-items: center;
+    }
+    
+    .version-item {
+        width: 280px;
+        height: 180px;
+    }
+    
+    .version-item img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .version-item-name {
+        font-size: 16px;
+    }
+    
+    .latest-versions {
+        margin-top: 25px;
+    }
+    
+    .versions-header {
+        padding: 15px;
+    }
+    
+    .versions-header-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0 5px;
+    }
+    
+    .main-container {
+        padding: 10px;
+        gap: 15px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    .page-title {
+        font-size: 24px;
+    }
+    
+    .nav-tab {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+    
+    .category-grid {
+        gap: 12px;
+    }
+    
+    .category-item {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .category-item img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .category-name {
+        font-size: 13px;
+    }
+    
+    .version-item {
+        width: 250px;
+        height: 160px;
+    }
+    
+    .version-item img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .featured-card {
+        min-height: 200px;
+    }
+    
+    .card-title {
+        font-size: 20px;
+    }
+    
+    .card-content {
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 <body>
