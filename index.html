@@ -1882,7 +1882,7 @@ function toggleVersions() {
     const grid = document.getElementById('versions-grid');
     const container = document.querySelector('.latest-versions');
 
-    if (isDropdownAnimating) return;
+    if (isDropdownAnimating) return; // Prevent spam
 
     isDropdownAnimating = true;
 
