@@ -17,6 +17,35 @@
             font-weight: normal;
             font-style: normal;
         }
+
+        @font-face {
+            font-family: 'Minecraft Ten';
+            src: url('assets/font/minecraft_ten.woff2') format('woff2'),
+                 url('assets/font/minecraft_ten.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+		
+		img {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
         
         body {
             background: url('assets/wiki/background.png');
@@ -25,13 +54,20 @@
             font-family: 'Nunito', 'Inter', sans-serif;
             color: #e6e6e6;
             margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
+        
         .header {
             background: rgba(50, 48, 48, 0.95);
             border-bottom: 3px solid #4a4a4a;
             padding: 15px 0;
             backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+        
         .header-content {
             max-width: 95vw;
             margin: 0 auto;
@@ -39,22 +75,63 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 20px;
+            gap: 15px;
         }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 15px;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 10px;
+                gap: 8px;
+            }
+        }
+        
         .logo {
             height: 60px;
             width: auto;
+            flex-shrink: 0;
         }
+        
+        @media (max-width: 480px) {
+            .logo {
+                height: 50px;
+            }
+        }
+        
         .logo img {
             height: 100%;
             width: auto;
             object-fit: contain;
         }
+
         .search-container {
             flex: 1;
             max-width: 500px;
             margin: 0 20px;
             position: relative;
         }
+
+        @media (max-width: 768px) {
+            .search-container {
+                margin: 0 10px;
+                max-width: none;
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-container {
+                margin: 0 5px;
+                min-width: 0;
+            }
+        }
+
         .search-box {
             width: 100%;
             padding: 8px 12px;
@@ -64,53 +141,164 @@
             font-size: 14px;
             font-family: 'Nunito', sans-serif;
             border-radius: 4px;
+            box-sizing: border-box;
         }
+
+        @media (max-width: 480px) {
+            .search-box {
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+        }
+
         .search-suggestions {
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
-            background: #2b2f39;
-            border: 2px solid #0ea394;
+            background: #31353e;
+            border: 2px solid #202125;
             border-top: none;
             max-height: 300px;
             overflow-y: auto;
             z-index: 1000;
             display: none;
+            box-shadow: 
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
         }
+
+        @media (max-width: 768px) {
+            .search-suggestions {
+                max-height: 250px;
+                left: -2px;
+                right: -2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-suggestions {
+                max-height: 200px;
+                border-radius: 0 0 4px 4px;
+            }
+        }
+
         .search-suggestion {
             padding: 10px 12px;
             cursor: pointer;
             border-bottom: 1px solid #3a3a3a;
             color: #cccccc;
+            min-height: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
+
+        @media (max-width: 480px) {
+            .search-suggestion {
+                padding: 12px 15px;
+                min-height: 50px;
+            }
+        }
+
         .search-suggestion:hover {
-            background: #3a3a3a;
+            background: #4f5a75;
+        }
+
+        @media (hover: none) {
+            .search-suggestion:hover {
+                background: transparent;
+            }
+            .search-suggestion:active {
+                background: #4f5a75;
+            }
+            .search-suggestion:active .suggestion-title {
+                color: #0ea394;
+            }
+        }
+
+        .search-suggestion:hover .suggestion-title {
             color: #0ea394;
         }
+
         .search-suggestion:last-child {
             border-bottom: none;
         }
+
         .suggestion-category {
             font-size: 12px;
             color: #0ea394;
-            font-weight: 600;
+            font-family: 'Minecraft Ten', 'Inter', sans-serif;
+            font-weight: normal;
         }
+
         .suggestion-title {
             font-size: 14px;
             margin-top: 2px;
+            font-family: 'Nunito', sans-serif;
+            color: #cccccc;
         }
+
+        @media (max-width: 480px) {
+            .suggestion-category {
+                font-size: 11px;
+            }
+            .suggestion-title {
+                font-size: 15px;
+                margin-top: 3px;
+            }
+        }
+
+        .search-suggestions::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-suggestions::-webkit-scrollbar-track {
+            background: #2e313a;
+        }
+
+        .search-suggestions::-webkit-scrollbar-thumb {
+            background: #4f5a75;
+            border-radius: 4px;
+        }
+
+        .search-suggestions::-webkit-scrollbar-thumb:hover {
+            background: #5a6580;
+        }
+
+        .search-suggestions {
+            scrollbar-width: thin;
+            scrollbar-color: #4f5a75 #2e313a;
+        }
+
         .nav-tabs {
             background: rgba(51, 51, 51, 0.9);
             border-bottom: 2px solid #4a4a4a;
             backdrop-filter: blur(10px);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
+        
         .nav-content {
             max-width: 95vw;
             margin: 0 auto;
             display: flex;
             padding: 0 20px;
+            min-width: max-content;
         }
+        
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-content {
+                padding: 0 10px;
+            }
+        }
+        
         .nav-tab {
             padding: 8px 70px;
             background: #0ea394;
@@ -126,70 +314,376 @@
             box-shadow: 
                 inset 2px 2px 0 #20cfbe,
                 inset -2px -2px 0 #18baaa;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
+        
+        @media (max-width: 768px) {
+            .nav-tab {
+                padding: 8px 40px;
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-tab {
+                padding: 8px 25px;
+                font-size: 12px;
+            }
+        }
+        
         .main-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 30px auto;
             background: #2b2f39;
             padding: 30px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 0px;
         }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 20px 15px;
+                padding: 25px 20px;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-container {
+                margin: 15px 10px;
+                padding: 20px 15px;
+            }
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
         .toc {
             background: #31353e;
             border: 2px solid #202125;
             padding: 15px;
-            margin-bottom: 25px;
             font-family: 'Nunito', sans-serif;
-            max-width: 300px;
+            width: 300px;
+            flex-shrink: 0;
+            align-self: flex-start;
+            position: sticky;
+            top: 120px;
+            box-shadow: 
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
         }
+        
+        @media (max-width: 768px) {
+            .toc {
+                width: 100%;
+                position: static;
+                margin-bottom: 25px;
+            }
+        }
+        
         .toc h2 {
             font-size: 16px;
             color: #0ea394;
             margin-bottom: 10px;
-            font-family: 'Minecraft', 'Nunito', sans-serif;
+            margin-top: 0;
+            font-family: 'Minecraft Ten', 'Nunito', sans-serif;
         }
+        
         .toc ul {
             list-style-type: none;
             padding-left: 0;
             margin: 0;
         }
+        
         .toc li {
             margin-bottom: 5px;
         }
+        
         .toc a {
             color: #cccccc;
             text-decoration: none;
+            display: block;
+            padding: 5px 8px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
         }
+        
         .toc a:hover {
             color: #0ea394;
+            background: rgba(14, 163, 148, 0.1);
         }
+        
+        @media (hover: none) {
+            .toc a:hover {
+                background: transparent;
+            }
+            .toc a:active {
+                background: rgba(14, 163, 148, 0.1);
+            }
+        }
+        
+        .content {
+            flex: 1;
+            min-width: 0;
+        }
+        
         .page-title, .main-header {
-            font-family: 'Minecraft', 'Nunito', sans-serif;
+            font-family: 'Minecraft Ten', 'Nunito', sans-serif;
             color: #0ea394;
+            word-wrap: break-word;
         }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            margin-top: 0;
+			border-bottom: 2px solid #4a4a4a;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 20px;
+				border-bottom: 2px solid #4a4a4a;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+				border-bottom: 2px solid #4a4a4a;
+            }
+        }
+        
+        .main-header {
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-header {
+                font-size: 1.6rem;
+                margin: 25px 0 12px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-header {
+                font-size: 1.4rem;
+                margin: 20px 0 10px 0;
+            }
+        }
+        
         .content-section {
             margin-bottom: 30px;
         }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                margin-bottom: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-section {
+                margin-bottom: 20px;
+            }
+        }
+        
         .mini-header {
             font-size: 18px;
             color: #20cfbe;
             margin: 20px 0 10px 0;
             font-weight: 600;
         }
+        
+        @media (max-width: 480px) {
+            .mini-header {
+                font-size: 16px;
+                margin: 15px 0 8px 0;
+            }
+        }
+        
         .feature-list {
             background: #31353e;
             border-left: 4px solid #0ea394;
             padding: 15px;
             margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+            overflow-x: auto;
         }
+        
+        @media (max-width: 480px) {
+            .feature-list {
+                padding: 12px;
+                margin: 8px 0;
+            }
+        }
+        
         .feature-list ul {
             margin: 0;
             padding-left: 20px;
         }
+        
+        @media (max-width: 480px) {
+            .feature-list ul {
+                padding-left: 16px;
+            }
+        }
+        
         .feature-list li {
             margin-bottom: 5px;
             color: #cccccc;
+            word-wrap: break-word;
         }
+        
+        p {
+            margin: 0 0 15px 0;
+            word-wrap: break-word;
+        }
+        
+        @media (max-width: 480px) {
+            p {
+                margin: 0 0 12px 0;
+            }
+        }
+        
+        strong {
+            color: #20cfbe;
+        }
+        
+        /* Scrollbar styling for webkit browsers */
+        .nav-tabs::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-track {
+            background: rgba(51, 51, 51, 0.5);
+        }
+        
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: #0ea394;
+            border-radius: 3px;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-thumb:hover {
+            background: #20cfbe;
+        }
+        
+        /* Firefox scrollbar */
+        .nav-tabs {
+            scrollbar-width: thin;
+            scrollbar-color: #0ea394 rgba(51, 51, 51, 0.5);
+        }
+        
+        /* Focus styles for accessibility */
+        .nav-tab:focus,
+        .toc a:focus,
+        .search-box:focus,
+        .search-suggestion:focus {
+            outline: 2px solid #0ea394;
+            outline-offset: 2px;
+        }
+        
+        /* Print styles */
+        @media print {
+            .header,
+            .nav-tabs,
+            .search-container {
+                display: none;
+            }
+            
+            .main-container {
+                margin: 0;
+                padding: 20px;
+                box-shadow: none;
+                background: white;
+                color: black;
+            }
+            
+            .toc {
+                position: static;
+                page-break-inside: avoid;
+            }
+			
+			.history-box {
+    margin-top: 20px;
+    background: #31353e;
+    border: 2px solid #202125;
+    padding: 10px;
+    font-size: 14px;
+    color: #ccc;
+    box-shadow:
+        inset 2px 2px 0 #3b3e47,
+        inset -2px -2px 0 #2e313a;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+        }
+		
+		.side-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* subtle spacing between the boxes */
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
+    width: 300px;
+}
+
+@media (max-width: 768px) {
+    .side-stack {
+        width: 100%;
+        position: static;
+        margin-bottom: 25px;
+    }
+}
+
+.history-box {
+    background: #31353e;
+    border: 2px solid #202125;
+    padding: 10px;
+    font-size: 14px;
+    color: #ccc;
+    box-shadow:
+        inset 2px 2px 0 #3b3e47,
+        inset -2px -2px 0 #2e313a;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-box img {
+    width: 100%;
+    image-rendering: pixelated;
+    border: 2px solid #202125;
+}
+
+.history-box a {
+    color: #0ea394;
+    text-decoration: none;
+}
+
+.history-box a:hover {
+    text-decoration: underline;
+}
+
+html {
+    scroll-padding-top: 100px;
+}
     </style>
 </head>
 <body>
@@ -207,149 +701,159 @@
         </div>
     </div>
 
-
-
     <div class="main-container">
-        <div class="content">
-            <h1 class="page-title">Mod Development History</h1>
+        <div class="content-wrapper">
+            <div class="side-stack">
+    <div class="toc">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#concept">Concept for E&amp;W</a></li>
+            <li><a href="#v1-0">Version 1.0.0</a></li>
+            <li><a href="#scrapped">Scrapped Content</a></li>
+        </ul>
+    </div>
 
-            <div class="toc">
-                <h2>Contents</h2>
-                <ul>
-                    <li><a href="#concept">Concept Phase</a></li>
-                    <li><a href="#v1-0">Version 1.0 – Foundations</a></li>
-                    <li><a href="#v1-1">Version 1.1 – Tides & Terrain</a></li>
-                    <li><a href="#scrapped">Scrapped Content</a></li>
-                </ul>
-            </div>
+    <div class="history-box">
+        <img src="assets/wiki/history.png" alt="History" />
+        <p>
+			<strong>The first scrapped idea for E&W.</strong>
+			Steel armor. The only texture made for it was the helmet before scrapping the idea.
+			The idea of Steel still stayed around though, as things like the <a href="#">Spiked Shield</a> and <a href="#">Battle Axe</a> came from it.
+        </p>
+    </div>
+</div>
+            
+            <div class="content">
+                <h1 class="page-title">Mod Development History</h1>
 
-            <h2 id="concept" class="main-header">Concept for E&W</h2>
-            <p>The idea for <strong>Earth & Water</strong> began in early 2024 as a response to the lack of nature-focused mods. The goal was to blend Minecraft's elemental gaps with immersive structure design and mob behavior.</p>
+                <h2 id="concept" class="main-header">Concept for E&W</h2>
+                <p>The idea for <strong>Earth & Water</strong> began in early 2024 when <strong>Tricky Trials</strong> released. Tricky Trials introduced the Breeze, a mob with similar features to the Blaze. This inspired the creation of the Bore and Brine, which then lead to the rest of the mod being created.</p>
 
-            <div class="content-section">
-                <h2 id="v1-0" class="main-header">Version 1.0.0 – Foundations</h2>
-                <p>The first major release introduced a comprehensive set of building blocks, items, and gameplay mechanics that established the core identity of Earth & Water.</p>
+                <div class="content-section">
+                    <h2 id="v1-0" class="main-header">Version 1.0.0</h2>
+                    <p>The first major release introduced a comprehensive set of building blocks, items, and gameplay mechanics that established the core identity of Earth & Water.</p>
 
-                <div class="mini-header">Blocks</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Dripstone Stairs, Slab, Wall</li>
-                        <li>Dripstone Bricks (+ Stairs, Slab, Wall)</li>
-                        <li>Polished Dripstone (+ Stairs, Slab, Wall)</li>
-                        <li>Polished Dripstone Tiles</li>
-                        <li>Dripstone Pillar</li>
-                        <li>Chiseled Dripstone Bricks</li>
-                        <li>Dark Dripstone Block (+ Stairs, Slab, Wall)</li>
-                        <li>Dark Dripstone Bricks (+ Stairs, Slab, Wall)</li>
-                        <li>Polished Dark Dripstone (+ Stairs, Slab, Wall)</li>
-                        <li>Dark Dripstone Pillar</li>
-                        <li>Pointed Dark Dripstone</li>
-                        <li>Dark Prismarine Pillar, Wall</li>
-                        <li>Steel Block</li>
-                        <li>Chiseled Prismarine Bricks</li>
-                        <li>Prismarine Pillar, Tiles (+ Stairs, Slab, Wall)</li>
-                        <li>Oxygen Block</li>
-                        <li>Mixed Prismarine Tiles</li>
-                        <li>Chiseled Dark Prismarine</li>
-                        <li>Reinforced Spawner</li>
-                    </ul>
+                    <div class="mini-header">Blocks</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Dripstone Stairs, Slab, Wall</li>
+                            <li>Dripstone Bricks (+ Stairs, Slab, Wall)</li>
+                            <li>Polished Dripstone (+ Stairs, Slab, Wall)</li>
+                            <li>Polished Dripstone Tiles</li>
+                            <li>Dripstone Pillar</li>
+                            <li>Chiseled Dripstone Bricks</li>
+                            <li>Dark Dripstone Block (+ Stairs, Slab, Wall)</li>
+                            <li>Dark Dripstone Bricks (+ Stairs, Slab, Wall)</li>
+                            <li>Polished Dark Dripstone (+ Stairs, Slab, Wall)</li>
+                            <li>Dark Dripstone Pillar</li>
+                            <li>Pointed Dark Dripstone</li>
+                            <li>Dark Prismarine Pillar, Wall</li>
+                            <li>Steel Block</li>
+                            <li>Chiseled Prismarine Bricks</li>
+                            <li>Prismarine Pillar, Tiles (+ Stairs, Slab, Wall)</li>
+                            <li>Oxygen Block</li>
+                            <li>Mixed Prismarine Tiles</li>
+                            <li>Chiseled Dark Prismarine</li>
+                            <li>Reinforced Spawner</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Items</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Bore Rod</li>
+                            <li>Brine Rod</li>
+                            <li>Reinforced Key</li>
+                            <li>Steel Ingot</li>
+                            <li>Steel Nugget</li>
+                            <li>Spiked Shield</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Weapons</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Whip</li>
+                            <li>Battle Axe</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Mobs</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Brine</li>
+                            <li>Bore</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Projectiles</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Earth Charge</li>
+                            <li>Water Charge</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Effects & Systems</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Potion Effects: Stun, Breath Giving</li>
+                            <li>Particle: Light Up</li>
+                            <li>Painting: Ruins</li>
+                            <li>Smithing Templates: Spiked Shield, Block Smithing Template, Guard Smithing Template</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">World Generation</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Structures: Conduit Monument, Ancient Ruins (with Chest Loot)</li>
+                            <li>Features: Oxygen Cluster, Dark Dripstone Cluster</li>
+                            <li>Biomes: Dark Dripstone Cave</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Advancements</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Mob Lock</li>
+                            <li>Long Ago…</li>
+                            <li>Boreing</li>
+                            <li>Atlantean Eye</li>
+                            <li>Stalactite Sanctum</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="mini-header">Items</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Bore Rod</li>
-                        <li>Brine Rod</li>
-                        <li>Reinforced Key</li>
-                        <li>Steel Ingot</li>
-                        <li>Steel Nugget</li>
-                        <li>Spiked Shield</li>
-                    </ul>
-                </div>
+                <div class="content-section">
+                    <h2 id="scrapped" class="main-header">Scrapped Content</h2>
+                    <p>During development, several features were conceptualized but ultimately removed or never implemented. These ideas may return in future updates.</p>
 
-                <div class="mini-header">Weapons</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Whip</li>
-                        <li>Battle Axe</li>
-                    </ul>
-                </div>
+                    <div class="mini-header">Scrapped Blocks</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Andesite Bricks (+ Stairs, Slab, Wall)</li>
+                            <li>Diorite Bricks (+ Stairs, Slab, Wall)</li>
+                            <li>Granite Bricks (+ Stairs, Slab, Wall)</li>
+                        </ul>
+                    </div>
 
-                <div class="mini-header">Mobs</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Brine</li>
-                        <li>Bore</li>
-                    </ul>
-                </div>
+                    <div class="mini-header">Scrapped Items</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Spear</li>
+                            <li>Steel Helmet</li>
+                            <li>Weakened Trident</li>
+                        </ul>
+                    </div>
 
-                <div class="mini-header">Projectiles</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Earth Charge</li>
-                        <li>Water Charge</li>
-                    </ul>
-                </div>
-
-                <div class="mini-header">Effects & Systems</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Potion Effects: Stun, Breath Giving</li>
-                        <li>Particle: Light Up</li>
-                        <li>Painting: Ruins</li>
-                        <li>Smithing Templates: Spiked Shield, Block Smithing Template, Guard Smithing Template</li>
-                    </ul>
-                </div>
-
-                <div class="mini-header">World Generation</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Structures: Conduit Monument, Ancient Ruins (with Chest Loot)</li>
-                        <li>Features: Oxygen Cluster, Dark Dripstone Cluster</li>
-                        <li>Biomes: Dark Dripstone Cave</li>
-                    </ul>
-                </div>
-
-                <div class="mini-header">Advancements</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Mob Lock</li>
-                        <li>Long Ago…</li>
-                        <li>Boreing</li>
-                        <li>Atlantean Eye</li>
-                        <li>Stalactite Sanctum</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="content-section">
-                <h2 id="scrapped" class="main-header">Scrapped Content</h2>
-                <p>During development, several features were conceptualized but ultimately removed or never implemented. These ideas may return in future updates.</p>
-
-                <div class="mini-header">Scrapped Blocks</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Andesite Bricks (+ Stairs, Slab, Wall)</li>
-                        <li>Diorite Bricks (+ Stairs, Slab, Wall)</li>
-                        <li>Granite Bricks (+ Stairs, Slab, Wall)</li>
-                    </ul>
-                </div>
-
-                <div class="mini-header">Scrapped Items</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Spear</li>
-                        <li>Steel Helmet</li>
-                        <li>Weakened Trident</li>
-                    </ul>
-                </div>
-
-                <div class="mini-header">Scrapped Effects & Concepts</div>
-                <div class="feature-list">
-                    <ul>
-                        <li>Particle: Shockwave (Water Charge)</li>
-                        <li>Concept: Bubble Vortex (Water Charge)</li>
-                    </ul>
+                    <div class="mini-header">Scrapped Effects & Concepts</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Particle: Shockwave (Water Charge)</li>
+                            <li>Concept: Bubble Vortex (Water Charge)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -357,71 +861,72 @@
 
     <script>
         const searchData = {
-            
             'Mobs': [
                 { title: 'Bore', page: 'mobs.html', category: 'Mobs' },
                 { title: 'Brine', page: 'mobs.html', category: 'Mobs' }
             ],
-            
             'Blocks': [
-                { title: 'Blocks', page: 'blocks.html', category: 'Mod Category' },
                 { title: 'Dripstone Stairs', page: 'blocks.html', category: 'Blocks' },
                 { title: 'Dripstone Slab', page: 'blocks.html', category: 'Blocks' },
                 { title: 'Dripstone Wall', page: 'blocks.html', category: 'Blocks' },
                 { title: 'Dripstone Bricks', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dripstone Brick Stairs', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dripstone Brick Slab', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dripstone Brick Wall', page: 'blocks.html', category: 'Blocks' },
                 { title: 'Polished Dripstone', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Stairs', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Slab', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Wall', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Tiles', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dripstone Pillar', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Chiseled Dripstone Bricks', page: 'blocks.html', category: 'Blocks' },
+                
                 { title: 'Dark Dripstone Block', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Stairs', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Slab', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Wall', page: 'blocks.html', category: 'Blocks' },
                 { title: 'Dark Dripstone Bricks', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Brick Stairs', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Brick Slab', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Brick Wall', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone Stairs', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone Slab', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone Wall', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Pillar', page: 'blocks.html', category: 'Blocks' },
                 { title: 'Pointed Dark Dripstone', page: 'blocks.html', category: 'Blocks' },
-                { title: 'Steel Block', page: 'blocks.html', category: 'Blocks' },
-                { title: 'Oxygen Block', page: 'blocks.html', category: 'Blocks' },
-                { title: 'Reinforced Spawner', page: 'blocks.html', category: 'Blocks' },
-                { title: 'Prismarine Pillar', page: 'blocks.html', category: 'Blocks' },
+                
                 { title: 'Dark Prismarine Pillar', page: 'blocks.html', category: 'Blocks' },
-                { title: 'Chiseled Prismarine Bricks', page: 'blocks.html', category: 'Blocks' }
-            ],
-            
-            'Items': [
-                { title: 'Bore Rod', page: 'items.html', category: 'Items' },
-                { title: 'Brine Rod', page: 'items.html', category: 'Items' },
-                { title: 'Reinforced Key', page: 'items.html', category: 'Items' },
-                { title: 'Steel Ingot', page: 'items.html', category: 'Items' },
-                { title: 'Steel Nugget', page: 'items.html', category: 'Items' },
-                { title: 'Spiked Shield', page: 'items.html', category: 'Items' },
-                { title: 'Whip', page: 'items.html', category: 'Items' },
-                { title: 'Battle Axe', page: 'items.html', category: 'Items' }
-            ],
-            
-            'Biomes': [
-                { title: 'Dark Dripstone Cave', page: 'biomes.html', category: 'Biomes' }
-            ],
-            
-            'Effects': [
-                { title: 'Stun', page: 'effects.html', category: 'Effects' },
-                { title: 'Breath Giving', page: 'effects.html', category: 'Effects' },
-                { title: 'Light Up', page: 'effects.html', category: 'Effects' },
-                { title: 'Earth Charge', page: 'effects.html', category: 'Effects' },
-                { title: 'Water Charge', page: 'effects.html', category: 'Effects' }
-            ],
-            
-            'Smithing': [
-                { title: 'Spiked Shield Template', page: 'smithing.html', category: 'Smithing' },
-                { title: 'Block Smithing Template', page: 'smithing.html', category: 'Smithing' },
-                { title: 'Guard Smithing Template', page: 'smithing.html', category: 'Smithing' }
-            ],
-			
-            'Structures': [
-                { title: 'Conduit Monument', page: 'structures.html', category: 'Structures' },
-                { title: 'Ancient Ruins', page: 'structures.html', category: 'Structures' },
+                { title: 'Dark Prismarine Wall', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Chiseled Prismarine Bricks', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Prismarine Pillar', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Prismarine Tiles', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Prismarine Tile Stairs', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Prismarine Tile Slab', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Prismarine Tile Wall', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Mixed Prismarine Tiles', page: 'blocks.html', category: 'Blocks' },
+                { title: 'Chiseled Dark Prismarine', page: 'blocks.html', category: 'Blocks' },
+                
+                { title: 'Steel Block', page: 'blocks.html', category: 'Blocks' },
                 { title: 'Oxygen Cluster', page: 'structures.html', category: 'Structures' },
                 { title: 'Dark Dripstone Cluster', page: 'structures.html', category: 'Structures' }
             ],
-			
+		
             'History': [
                 { title: 'Mod Development History', page: 'history.html', category: 'History' },
                 { title: 'Version 1.0.0', page: 'history.html#v1-0', category: 'History' },
                 { title: 'Scrapped Content', page: 'history.html#scrapped', category: 'History' },
                 { title: 'Concept Phase', page: 'history.html#concept', category: 'History' }
+            ],
+            'Advancements': [
+                { title: 'Mob Lock', page: 'advancements.html', category: 'Advancements' },
+                { title: 'Long Ago…', page: 'advancements.html', category: 'Advancements' },
+                { title: 'Boreing', page: 'advancements.html', category: 'Advancements' },
+                { title: 'Atlantean Eye', page: 'advancements.html', category: 'Advancements' },
+                { title: 'Stalactite Sanctum', page: 'advancements.html', category: 'Advancements' }
+            ],
+            'Paintings': [
+                { title: 'Ruins', page: 'paintings.html', category: 'Paintings' }
             ]
         };
 
