@@ -680,8 +680,9 @@
 html {
     scroll-padding-top: 100px;
 }
-	    h1, h2,
+	   h1, h2,
 .page-title,
+.main-header,
 .category-name,
 .version-item-name,
 .versions-header-text,
@@ -689,6 +690,23 @@ html {
 .wiki-button-name {
     font-family: 'Minecraft Ten', 'Inter', sans-serif !important;
 }
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}
+
     </style>
 </head>
 <body>
