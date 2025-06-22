@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TEMPLATE TITLE - Earth & Water Wiki</title>
+    <link rel="icon" type="image/x-icon" href="wiki_favicon.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('assets/font/minecraft.woff2') format('woff2'),
+                 url('assets/font/minecraft.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Minecraft Ten';
+            src: url('assets/font/minecraft_ten.woff2') format('woff2'),
+                 url('assets/font/minecraft_ten.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+		
+		img {
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        body {
+            background: url('assets/wiki/background.png');
+            background-repeat: repeat;
+            background-position: top left;
+            font-family: 'Nunito', 'Inter', sans-serif;
+            color: #e6e6e6;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .nav-tabs {
+            background: rgba(51, 51, 51, 0.9);
+            border-bottom: 2px solid #4a4a4a;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav-content {
+            max-width: 95vw;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+            min-width: max-content;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-content {
+                padding: 0 10px;
+            }
+        }
+        
+        .nav-tab {
+            padding: 8px 70px;
+            background: #0ea394;
+            border: 2px solid #17584e;
+            border-bottom: none;
+            margin-right: 2px;
+            cursor: pointer;
+            font-size: 14px;
+            color: white;
+            font-family: 'Minecraft Ten', 'Inter', sans-serif;
+            font-weight: 600;
+            text-shadow: 2px 2px 0px rgba(23,88,78,0.8);
+            box-shadow: 
+                inset 2px 2px 0 #20cfbe,
+                inset -2px -2px 0 #18baaa;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-tab {
+                padding: 8px 40px;
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-tab {
+                padding: 8px 25px;
+                font-size: 12px;
+            }
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: #2b2f39;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 0px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 20px 15px;
+                padding: 25px 20px;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-container {
+                margin: 15px 10px;
+                padding: 20px 15px;
+            }
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        .toc {
+            background: #31353e;
+            border: 2px solid #202125;
+            padding: 15px;
+            font-family: 'Nunito', sans-serif;
+            width: 300px;
+            flex-shrink: 0;
+            align-self: flex-start;
+            position: sticky;
+            top: 120px;
+            box-shadow: 
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
+        }
+        
+        @media (max-width: 768px) {
+            .toc {
+                width: 100%;
+                position: static;
+                margin-bottom: 25px;
+            }
+        }
+        
+        .toc h2 {
+            font-size: 16px;
+            color: #0ea394;
+            margin-bottom: 10px;
+            margin-top: 0;
+            font-family: 'Minecraft Ten', 'Nunito', sans-serif;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 5px;
+        }
+        
+        .toc a {
+            color: #cccccc;
+            text-decoration: none;
+            display: block;
+            padding: 5px 8px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+        
+        .toc a:hover {
+            color: #0ea394;
+            background: rgba(14, 163, 148, 0.1);
+        }
+        
+        @media (hover: none) {
+            .toc a:hover {
+                background: transparent;
+            }
+            .toc a:active {
+                background: rgba(14, 163, 148, 0.1);
+            }
+        }
+        
+        .content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .page-title, .main-header {
+            font-family: 'Minecraft Ten', 'Nunito', sans-serif;
+            color: #0ea394;
+            word-wrap: break-word;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            margin-top: 0;
+			border-bottom: 2px solid #4a4a4a;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 20px;
+				border-bottom: 2px solid #4a4a4a;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+				border-bottom: 2px solid #4a4a4a;
+            }
+        }
+        
+        .main-header {
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-header {
+                font-size: 1.6rem;
+                margin: 25px 0 12px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-header {
+                font-size: 1.4rem;
+                margin: 20px 0 10px 0;
+            }
+        }
+        
+        .content-section {
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                margin-bottom: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-section {
+                margin-bottom: 20px;
+            }
+        }
+        
+        .mini-header {
+            font-size: 18px;
+            color: #20cfbe;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 480px) {
+            .mini-header {
+                font-size: 16px;
+                margin: 15px 0 8px 0;
+            }
+        }
+        
+        .feature-list {
+            background: #31353e;
+            border-left: 4px solid #0ea394;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 480px) {
+            .feature-list {
+                padding: 12px;
+                margin: 8px 0;
+            }
+        }
+        
+        .feature-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        @media (max-width: 480px) {
+            .feature-list ul {
+                padding-left: 16px;
+            }
+        }
+        
+        .feature-list li {
+            margin-bottom: 5px;
+            color: #cccccc;
+            word-wrap: break-word;
+        }
+        
+        p {
+            margin: 0 0 15px 0;
+            word-wrap: break-word;
+        }
+        
+        @media (max-width: 480px) {
+            p {
+                margin: 0 0 12px 0;
+            }
+        }
+        
+        strong {
+            color: #20cfbe;
+        }
+        
+        .nav-tabs::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-track {
+            background: rgba(51, 51, 51, 0.5);
+        }
+        
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: #0ea394;
+            border-radius: 3px;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-thumb:hover {
+            background: #20cfbe;
+        }
+        
+        .nav-tabs {
+            scrollbar-width: thin;
+            scrollbar-color: #0ea394 rgba(51, 51, 51, 0.5);
+        }
+        
+        .nav-tab:focus,
+        .toc a:focus {
+            outline: 2px solid #0ea394;
+            outline-offset: 2px;
+        }
+        
+        @media print {
+            .nav-tabs {
+                display: none;
+            }
+            
+            .main-container {
+                margin: 0;
+                padding: 20px;
+                box-shadow: none;
+                background: white;
+                color: black;
+            }
+            
+            .toc {
+                position: static;
+                page-break-inside: avoid;
+            }
+        }
+		
+		.side-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: sticky;
+            top: 120px;
+            align-self: flex-start;
+            width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .side-stack {
+                width: 100%;
+                position: static;
+                margin-bottom: 25px;
+            }
+        }
+
+        .info-box {
+            background: #31353e;
+            border: 2px solid #202125;
+            padding: 10px;
+            font-size: 14px;
+            color: #ccc;
+            box-shadow:
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .info-box img {
+            width: 100%;
+            image-rendering: pixelated;
+            border: 2px solid #202125;
+        }
+
+        .info-box a {
+            color: #0ea394;
+            text-decoration: none;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        .info-box-title {
+            color: #20cfbe;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        html {
+            scroll-padding-top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+   <div id="header-container"></div>
+   
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="side-stack">
+                <div class="toc">
+                    <h2>Contents</h2>
+                    <ul>
+                        <li><a href="#section1">Section 1</a></li>
+                        <li><a href="#section2">Section 2</a></li>
+                        <li><a href="#section3">Section 3</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <img src="assets/wiki/placeholder.png" alt="Template Image" />
+                    <div class="info-box-title">Template Info Box</div>
+                    <p>
+                        This is a template info box. Replace this text with relevant information about your page content. 
+                        You can add <a href="#">links</a> and <strong>formatted text</strong> as needed.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="content">
+                <h1 class="page-title">TEMPLATE TITLE</h1>
+
+                <div class="content-section">
+                    <h2 id="section1" class="main-header">Template Section 1</h2>
+                    <p>This is template content for section 1. Replace this with your actual content. You can add paragraphs, lists, and other elements as needed.</p>
+
+                    <div class="mini-header">Template Subsection</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Template list item 1</li>
+                            <li>Template list item 2</li>
+                            <li>Template list item 3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 id="section2" class="main-header">Template Section 2</h2>
+                    <p>This is template content for section 2. Add your content here and modify the structure as needed.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2 id="section3" class="main-header">Template Section 3</h2>
+                    <p>This is template content for section 3. Feel free to add more sections or remove ones you don't need.</p>
+                </div>
+
+                <div class="info-box" style="margin-top: 30px;">
+                    <div class="info-box-title">Static Info Box</div>
+                    <p>
+                        This is a static info box that appears in the main content area. 
+                        It doesn't move with the sidebar and can be used for important information or images.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+	
+	</body>
+</html>

@@ -1,0 +1,455 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+    @font-face {
+        font-family: 'Minecraft';
+        src: url('assets/font/minecraft.woff2') format('woff2'),
+             url('assets/font/minecraft.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Minecraft Ten';
+        src: url('assets/font/minecraft_ten.woff2') format('woff2'),
+             url('assets/font/minecraft_ten.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .logo img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+    
+    body {
+        background: url('assets/wiki/background.png');
+        background-repeat: repeat;
+        background-position: top left;
+        font-family: 'Nunito', 'Inter', sans-serif;
+        color: #e6e6e6;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    
+    .header {
+        background: rgba(50, 48, 48, 0.95);
+        border-bottom: 3px solid #4a4a4a;
+        padding: 15px 0;
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .header-content {
+        max-width: 95vw;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        gap: 15px;
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            padding: 0 15px;
+            gap: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .header-content {
+            padding: 0 10px;
+            gap: 8px;
+        }
+    }
+    
+    .logo {
+        height: 60px;
+        width: auto;
+        flex-shrink: 0;
+    }
+    
+    @media (max-width: 480px) {
+        .logo {
+            height: 50px;
+        }
+    }
+    
+    .logo img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .search-container {
+        flex: 1;
+        max-width: 500px;
+        margin: 0 20px;
+        position: relative;
+    }
+
+    @media (max-width: 768px) {
+        .search-container {
+            margin: 0 10px;
+            max-width: none;
+            flex: 1;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .search-container {
+            margin: 0 5px;
+            min-width: 0;
+        }
+    }
+
+    .search-box {
+        width: 100%;
+        padding: 8px 12px;
+        background: #3a3a3a;
+        border: none;
+        color: #e6e6e6;
+        font-size: 14px;
+        font-family: 'Nunito', sans-serif;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 480px) {
+        .search-box {
+            padding: 10px 12px;
+            font-size: 16px;
+        }
+    }
+
+    .search-suggestions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #31353e;
+        border: 2px solid #202125;
+        border-top: none;
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+        box-shadow: 
+            inset 2px 2px 0 #3b3e47,
+            inset -2px -2px 0 #2e313a;
+    }
+
+    @media (max-width: 768px) {
+        .search-suggestions {
+            max-height: 250px;
+            left: -2px;
+            right: -2px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .search-suggestions {
+            max-height: 200px;
+            border-radius: 0 0 4px 4px;
+        }
+    }
+
+    .search-suggestion {
+        padding: 10px 12px;
+        cursor: pointer;
+        border-bottom: 1px solid #3a3a3a;
+        color: #cccccc;
+        min-height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+        .search-suggestion {
+            padding: 12px 15px;
+            min-height: 50px;
+        }
+    }
+
+    .search-suggestion:hover {
+        background: #4f5a75;
+    }
+
+    @media (hover: none) {
+        .search-suggestion:hover {
+            background: transparent;
+        }
+        .search-suggestion:active {
+            background: #4f5a75;
+        }
+        .search-suggestion:active .suggestion-title {
+            color: #0ea394;
+        }
+    }
+
+    .search-suggestion:hover .suggestion-title {
+        color: #0ea394;
+    }
+
+    .search-suggestion:last-child {
+        border-bottom: none;
+    }
+
+    .suggestion-category {
+        font-size: 12px;
+        color: #0ea394;
+        font-family: 'Minecraft Ten', 'Inter', sans-serif;
+        font-weight: normal;
+    }
+
+    .suggestion-title {
+        font-size: 14px;
+        margin-top: 2px;
+        font-family: 'Nunito', sans-serif;
+        color: #cccccc;
+    }
+
+    @media (max-width: 480px) {
+        .suggestion-category {
+            font-size: 11px;
+        }
+        .suggestion-title {
+            font-size: 15px;
+            margin-top: 3px;
+        }
+    }
+
+    .search-suggestions::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .search-suggestions::-webkit-scrollbar-track {
+        background: #2e313a;
+    }
+
+    .search-suggestions::-webkit-scrollbar-thumb {
+        background: #4f5a75;
+        border-radius: 4px;
+    }
+
+    .search-suggestions::-webkit-scrollbar-thumb:hover {
+        background: #5a6580;
+    }
+
+    .search-suggestions {
+        scrollbar-width: thin;
+        scrollbar-color: #4f5a75 #2e313a;
+    }
+
+    .search-box:focus,
+    .search-suggestion:focus {
+        outline: 2px solid #0ea394;
+        outline-offset: 2px;
+    }
+</style>
+
+<div class="header">
+    <div class="header-content">
+        <div class="logo">
+            <a href="https://earth-and-water.github.io">
+                <img src="assets/wiki/earth_water_wiki.png" alt="Earth & Water Wiki">
+            </a>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search Earth & Water Wiki" id="searchInput" autocomplete="off">
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const searchData = {
+        'Mobs': [
+            { title: 'Mob', page: 'mobs.html', category: 'Category' },
+            { title: 'Bore', page: 'mobs/bore.html', category: 'Mobs' },
+            { title: 'Brine', page: 'mobs/brine.html', category: 'Mobs' }
+        ],
+        'Blocks': [
+            { title: 'Block', page: 'blocks.html', category: 'Category' },
+            { title: 'Dripstone Stairs', page: 'blocks/dripstone_stairs.html', category: 'Blocks' },
+            { title: 'Dripstone Slab', page: 'blocks/dripstone_slab.html', category: 'Blocks' },
+            { title: 'Dripstone Wall', page: 'blocks/dripstone_wall.html', category: 'Blocks' },
+            { title: 'Dripstone Bricks', page: 'blocks/dripstone_bricks.html', category: 'Blocks' },
+            { title: 'Dripstone Brick Stairs', page: 'blocks/dripstone_brick_stairs.html', category: 'Blocks' },
+            { title: 'Dripstone Brick Slab', page: 'blocks/dripstone_brick_slab.html', category: 'Blocks' },
+            { title: 'Dripstone Brick Wall', page: 'blocks/dripstone_brick_wall.html', category: 'Blocks' },
+            { title: 'Polished Dripstone', page: 'blocks/polished_dripstone.html', category: 'Blocks' },
+            { title: 'Polished Dripstone Stairs', page: 'blocks/polished_dripstone_stairs.html', category: 'Blocks' },
+            { title: 'Polished Dripstone Slab', page: 'blocks/polished_dripstone_slab.html', category: 'Blocks' },
+            { title: 'Polished Dripstone Wall', page: 'blocks/polished_dripstone_wall.html', category: 'Blocks' },
+            { title: 'Polished Dripstone Tiles', page: 'blocks/polished_dripstone_tiles.html', category: 'Blocks' },
+            { title: 'Dripstone Pillar', page: 'blocks/dripstone_pillar.html', category: 'Blocks' },
+            { title: 'Chiseled Dripstone Bricks', page: 'blocks/chiseled_dripstone_bricks.html', category: 'Blocks' },
+            
+            { title: 'Dark Dripstone Block', page: 'blocks/dark_dripstone_block.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Stairs', page: 'blocks/dark_dripstone_stairs.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Slab', page: 'blocks/dark_dripstone_slab.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Wall', page: 'blocks/dark_dripstone_wall.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Bricks', page: 'blocks/dark_dripstone_bricks.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Brick Stairs', page: 'blocks/dark_dripstone_brick_stairs.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Brick Slab', page: 'blocks/dark_dripstone_brick_slab.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Brick Wall', page: 'blocks/dark_dripstone_brick_wall.html', category: 'Blocks' },
+            { title: 'Polished Dark Dripstone', page: 'blocks/polished_dark_dripstone.html', category: 'Blocks' },
+            { title: 'Polished Dark Dripstone Stairs', page: 'blocks/polished_dark_dripstone_stairs.html', category: 'Blocks' },
+            { title: 'Polished Dark Dripstone Slab', page: 'blocks/polished_dark_dripstone_slab.html', category: 'Blocks' },
+            { title: 'Polished Dark Dripstone Wall', page: 'blocks/polished_dark_dripstone_wall.html', category: 'Blocks' },
+            { title: 'Dark Dripstone Pillar', page: 'blocks/dark_dripstone_pillar.html', category: 'Blocks' },
+            { title: 'Pointed Dark Dripstone', page: 'blocks/pointed_dark_dripstone.html', category: 'Blocks' },
+            
+            { title: 'Dark Prismarine Pillar', page: 'blocks/dark_prismarine_pillar.html', category: 'Blocks' },
+            { title: 'Dark Prismarine Wall', page: 'blocks/dark_prismarine_wall.html', category: 'Blocks' },
+            { title: 'Chiseled Prismarine Bricks', page: 'blocks/chiseled_prismarine_bricks.html', category: 'Blocks' },
+            { title: 'Prismarine Pillar', page: 'blocks/prismarine_pillar.html', category: 'Blocks' },
+            { title: 'Prismarine Tiles', page: 'blocks/prismarine_tiles.html', category: 'Blocks' },
+            { title: 'Prismarine Tile Stairs', page: 'blocks/prismarine_tile_stairs.html', category: 'Blocks' },
+            { title: 'Prismarine Tile Slab', page: 'blocks/prismarine_tile_slab.html', category: 'Blocks' },
+            { title: 'Prismarine Tile Wall', page: 'blocks/prismarine_tile_wall.html', category: 'Blocks' },
+            { title: 'Mixed Prismarine Tiles', page: 'blocks/mixed_prismarine_tiles.html', category: 'Blocks' },
+            { title: 'Chiseled Dark Prismarine', page: 'blocks/chiseled_dark_prismarine.html', category: 'Blocks' },
+            
+            { title: 'Steel Block', page: 'blocks/steel_block.html', category: 'Blocks' },
+            { title: 'Oxygen Block', page: 'blocks/oxygen_block.html', category: 'Blocks' },
+            { title: 'Reinforced Spawner', page: 'blocks/reinforced_spawner.html', category: 'Blocks' }
+        ],
+        'Items': [
+            { title: 'Item', page: 'items.html', category: 'Category' },
+            { title: 'Bore Rod', page: 'items/bore_rod.html', category: 'Items' },
+            { title: 'Brine Rod', page: 'items/brine_rod.html', category: 'Items' },
+            { title: 'Reinforced Key', page: 'items/reinforced_key.html', category: 'Items' },
+            { title: 'Steel Ingot', page: 'items/steel_ingot.html', category: 'Items' },
+            { title: 'Steel Nugget', page: 'items/steel_nugget.html', category: 'Items' },
+            { title: 'Spiked Shield', page: 'items/spiked_shield.html', category: 'Items' }
+        ],
+        'Weapons': [
+            { title: 'Whip', page: 'items/whip.html', category: 'Weapons' },
+            { title: 'Battle Axe', page: 'items/battle_axe.html', category: 'Weapons' }
+        ],
+        'Biomes': [
+            { title: 'Biome', page: 'biomes.html', category: 'Category' },
+            { title: 'Dark Dripstone Cave', page: 'biomes/dark_dripstone_cave.html', category: 'Biomes' }
+        ],
+        'Effects': [
+            { title: 'Effect', page: 'effects.html', category: 'Category' },
+            { title: 'Stun', page: 'effects/stun.html', category: 'Effects' },
+            { title: 'Breath Giving', page: 'effects/breath_giving.html', category: 'Effects' },
+            { title: 'Light Up', page: 'effects/light_up.html', category: 'Effects' },
+            { title: 'Earth Charge', page: 'effects/earth_charge.html', category: 'Effects' },
+            { title: 'Water Charge', page: 'effects/water_charge.html', category: 'Effects' }
+        ],
+        'Smithing': [
+            { title: 'Smithing', page: 'smithing.html', category: 'Category' },
+            { title: 'Spiked Shield Upgrade', page: 'smithing/spiked_shield_upgrade.html', category: 'Smithing' },
+            { title: 'Block Smithing Template', page: 'smithing/block_smithing_template.html', category: 'Smithing' },
+            { title: 'Guard Smithing Template', page: 'smithing/guard_smithing_template.html', category: 'Smithing' }
+        ],
+        'Structures': [
+            { title: 'Structure', page: 'structures.html', category: 'Structures' },
+            { title: 'Conduit Monument', page: 'structures/conduit_monument.html', category: 'Structures' },
+            { title: 'Ancient Ruins', page: 'structures/ancient_ruins.html', category: 'Structures' }
+        ],
+        'History': [
+            { title: 'History', page: 'history.html', category: 'Category' },
+            { title: 'Andesite Bricks', page: 'history.html#scrapped', category: 'History' },
+            { title: 'Diorite Bricks', page: 'history.html#scrapped', category: 'History' },
+            { title: 'Granite Bricks', page: 'history.html#scrapped', category: 'History' },
+            { title: 'Spear', page: 'history.html#scrapped', category: 'History' },
+            { title: 'Steel Helmet', page: 'history.html#scrapped', category: 'History' },
+            { title: 'Weakened Trident', page: 'history.html#scrapped', category: 'History' },
+            { title: 'Shockwave', page: 'history.html#scrapped', category: 'History' },
+            { title: 'Bubble Vortex', page: 'history.html#scrapped', category: 'History' }
+        ],
+        'Advancements': [
+            { title: 'Advancement', page: 'advancements.html', category: 'Category' },
+            { title: 'Mob Lock', page: 'advancements/mob_lock.html', category: 'Advancements' },
+            { title: 'Long Ago…', page: 'advancements/long_ago.html', category: 'Advancements' },
+            { title: 'Boreing', page: 'advancements/boreing.html', category: 'Advancements' },
+            { title: 'Atlantean Eye', page: 'advancements/atlantean_eye.html', category: 'Advancements' },
+            { title: 'Stalactite Sanctum', page: 'advancements/stalactite_sanctum.html', category: 'Advancements' }
+        ],
+        'Paintings': [
+            { title: 'Painting', page: 'paintings.html', category: 'Category' },
+            { title: 'Ruins', page: 'paintings/ruins.html', category: 'Paintings' }
+        ]
+    };
+
+    const allSearchItems = Object.values(searchData).flat();
+
+    const searchInput = document.getElementById('searchInput');
+    const searchSuggestions = document.getElementById('searchSuggestions');
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        
+        if (query.length === 0) {
+            searchSuggestions.style.display = 'none';
+            return;
+        }
+
+        const matches = allSearchItems.filter(item => 
+            item.title.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query)
+        ).slice(0, 15);
+
+        if (matches.length > 0) {
+            searchSuggestions.innerHTML = matches.map(item => `
+                <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
+                    <div class="suggestion-category">${item.category}</div>
+                    <div class="suggestion-title">${item.title}</div>
+                </div>
+            `).join('');
+            searchSuggestions.style.display = 'block';
+        } else {
+            searchSuggestions.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container')) {
+            searchSuggestions.style.display = 'none';
+        }
+    });
+
+    function navigateToPage(page) {
+        window.location.href = page;
+    }
+
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const query = this.value.toLowerCase().trim();
+            const firstMatch = allSearchItems.find(item => 
+                item.title.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query)
+            );
+            if (firstMatch) {
+                navigateToPage(firstMatch.page);
+            }
+        }
+    });
+</script>
