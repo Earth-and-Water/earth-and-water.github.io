@@ -55,21 +55,108 @@
             margin: 0 20px;
         }
 
-        .search-box {
+       .search-box {
     width: 100%;
     padding: 8px 12px;
     background: #3a3a3a;
-    border: 2px solid #4a4a4a; /* Add this line - it's missing! */
+    border: 2px solid #4a4a4a; /* Add the border back */
     color: #e6e6e6;
-    font-size: 16px; /* Changed from 14px */
+    font-size: 16px;
     font-family: 'Nunito', sans-serif;
     border-radius: 4px;
     box-sizing: border-box;
-    transition: border-color 0.2s ease; /* Add this for smooth transition */
+    /* Remove any transition property */
 }
 
 .search-box:focus {
     border-color: #0ea394;
+    /* That's it - no outline, no transition, just the border color change */
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #31353e;
+    border: 2px solid #202125;
+    border-top: none;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 99999;
+    display: none;
+    box-shadow: 
+        inset 2px 2px 0 #3b3e47,
+        inset -2px -2px 0 #2e313a,
+        0 4px 8px rgba(0,0,0,0.3);
+    border-radius: 0 0 8px 8px;
+}
+
+.search-suggestion {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #3a3a3a;
+    color: #cccccc;
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.search-suggestion:hover {
+    background: #4f5a75;
+}
+
+.search-suggestion:hover .suggestion-title {
+    color: #0ea394;
+}
+
+.search-suggestion:last-child {
+    border-bottom: none;
+}
+
+.suggestion-category {
+    font-size: 12px;
+    color: #0ea394;
+    font-family: 'Minecraft Ten', 'Inter', sans-serif;
+    font-weight: normal;
+}
+
+.suggestion-title {
+    font-size: 14px;
+    margin-top: 2px;
+    font-family: 'Nunito', sans-serif;
+    color: #cccccc;
+    transition: color 0.2s ease;
+}
+
+.search-suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-suggestions::-webkit-scrollbar-track {
+    background: #2e313a;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+    background: #4f5a75;
+    border-radius: 4px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb:hover {
+    background: #5a6580;
+}
+
+.search-suggestions {
+    scrollbar-width: thin;
+    scrollbar-color: #4f5a75 #2e313a;
+}
+
+@media (max-width: 768px) {
+    .search-box {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
 }
 
         .header {
@@ -850,92 +937,6 @@ version-item-image-container {
 
 .versions-header-arrow.spinback-counter {
     transform: rotate(-360deg);
-}
-
-.search-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #31353e;
-    border: 2px solid #202125;
-    border-top: none;
-    max-height: 300px;
-    overflow-y: auto;
-    z-index: 99999;
-    display: none;
-    box-shadow: 
-        inset 2px 2px 0 #3b3e47,
-        inset -2px -2px 0 #2e313a,
-        0 4px 8px rgba(0,0,0,0.3);
-    border-radius: 0 0 8px 8px;
-}
-
-.search-suggestion {
-    padding: 12px 16px;
-    cursor: pointer;
-    border-bottom: 1px solid #3a3a3a;
-    color: #cccccc;
-    min-height: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: background-color 0.2s ease;
-}
-
-.search-suggestion:hover {
-    background: #4f5a75;
-}
-
-.search-suggestion:hover .suggestion-title {
-    color: #0ea394;
-}
-
-.search-suggestion:last-child {
-    border-bottom: none;
-}
-
-.suggestion-category {
-    font-size: 12px;
-    color: #0ea394;
-    font-family: 'Minecraft Ten', 'Inter', sans-serif;
-    font-weight: normal;
-}
-
-.suggestion-title {
-    font-size: 14px;
-    margin-top: 2px;
-    font-family: 'Nunito', sans-serif;
-    color: #cccccc;
-    transition: color 0.2s ease;
-}
-
-.search-suggestions::-webkit-scrollbar {
-    width: 8px;
-}
-
-.search-suggestions::-webkit-scrollbar-track {
-    background: #2e313a;
-}
-
-.search-suggestions::-webkit-scrollbar-thumb {
-    background: #4f5a75;
-    border-radius: 4px;
-}
-
-.search-suggestions::-webkit-scrollbar-thumb:hover {
-    background: #5a6580;
-}
-
-.search-suggestions {
-    scrollbar-width: thin;
-    scrollbar-color: #4f5a75 #2e313a;
-}
-
-@media (max-width: 768px) {
-    .search-box {
-        font-size: 16px; /* Prevents zoom on iOS */
-    }
 }
 
         .sidebar {
