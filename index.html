@@ -89,10 +89,15 @@
     background: #3a3a3a;
     border: none;
     color: #e6e6e6;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Nunito', sans-serif;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #0ea394;
 }
 
         .nav-tabs {
@@ -858,7 +863,7 @@ version-item-image-container {
     border-top: none;
     max-height: 300px;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 9999;
     display: none;
     box-shadow: 
         inset 2px 2px 0 #3b3e47,
@@ -926,6 +931,12 @@ version-item-image-container {
 .search-suggestions {
     scrollbar-width: thin;
     scrollbar-color: #4f5a75 #2e313a;
+}
+
+@media (max-width: 768px) {
+    .search-box {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
 }
 
         .sidebar {
