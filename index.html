@@ -49,6 +49,28 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+.search-container {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+        }
+
+        .search-box {
+    width: 100%;
+    padding: 8px 12px;
+    background: #3a3a3a;
+    border: 2px solid #4a4a4a; /* Add this line - it's missing! */
+    color: #e6e6e6;
+    font-size: 16px; /* Changed from 14px */
+    font-family: 'Nunito', sans-serif;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease; /* Add this for smooth transition */
+}
+
+.search-box:focus {
+    border-color: #0ea394;
+}
 
         .header {
             background: rgba(45, 45, 45, 0.9);
@@ -76,30 +98,6 @@
             width: auto;
             object-fit: contain;
         }
-
-        .search-container {
-            flex: 1;
-            max-width: 500px;
-            margin: 0 20px;
-        }
-
-        .search-box {
-    width: 100%;
-    padding: 8px 12px;
-    background: #3a3a3a;
-    border: 2px solid #4a4a4a; /* Add this line - it's missing! */
-    color: #e6e6e6;
-    font-size: 16px; /* Changed from 14px */
-    font-family: 'Nunito', sans-serif;
-    border-radius: 4px;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease; /* Add this for smooth transition */
-}
-
-.search-box:focus {
-    outline: none;
-    border-color: #0ea394;
-}
 
         .nav-tabs {
             background: rgba(51, 51, 51, 0.9);
