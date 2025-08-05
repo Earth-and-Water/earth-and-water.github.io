@@ -2235,6 +2235,79 @@ document.querySelectorAll('.category-item').forEach(item => {
                 }
             }
         });
+        
+        // GitHub repository information
+const GITHUB_OWNER = 'earth-and-water'; // Replace with actual GitHub username/org
+const GITHUB_REPO = 'earth-and-water.github.io'; // Replace with actual repo name
+const GITHUB_API_URL = `https://api.github.com/repos/earth-and-water/earth-and-water/contents`;
+
+// Function to recursively count files
+async function countFiles(path = '') {
+    try {
+        const response = await fetch(`${GITHUB_API_URL}/${path}`);
+        const files = await response.json();
+        
+        let htmlCount = 0;
+        let totalCount = 0;
+        
+        for (const file of files) {
+            if (file.type === 'file') {
+                totalCount++;
+                if (file.name.endsWith('.html')) {
+                    htmlCount++;
+                }
+            } else if (file.type === 'dir' && !file.name.startsWith('.')) {
+                // Recursively count files in subdirectories
+                const subCounts = await countFiles(file.path);
+                htmlCount += subCounts.html;
+                totalCount += subCounts.total;
+            }
+        }
+        
+        return { html: htmlCount, total: totalCount };
+    } catch (error) {
+        console.error('Error fetching file counts:', error);
+        return { html: 8, total: 28 }; // Fallback to current values
+    }
+}
+
+// Update the counters on page load
+async function updateCounters() {
+    const counts = await countFiles();
+    document.querySelector('.stats .stat-number:first-child').textContent = counts.html;
+    document.querySelector('.stats .stat-number:last-child').textContent = counts.total;
+}
+
+// Call the function when page loads
+document.addEventListener('DOMContentLoaded', updateCounters);
+        
+        // Function to load and display random facts
+async function loadRandomFacts() {
+    try {
+        const response = await fetch('did-you-know.json');
+        const data = await response.json();
+        
+        // Shuffle the facts array and take first 3
+        const shuffled = data.facts.sort(() => 0.5 - Math.random());
+        const selectedFacts = shuffled.slice(0, 3);
+        
+        // Update the sidebar list
+        const factsList = document.querySelector('.sidebar-section:nth-child(3) .sidebar-list');
+        factsList.innerHTML = selectedFacts.map(fact => `<li>${fact}</li>`).join('');
+        
+    } catch (error) {
+        console.error('Error loading facts:', error);
+        // Keep existing facts as fallback
+    }
+}
+
+// Load facts when page loads
+document.addEventListener('DOMContentLoaded', loadRandomFacts);
+        document.addEventListener('DOMContentLoaded', function() {
+    updateCounters(); // For file counting
+    loadRandomFacts(); // For random facts
+    // ... any other initialization code
+});
     </script>
 </body>
 </html>
