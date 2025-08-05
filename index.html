@@ -2236,16 +2236,28 @@ document.querySelectorAll('.category-item').forEach(item => {
             }
         });
         
-        // GitHub repository information
-const GITHUB_OWNER = 'earth-and-water'; // Replace with actual GitHub username/org
-const GITHUB_REPO = 'earth-and-water.github.io'; // Replace with actual repo name
-const GITHUB_API_URL = `https://api.github.com/repos/earth-and-water/earth-and-water/contents`;
+        // Fixed GitHub repository information
+const GITHUB_OWNER = 'Earth-And-Water'; // Corrected case
+const GITHUB_REPO = 'earth-and-water.github.io'; // Corrected repo name
+const GITHUB_API_URL = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents`;
 
 // Function to recursively count files
 async function countFiles(path = '') {
     try {
         const response = await fetch(`${GITHUB_API_URL}/${path}`);
+        
+        // Check if request was successful
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
         const files = await response.json();
+        
+        // Handle case where API returns an object instead of array (single file)
+        if (!Array.isArray(files)) {
+            console.warn('API returned single file instead of directory listing');
+            return { html: 8, total: 28 }; // Fallback
+        }
         
         let htmlCount = 0;
         let totalCount = 0;
@@ -2256,58 +2268,144 @@ async function countFiles(path = '') {
                 if (file.name.endsWith('.html')) {
                     htmlCount++;
                 }
-            } else if (file.type === 'dir' && !file.name.startsWith('.')) {
-                // Recursively count files in subdirectories
-                const subCounts = await countFiles(file.path);
-                htmlCount += subCounts.html;
-                totalCount += subCounts.total;
+            } else if (file.type === 'dir' && !file.name.startsWith('.') && !file.name.startsWith('node_modules')) {
+                // Recursively count files in subdirectories (avoid system folders)
+                try {
+                    const subCounts = await countFiles(file.path);
+                    htmlCount += subCounts.html;
+                    totalCount += subCounts.total;
+                } catch (subError) {
+                    console.warn(`Error counting files in ${file.path}:`, subError);
+                    // Continue with other directories
+                }
             }
         }
         
         return { html: htmlCount, total: totalCount };
     } catch (error) {
         console.error('Error fetching file counts:', error);
-        return { html: 8, total: 28 }; // Fallback to current values
+        return { html: 8, total: 28 }; // Fallback to current hardcoded values
     }
 }
 
 // Update the counters on page load
 async function updateCounters() {
-    const counts = await countFiles();
-    document.querySelector('.stats .stat-number:first-child').textContent = counts.html;
-    document.querySelector('.stats .stat-number:last-child').textContent = counts.total;
+    try {
+        console.log('Fetching file counts from GitHub...');
+        const counts = await countFiles();
+        console.log('File counts:', counts);
+        
+        // Update the DOM elements
+        const htmlCountElement = document.querySelector('.stats .stat-number:first-child');
+        const totalCountElement = document.querySelector('.stats .stat-number:last-child');
+        
+        if (htmlCountElement && totalCountElement) {
+            htmlCountElement.textContent = counts.html;
+            totalCountElement.textContent = counts.total;
+            console.log(`Updated counters: ${counts.html} HTML files, ${counts.total} total files`);
+        } else {
+            console.error('Could not find counter elements in DOM');
+        }
+    } catch (error) {
+        console.error('Error updating counters:', error);
+    }
 }
 
-// Call the function when page loads
-document.addEventListener('DOMContentLoaded', updateCounters);
-        
-        // Function to load and display random facts
+// Facts will be loaded from did-you-know.json file
+
+// Function to load and display random facts
 async function loadRandomFacts() {
     try {
+        console.log('Attempting to load facts from did-you-know.json...');
+        
+        // Try to fetch the JSON file
         const response = await fetch('did-you-know.json');
+        
+        if (!response.ok) {
+            throw new Error(`Failed to load facts: ${response.status}`);
+        }
+        
         const data = await response.json();
+        const facts = data.facts;
+        
+        if (!facts || !Array.isArray(facts)) {
+            throw new Error('Invalid facts data structure');
+        }
+        
+        console.log('Loaded facts from JSON file');
         
         // Shuffle the facts array and take first 3
-        const shuffled = data.facts.sort(() => 0.5 - Math.random());
+        const shuffled = facts.sort(() => 0.5 - Math.random());
         const selectedFacts = shuffled.slice(0, 3);
         
         // Update the sidebar list
         const factsList = document.querySelector('.sidebar-section:nth-child(3) .sidebar-list');
-        factsList.innerHTML = selectedFacts.map(fact => `<li>${fact}</li>`).join('');
+        if (factsList) {
+            factsList.innerHTML = selectedFacts.map(fact => `<li>${fact}</li>`).join('');
+            console.log('Updated facts in sidebar');
+        } else {
+            console.error('Could not find facts list element in DOM');
+        }
         
     } catch (error) {
         console.error('Error loading facts:', error);
-        // Keep existing facts as fallback
+        
+        // Keep existing hardcoded facts as ultimate fallback
+        const factsList = document.querySelector('.sidebar-section:nth-child(3) .sidebar-list');
+        if (factsList && factsList.children.length === 0) {
+            console.log('No facts loaded, keeping existing HTML content');
+        }
     }
 }
 
-// Load facts when page loads
-document.addEventListener('DOMContentLoaded', loadRandomFacts);
-        document.addEventListener('DOMContentLoaded', function() {
-    updateCounters(); // For file counting
-    loadRandomFacts(); // For random facts
-    // ... any other initialization code
-});
+// Enhanced initialization function
+function initializeDynamicContent() {
+    console.log('Initializing dynamic content...');
+    
+    // Update counters with delay to ensure DOM is ready
+    setTimeout(updateCounters, 100);
+    
+    // Load random facts with delay
+    setTimeout(loadRandomFacts, 200);
+}
+
+// Multiple event listeners to ensure initialization happens
+document.addEventListener('DOMContentLoaded', initializeDynamicContent);
+
+// Fallback for already loaded pages
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeDynamicContent);
+} else {
+    initializeDynamicContent();
+}
+
+// Optional: Add a manual refresh function for testing
+window.refreshDynamicContent = function() {
+    console.log('Manually refreshing dynamic content...');
+    updateCounters();
+    loadRandomFacts();
+};
+
+// Debug function to test API access
+window.testGitHubAPI = async function() {
+    console.log('Testing GitHub API access...');
+    console.log('API URL:', GITHUB_API_URL);
+    
+    try {
+        const response = await fetch(GITHUB_API_URL);
+        console.log('Response status:', response.status);
+        console.log('Response headers:', [...response.headers.entries()]);
+        
+        if (response.ok) {
+            const data = await response.json();
+            console.log('API Response:', data);
+        } else {
+            console.error('API Error:', await response.text());
+        }
+    } catch (error) {
+        console.error('Network Error:', error);
+    }
+};
     </script>
 </body>
 </html>
