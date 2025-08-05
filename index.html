@@ -2256,7 +2256,7 @@ async function countFiles(path = '') {
         // Handle case where API returns an object instead of array (single file)
         if (!Array.isArray(files)) {
             console.warn('API returned single file instead of directory listing');
-            return { html: 8, total: 28 }; // Fallback
+            return { html: 58, total: 60 }; // Fallback
         }
         
         let htmlCount = 0;
