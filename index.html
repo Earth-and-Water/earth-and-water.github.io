@@ -1934,13 +1934,10 @@ document.querySelectorAll('.version-item').forEach(item => {
 </div>
 
             <div class="sidebar-section">
-                <div class="sidebar-title">Did you know...</div>
-                <ul class="sidebar-list">
-                    <li>...that one of the mod's creators ships Bore and Dark Bore?</li>
-                    <li>...that Dark Chiseled Dripstone Bricks only lights up when players are near it?</li>
-                    <li>...that there was an intended "Shockwave" particle planned for the Water Charge?</li>
-                </ul>
-            </div>
+    <div class="sidebar-title">Did you know...</div>
+    <ul class="sidebar-list">
+    </ul>
+</div>
 
             <div class="sidebar-section creators-section">
                 <div class="creators-content">
@@ -2236,96 +2233,6 @@ document.querySelectorAll('.category-item').forEach(item => {
             }
         });
         
-        // Fixed GitHub repository information
-const GITHUB_OWNER = 'Earth-And-Water';
-const GITHUB_REPO = 'earth-and-water.github.io';
-const GITHUB_API_URL = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents`;
-
-// Function to recursively count files
-async function countFiles(path = '') {
-    try {
-        const response = await fetch(`${GITHUB_API_URL}/${path}`);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-        
-        const files = await response.json();
-        
-        if (!Array.isArray(files)) {
-            console.warn('API returned single file instead of directory listing');
-            return { html: 0, total: 1 };
-        }
-        
-        let htmlCount = 0;
-        let totalCount = 0;
-        
-        for (const file of files) {
-            if (file.type === 'file') {
-                totalCount++;
-                if (file.name.endsWith('.html')) {
-                    htmlCount++;
-                }
-            } else if (file.type === 'dir' && 
-                      !file.name.startsWith('.') && 
-                      !file.name.startsWith('node_modules') &&
-                      file.name !== 'assets') { // Skip assets folder to avoid too many requests
-                try {
-                    const subCounts = await countFiles(file.path);
-                    htmlCount += subCounts.html;
-                    totalCount += subCounts.total;
-                } catch (subError) {
-                    console.warn(`Error counting files in ${file.path}:`, subError);
-                }
-            }
-        }
-        
-        return { html: htmlCount, total: totalCount };
-    } catch (error) {
-        console.error('Error fetching file counts:', error);
-        // Return reasonable fallback values
-        return { html: 58, total: 150 };
-    }
-}
-
-// Update the counters on page load
-async function updateCounters() {
-    try {
-        console.log('Fetching file counts from GitHub...');
-        
-        // Set initial values immediately to replace "Loading..."
-        const htmlCountElement = document.querySelector('.stats .stat-number:first-child');
-        const totalCountElement = document.querySelector('.stats .stat-number:last-child');
-        
-        if (htmlCountElement && totalCountElement) {
-            // Set temporary values while loading
-            htmlCountElement.textContent = '...';
-            totalCountElement.textContent = '...';
-        }
-        
-        const counts = await countFiles();
-        console.log('File counts:', counts);
-        
-        // Update with actual counts
-        if (htmlCountElement && totalCountElement) {
-            htmlCountElement.textContent = counts.html;
-            totalCountElement.textContent = counts.total;
-            console.log(`Updated counters: ${counts.html} HTML files, ${counts.total} total files`);
-        }
-    } catch (error) {
-        console.error('Error updating counters:', error);
-        // Set fallback values on error
-        const htmlCountElement = document.querySelector('.stats .stat-number:first-child');
-        const totalCountElement = document.querySelector('.stats .stat-number:last-child');
-        
-        if (htmlCountElement && totalCountElement) {
-            htmlCountElement.textContent = '58';
-            totalCountElement.textContent = '150';
-        }
-    }
-}
-
-// Function to load and display random facts
 async function loadRandomFacts() {
     try {
         console.log('Attempting to load facts from did-you-know.json...');
