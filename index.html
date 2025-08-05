@@ -2235,8 +2235,7 @@ document.querySelectorAll('.category-item').forEach(item => {
         
 async function loadRandomFacts() {
     try {
-        console.log('Attempting to load facts from did-you-know.json...');
-        
+        console.log('Loading facts...');
         const response = await fetch('did-you-know.json');
         
         if (!response.ok) {
@@ -2244,86 +2243,75 @@ async function loadRandomFacts() {
         }
         
         const data = await response.json();
-        const facts = data.facts;
+        console.log('Facts data loaded:', data);
         
-        if (!facts || !Array.isArray(facts)) {
-            throw new Error('Invalid facts data structure');
+        if (!data.facts || !Array.isArray(data.facts)) {
+            throw new Error('Invalid facts format');
         }
         
-        console.log('Loaded facts from JSON file');
-        
-        // Shuffle and select 3 facts
-        const shuffled = facts.sort(() => 0.5 - Math.random());
+        // Shuffle and pick 3 random facts
+        const shuffled = [...data.facts].sort(() => 0.5 - Math.random());
         const selectedFacts = shuffled.slice(0, 3);
         
-        // Update the facts list
-        const factsList = document.querySelector('.sidebar-section:has(.sidebar-title:contains("Did you know")) .sidebar-list');
+        // Find the facts list more reliably
+        const factsList = document.querySelector('.sidebar-section .sidebar-list');
         
-        // Alternative selector if the above doesn't work
-        const factsSection = Array.from(document.querySelectorAll('.sidebar-section')).find(section => {
-            const title = section.querySelector('.sidebar-title');
-            return title && title.textContent.includes('Did you know');
-        });
-        
-        const targetList = factsList || (factsSection ? factsSection.querySelector('.sidebar-list') : null);
-        
-        if (targetList) {
-            targetList.innerHTML = selectedFacts.map(fact => `<li>${fact}</li>`).join('');
-            console.log('Updated facts in sidebar');
+        if (factsList) {
+            // Clear existing content and add new facts
+            factsList.innerHTML = selectedFacts.map(fact => `<li>${fact}</li>`).join('');
+            console.log('Facts updated successfully');
         } else {
-            console.error('Could not find facts list element in DOM');
+            console.error('Could not find sidebar list element');
         }
         
     } catch (error) {
         console.error('Error loading facts:', error);
-        console.log('Keeping existing hardcoded facts as fallback');
+        
+        // Fallback facts if JSON fails
+        const fallbackFacts = [
+            "...that the mod adds elemental mobs to complete the set with Blaze and Breeze?",
+            "...that Steel weapons are stronger than Iron but weaker than Diamond?",
+            "...that Ancient Ruins generate deep underground in caves?"
+        ];
+        
+        const factsList = document.querySelector('.sidebar-section .sidebar-list');
+        if (factsList) {
+            factsList.innerHTML = fallbackFacts.map(fact => `<li>${fact}</li>`).join('');
+        }
     }
 }
 
-// Enhanced initialization function
+// MAIN INITIALIZATION
 function initializeDynamicContent() {
     console.log('Initializing dynamic content...');
     
-    // Update counters immediately
-    updateCounters();
+    // Choose your preferred method:
     
-    // Load random facts
+    // Option 1: Manual (most reliable)
+    updateCountersManual();
+    
+    // Option 2: Try GitHub API with manual fallback
+    // updateCountersGitHub();
+    
+    // Option 3: Use JSON file
+    // updateCountersFromJSON();
+    
+    // Always try to load facts
     loadRandomFacts();
 }
 
-// Initialize when DOM is ready
+// Initialize when page loads
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeDynamicContent);
 } else {
-    // DOM is already loaded
     initializeDynamicContent();
 }
 
-// Manual refresh function for testing
-window.refreshDynamicContent = function() {
-    console.log('Manually refreshing dynamic content...');
-    updateCounters();
+// Manual refresh for testing
+window.refreshContent = function() {
+    console.log('Refreshing content...');
+    updateCountersManual();
     loadRandomFacts();
-};
-
-// Debug function
-window.testGitHubAPI = async function() {
-    console.log('Testing GitHub API access...');
-    console.log('API URL:', GITHUB_API_URL);
-    
-    try {
-        const response = await fetch(GITHUB_API_URL);
-        console.log('Response status:', response.status);
-        
-        if (response.ok) {
-            const data = await response.json();
-            console.log('API Response preview:', data.slice(0, 3));
-        } else {
-            console.error('API Error:', await response.text());
-        }
-    } catch (error) {
-        console.error('Network Error:', error);
-    }
 };
     </script>
 </body>
