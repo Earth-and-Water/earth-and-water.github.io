@@ -1933,11 +1933,14 @@ document.querySelectorAll('.version-item').forEach(item => {
     <div class="stat-label">Files</div>
 </div>
 
-            <div class="sidebar-section">
-    <div class="sidebar-title">Did you know...</div>
-    <ul class="sidebar-list">
-    </ul>
-</div>
+        <div class="sidebar-section">
+                <div class="sidebar-title">Did you know...</div>
+                <ul class="sidebar-list">
+                    <li>...that one of the mod's creators ships Bore and Dark Bore?</li>
+                    <li>...that Dark Chiseled Dripstone Bricks only lights up when players are near it?</li>
+                    <li>...that there was an intended "Shockwave" particle planned for the Water Charge?</li>
+                </ul>
+            </div>
 
             <div class="sidebar-section creators-section">
                 <div class="creators-content">
@@ -2232,87 +2235,6 @@ document.querySelectorAll('.category-item').forEach(item => {
                 }
             }
         });
-        
-async function loadRandomFacts() {
-    try {
-        console.log('Loading facts...');
-        const response = await fetch('did-you-know.json');
-        
-        if (!response.ok) {
-            throw new Error(`Failed to load facts: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        console.log('Facts data loaded:', data);
-        
-        if (!data.facts || !Array.isArray(data.facts)) {
-            throw new Error('Invalid facts format');
-        }
-        
-        // Shuffle and pick 3 random facts
-        const shuffled = [...data.facts].sort(() => 0.5 - Math.random());
-        const selectedFacts = shuffled.slice(0, 3);
-        
-        // Find the facts list more reliably
-        const factsList = document.querySelector('.sidebar-section .sidebar-list');
-        
-        if (factsList) {
-            // Clear existing content and add new facts
-            factsList.innerHTML = selectedFacts.map(fact => `<li>${fact}</li>`).join('');
-            console.log('Facts updated successfully');
-        } else {
-            console.error('Could not find sidebar list element');
-        }
-        
-    } catch (error) {
-        console.error('Error loading facts:', error);
-        
-        // Fallback facts if JSON fails
-        const fallbackFacts = [
-            "...that the mod adds elemental mobs to complete the set with Blaze and Breeze?",
-            "...that Steel weapons are stronger than Iron but weaker than Diamond?",
-            "...that Ancient Ruins generate deep underground in caves?"
-        ];
-        
-        const factsList = document.querySelector('.sidebar-section .sidebar-list');
-        if (factsList) {
-            factsList.innerHTML = fallbackFacts.map(fact => `<li>${fact}</li>`).join('');
-        }
-    }
-}
-
-// MAIN INITIALIZATION
-function initializeDynamicContent() {
-    console.log('Initializing dynamic content...');
-    
-    // Choose your preferred method:
-    
-    // Option 1: Manual (most reliable)
-    updateCountersManual();
-    
-    // Option 2: Try GitHub API with manual fallback
-    // updateCountersGitHub();
-    
-    // Option 3: Use JSON file
-    // updateCountersFromJSON();
-    
-    // Always try to load facts
-    loadRandomFacts();
-}
-
-// Initialize when page loads
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeDynamicContent);
-} else {
-    initializeDynamicContent();
-}
-
-// Manual refresh for testing
-window.refreshContent = function() {
-    console.log('Refreshing content...');
-    updateCountersManual();
-    loadRandomFacts();
-};
     </script>
 </body>
 </html>
