@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Structures</title>
+    <link rel="icon" type="image/x-icon" href="wiki_favicon.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('assets/font/minecraft.woff2') format('woff2'),
+                 url('assets/font/minecraft.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+    font-family: 'Minecraft Ten';
+    src: url('assets/fonts/minecraft.woff2') format('woff2'),
+         url('assets/fonts/minecraft.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+        
+        * {
+            box-sizing: border-box;
+        }
+		
+		img {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+        
+        body {
+            background: url('assets/wiki/background.png');
+            background-color: #2d2d2d;
+            background-repeat: repeat;
+            background-position: top left;
+            font-family: 'Nunito', 'Inter', sans-serif;
+            color: #e6e6e6;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: rgba(45, 45, 45, 0.9);
+            border-bottom: 3px solid #4a4a4a;
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+		position: static;
+        }
+        
+        .header-content {
+            max-width: 95vw;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            gap: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 15px;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 10px;
+                gap: 8px;
+            }
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                height: 50px;
+            }
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                margin: 0 10px;
+                max-width: none;
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-container {
+                margin: 0 5px;
+                min-width: 0;
+            }
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 8px 12px;
+            background: #3a3a3a;
+            border: none;
+            color: #e6e6e6;
+            font-size: 14px;
+            font-family: 'Nunito', sans-serif;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 480px) {
+            .search-box {
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+        }
+
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #31353e;
+            border: 2px solid #202125;
+            border-top: none;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
+        }
+
+        @media (max-width: 768px) {
+            .search-suggestions {
+                max-height: 250px;
+                left: -2px;
+                right: -2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-suggestions {
+                max-height: 200px;
+                border-radius: 0 0 4px 4px;
+            }
+        }
+
+        .search-suggestion {
+            padding: 10px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #3a3a3a;
+            color: #cccccc;
+            min-height: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+            .search-suggestion {
+                padding: 12px 15px;
+                min-height: 50px;
+            }
+        }
+
+        .search-suggestion:hover {
+            background: #4f5a75;
+        }
+
+        @media (hover: none) {
+            .search-suggestion:hover {
+                background: transparent;
+            }
+            .search-suggestion:active {
+                background: #4f5a75;
+            }
+            .search-suggestion:active .suggestion-title {
+                color: #0ea394;
+            }
+        }
+
+        .search-suggestion:hover .suggestion-title {
+            color: #0ea394;
+        }
+
+        .search-suggestion:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-category {
+            font-size: 12px;
+            color: #0ea394;
+            font-family: 'Minecraft Ten', 'Inter', sans-serif;
+            font-weight: normal;
+        }
+
+        .suggestion-title {
+            font-size: 14px;
+            margin-top: 2px;
+            font-family: 'Nunito', sans-serif;
+            color: #cccccc;
+        }
+
+        @media (max-width: 480px) {
+            .suggestion-category {
+                font-size: 11px;
+            }
+            .suggestion-title {
+                font-size: 15px;
+                margin-top: 3px;
+            }
+        }
+
+        .search-suggestions::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-suggestions::-webkit-scrollbar-track {
+            background: #2e313a;
+        }
+
+        .search-suggestions::-webkit-scrollbar-thumb {
+            background: #4f5a75;
+            border-radius: 4px;
+        }
+
+        .search-suggestions::-webkit-scrollbar-thumb:hover {
+            background: #5a6580;
+        }
+
+        .search-suggestions {
+            scrollbar-width: thin;
+            scrollbar-color: #4f5a75 #2e313a;
+        }
+
+        .nav-tabs {
+            background: rgba(51, 51, 51, 0.9);
+            border-bottom: 2px solid #4a4a4a;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav-content {
+            max-width: 95vw;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 20px;
+            min-width: max-content;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-content {
+                padding: 0 10px;
+            }
+        }
+        
+        .nav-tab {
+            padding: 8px 70px;
+            background: #0ea394;
+            border: 2px solid #17584e;
+            border-bottom: none;
+            margin-right: 2px;
+            cursor: pointer;
+            font-size: 12px;
+            color: white;
+            font-family: 'Minecraft Ten', 'Inter', sans-serif;
+            font-weight: 600;
+            text-shadow: 2px 2px 0px rgba(23,88,78,0.8);
+            box-shadow: 
+                inset 2px 2px 0 #20cfbe,
+                inset -2px -2px 0 #18baaa;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-tab {
+                padding: 8px 40px;
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-tab {
+                padding: 8px 25px;
+                font-size: 10px;
+            }
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: #2b2f39;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 0px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 20px 15px;
+                padding: 25px 20px;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-container {
+                margin: 15px 10px;
+                padding: 20px 15px;
+            }
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        .toc {
+            background: #31353e;
+            border: 2px solid #202125;
+            padding: 15px;
+            font-family: 'Nunito', sans-serif;
+            width: 300px;
+            flex-shrink: 0;
+            align-self: flex-start;
+            position: sticky;
+            top: 120px;
+            box-shadow: 
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
+        }
+        
+        @media (max-width: 768px) {
+            .toc {
+                width: 100%;
+                position: static;
+                margin-bottom: 25px;
+            }
+        }
+        
+        .toc h2 {
+            font-size: 16px;
+            color: #0ea394;
+            margin-bottom: 10px;
+            margin-top: 0;
+            font-family: 'Minecraft Ten', 'Nunito', sans-serif;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 5px;
+        }
+        
+        .toc a {
+            color: #cccccc;
+            text-decoration: none;
+            display: block;
+            padding: 5px 8px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+        
+        .toc a:hover {
+            color: #0ea394;
+            background: rgba(14, 163, 148, 0.1);
+        }
+        
+        @media (hover: none) {
+            .toc a:hover {
+                background: transparent;
+            }
+            .toc a:active {
+                background: rgba(14, 163, 148, 0.1);
+            }
+        }
+        
+        .content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .page-title, .main-header {
+            font-family: 'Minecraft Ten', 'Nunito', sans-serif;
+            color: #0ea394;
+            word-wrap: break-word;
+        }
+        
+        .page-title {
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            margin-top: 0;
+			border-bottom: 2px solid #4a4a4a;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+				border-bottom: 2px solid #4a4a4a;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+				border-bottom: 2px solid #4a4a4a;
+            }
+        }
+        
+        .main-header {
+            font-size: 1.1rem;
+            margin: 30px 0 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-header {
+                font-size: 1.1rem;
+                margin: 25px 0 12px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-header {
+                font-size: 1.1rem;
+                margin: 20px 0 10px 0;
+            }
+        }
+        
+        .content-section {
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                margin-bottom: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-section {
+                margin-bottom: 20px;
+            }
+        }
+        
+        .mini-header {
+            font-size: 18px;
+            color: #20cfbe;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 480px) {
+            .mini-header {
+                font-size: 16px;
+                margin: 15px 0 8px 0;
+            }
+        }
+        
+        .structure-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+            justify-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .structure-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .structure-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 12px;
+            }
+        }
+        
+        .structure-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #cccccc;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .structure-item:hover {
+            color: #0ea394;
+            background: rgba(14, 163, 148, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        @media (hover: none) {
+            .structure-item:hover {
+                background: transparent;
+                transform: none;
+            }
+            .structure-item:active {
+                background: rgba(14, 163, 148, 0.1);
+                color: #0ea394;
+            }
+        }
+        
+        .structure-face {
+            width: 96px;
+            height: 96px;
+            border: 2px solid #4a4a4a;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            background: #31353e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .structure-face {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .structure-face {
+                width: 72px;
+                height: 72px;
+            }
+        }
+        
+        .structure-face img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .structure-name {
+            font-size: 14px;
+            text-align: center;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 500;
+            word-wrap: break-word;
+            max-width: 100%;
+        }
+        
+        @media (max-width: 480px) {
+            .structure-name {
+                font-size: 12px;
+            }
+        }
+
+        .history-timeline {
+            background: #31353e;
+            border: 2px solid #202125;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
+        }
+        
+        @media (max-width: 480px) {
+            .history-timeline {
+                padding: 15px;
+            }
+        }
+        
+        .history-title {
+            font-size: 1.1rem;
+            color: #0ea394;
+            margin-bottom: 15px;
+            margin-top: 0;
+            font-family: 'Minecraft Ten', 'Nunito', sans-serif;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 480px) {
+            .timeline-item {
+                gap: 10px;
+            }
+        }
+        
+        .timeline-marker {
+            width: 4px;
+            height: 100%;
+            min-height: 20px;
+            background: #0ea394;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-version {
+            font-size: 16px;
+            color: #20cfbe;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 480px) {
+            .timeline-version {
+                font-size: 15px;
+            }
+        }
+        
+        .timeline-description {
+            color: #cccccc;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 480px) {
+            .timeline-description {
+                font-size: 13px;
+            }
+        }
+        
+        p {
+            margin: 0 0 15px 0;
+            word-wrap: break-word;
+        }
+        
+        @media (max-width: 480px) {
+            p {
+                margin: 0 0 12px 0;
+            }
+        }
+        
+        strong {
+            color: #20cfbe;
+        }
+        
+        .nav-tabs::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-track {
+            background: rgba(51, 51, 51, 0.5);
+        }
+        
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: #0ea394;
+            border-radius: 3px;
+        }
+        
+        .nav-tabs::-webkit-scrollbar-thumb:hover {
+            background: #20cfbe;
+        }
+        
+        .nav-tabs {
+            scrollbar-width: thin;
+            scrollbar-color: #0ea394 rgba(51, 51, 51, 0.5);
+        }
+        
+        .nav-tab:focus,
+        .toc a:focus,
+        .search-box:focus,
+        .search-suggestion:focus {
+            outline: 2px solid #0ea394;
+            outline-offset: 2px;
+        }
+        
+        @media print {
+            .header,
+            .nav-tabs,
+            .search-container {
+                display: none;
+            }
+            
+            .main-container {
+                margin: 0;
+                padding: 20px;
+                box-shadow: none;
+                background: white;
+                color: black;
+            }
+            
+            .toc {
+                position: static;
+                page-break-inside: avoid;
+            }
+        }
+
+        html {
+            scroll-padding-top: 20px;
+        }
+	   h1, h2,
+.page-title,
+.main-header,
+.category-name,
+.version-item-name,
+.versions-header-text,
+.creator-name,
+.wiki-button-name {
+    font-family: 'Minecraft Ten', 'Inter', sans-serif !important;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    margin: 10px 0;
+  }
+}	    
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="https://earth-and-water.github.io">
+                    <img src="assets/wiki/earth_water_wiki.png" alt="Earth & Water Wiki">
+                </a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search Earth & Water Wiki" id="searchInput" autocomplete="off">
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="toc">
+                <h2>Contents</h2>
+                <ul>
+                    <li><a href="#earth-structures">Earth Structures</a></li>
+                    <li><a href="#water-structures">Water Structures</a></li>
+                    <li><a href="#history">History</a></li>
+                </ul>
+            </div>
+            
+            <div class="content">
+                <h1 class="page-title">Structures</h1>
+
+                <p>
+                    <strong>Earth & Water</strong> adds new structures to explore, each containing unique challenges and loot tied to their element.
+                </p>
+
+                <div class="content-section">
+                    <h2 id="earth-structures" class="main-header">Earth Structures</h2>
+                    <div class="structure-gallery">
+                        <a href="structures/ancient_ruins.html" class="structure-item">
+                            <div class="structure-face">
+                                <img src="assets/structures/ancient_ruins_face.png" alt="Ancient Ruins">
+                            </div>
+                            <div class="structure-name">Ancient Ruins</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 id="water-structures" class="main-header">Water Structures</h2>
+                    <div class="structure-gallery">
+                        <a href="structures/conduit_monument.html" class="structure-item">
+                            <div class="structure-face">
+                                <img src="assets/structures/conduit_monument_face.png" alt="Conduit Monument">
+                            </div>
+                            <div class="structure-name">Conduit Monument</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 id="history" class="main-header">History</h2>
+                    <div class="history-timeline">
+                        <div class="history-title">Timeline</div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-version">Version 1.0.0</div>
+                                <div class="timeline-description">
+                                    Added Ancient Ruins and Conduit Monument
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchData = {
+            'Mobs': [
+                { title: 'Mob', page: 'mobs.html', category: 'Category' },
+                { title: 'Bore', page: 'mobs/bore.html', category: 'Mobs' },
+                { title: 'Brine', page: 'mobs/brine.html', category: 'Mobs' },
+                { title: 'Earth Charge', page: 'mobs/earth_charge.html', category: 'Mobs' },
+                { title: 'Water Charge', page: 'mobs/water_charge.html', category: 'Mobs' }
+            ],
+            'Blocks': [
+                { title: 'Block', page: 'blocks.html', category: 'Category' },
+                { title: 'Dripstone Stairs', page: 'blocks/dripstone_stairs.html', category: 'Blocks' },
+                { title: 'Dripstone Slab', page: 'blocks/dripstone_slab.html', category: 'Blocks' },
+                { title: 'Dripstone Wall', page: 'blocks/dripstone_wall.html', category: 'Blocks' },
+                { title: 'Dripstone Bricks', page: 'blocks/dripstone_bricks.html', category: 'Blocks' },
+                { title: 'Dripstone Brick Stairs', page: 'blocks/dripstone_brick_stairs.html', category: 'Blocks' },
+                { title: 'Dripstone Brick Slab', page: 'blocks/dripstone_brick_slab.html', category: 'Blocks' },
+                { title: 'Dripstone Brick Wall', page: 'blocks/dripstone_brick_wall.html', category: 'Blocks' },
+                { title: 'Polished Dripstone', page: 'blocks/polished_dripstone.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Stairs', page: 'blocks/polished_dripstone_stairs.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Slab', page: 'blocks/polished_dripstone_slab.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Wall', page: 'blocks/polished_dripstone_wall.html', category: 'Blocks' },
+                { title: 'Polished Dripstone Tiles', page: 'blocks/polished_dripstone_tiles.html', category: 'Blocks' },
+                { title: 'Dripstone Pillar', page: 'blocks/dripstone_pillar.html', category: 'Blocks' },
+                { title: 'Chiseled Dripstone Bricks', page: 'blocks/chiseled_dripstone_bricks.html', category: 'Blocks' },
+                
+                { title: 'Dark Dripstone Block', page: 'blocks/dark_dripstone_block.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Stairs', page: 'blocks/dark_dripstone_stairs.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Slab', page: 'blocks/dark_dripstone_slab.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Wall', page: 'blocks/dark_dripstone_wall.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Bricks', page: 'blocks/dark_dripstone_bricks.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Brick Stairs', page: 'blocks/dark_dripstone_brick_stairs.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Brick Slab', page: 'blocks/dark_dripstone_brick_slab.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Brick Wall', page: 'blocks/dark_dripstone_brick_wall.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone', page: 'blocks/polished_dark_dripstone.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone Stairs', page: 'blocks/polished_dark_dripstone_stairs.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone Slab', page: 'blocks/polished_dark_dripstone_slab.html', category: 'Blocks' },
+                { title: 'Polished Dark Dripstone Wall', page: 'blocks/polished_dark_dripstone_wall.html', category: 'Blocks' },
+                { title: 'Dark Dripstone Pillar', page: 'blocks/dark_dripstone_pillar.html', category: 'Blocks' },
+                { title: 'Pointed Dark Dripstone', page: 'blocks/pointed_dark_dripstone.html', category: 'Blocks' },
+                
+                { title: 'Dark Prismarine Pillar', page: 'blocks/dark_prismarine_pillar.html', category: 'Blocks' },
+                { title: 'Dark Prismarine Wall', page: 'blocks/dark_prismarine_wall.html', category: 'Blocks' },
+                { title: 'Chiseled Prismarine Bricks', page: 'blocks/chiseled_prismarine_bricks.html', category: 'Blocks' },
+                { title: 'Prismarine Pillar', page: 'blocks/prismarine_pillar.html', category: 'Blocks' },
+                { title: 'Prismarine Tiles', page: 'blocks/prismarine_tiles.html', category: 'Blocks' },
+                { title: 'Prismarine Tile Stairs', page: 'blocks/prismarine_tile_stairs.html', category: 'Blocks' },
+                { title: 'Prismarine Tile Slab', page: 'blocks/prismarine_tile_slab.html', category: 'Blocks' },
+                { title: 'Prismarine Tile Wall', page: 'blocks/prismarine_tile_wall.html', category: 'Blocks' },
+                { title: 'Mixed Prismarine Tiles', page: 'blocks/mixed_prismarine_tiles.html', category: 'Blocks' },
+                { title: 'Chiseled Dark Prismarine', page: 'blocks/chiseled_dark_prismarine.html', category: 'Blocks' },
+                
+                { title: 'Steel Block', page: 'blocks/steel_block.html', category: 'Blocks' },
+                { title: 'Oxygen Block', page: 'blocks/oxygen_block.html', category: 'Blocks' },
+                { title: 'Reinforced Spawner', page: 'blocks/reinforced_spawner.html', category: 'Blocks' }
+            ],
+            'Items': [
+                { title: 'Item', page: 'items.html', category: 'Category' },
+                { title: 'Bore Rod', page: 'items/bore_rod.html', category: 'Items' },
+                { title: 'Brine Rod', page: 'items/brine_rod.html', category: 'Items' },
+                { title: 'Reinforced Key', page: 'items/reinforced_key.html', category: 'Items' },
+                { title: 'Steel Ingot', page: 'items/steel_ingot.html', category: 'Items' },
+                { title: 'Steel Nugget', page: 'items/steel_nugget.html', category: 'Items' },
+                { title: 'Spiked Shield', page: 'items/spiked_shield.html', category: 'Items' }
+            ],
+            'Weapons': [
+                { title: 'Whip', page: 'items/whip.html', category: 'Weapons' },
+                { title: 'Battle Axe', page: 'items/battle_axe.html', category: 'Weapons' }
+            ],
+            'Biomes': [
+                { title: 'Biome', page: 'biomes.html', category: 'Category' },
+                { title: 'Dark Dripstone Cave', page: 'biomes/dark_dripstone_cave.html', category: 'Biomes' }
+            ],
+            'Effects': [
+                { title: 'Effect', page: 'effects.html', category: 'Category' },
+                { title: 'Stun', page: 'effects.html#stun', category: 'Effects' },
+                { title: 'Breath Giving', page: 'effects.html#breath-giving', category: 'Effects' }
+            ],
+            'Smithing': [
+                { title: 'Smithing', page: 'smithing.html', category: 'Category' },
+                { title: 'Steel Upgrade', page: 'smithing.html#spiked-shield', category: 'Smithing' },
+                { title: 'Block Smithing Template', page: 'smithing.html#block-template', category: 'Smithing' },
+                { title: 'Guard Smithing Template', page: 'smithing.html#guard-template', category: 'Smithing' }
+            ],
+            'Structures': [
+                { title: 'Structure', page: 'structures.html', category: 'Structures' },
+                { title: 'Conduit Monument', page: 'structures/conduit_monument.html', category: 'Structures' },
+                { title: 'Ancient Ruins', page: 'structures/ancient_ruins.html', category: 'Structures' }
+            ],
+            'History': [
+                { title: 'History', page: 'history.html', category: 'Category' },
+                { title: 'Andesite Bricks', page: 'history.html#scrapped', category: 'History' },
+                { title: 'Diorite Bricks', page: 'history.html#scrapped', category: 'History' },
+                { title: 'Granite Bricks', page: 'history.html#scrapped', category: 'History' },
+                { title: 'Spear', page: 'history.html#scrapped', category: 'History' },
+                { title: 'Steel Helmet', page: 'history.html#scrapped', category: 'History' },
+                { title: 'Weakened Trident', page: 'history.html#scrapped', category: 'History' },
+                { title: 'Shockwave', page: 'history.html#scrapped', category: 'History' },
+                { title: 'Bubble Vortex', page: 'history.html#scrapped', category: 'History' }
+            ],
+            'Advancements': [
+                { title: 'Advancement', page: 'advancements.html', category: 'Category' },
+                { title: 'Mob Lock', page: 'advancements/mob_lock.html', category: 'Advancements' },
+                { title: 'Long AgoÃÃÂ¢ÃÃÂ¦', page: 'advancements/long_ago.html', category: 'Advancements' },
+                { title: 'Boreing', page: 'advancements/boreing.html', category: 'Advancements' },
+                { title: 'Atlantean Eye', page: 'advancements/atlantean_eye.html', category: 'Advancements' },
+                { title: 'Stalactite Sanctum', page: 'advancements/stalactite_sanctum.html', category: 'Advancements' }
+            ],
+            'Paintings': [
+                { title: 'Painting', page: 'paintings.html', category: 'Category' },
+                { title: 'Ruins', page: 'paintings/ruins.html', category: 'Paintings' }
+            ]
+        };
+
+        const allSearchItems = Object.values(searchData).flat();
+
+        const searchInput = document.getElementById('searchInput');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            
+            if (query.length === 0) {
+                searchSuggestions.style.display = 'none';
+                return;
+            }
+
+            const matches = allSearchItems.filter(item => 
+                item.title.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query)
+            ).slice(0, 8);
+
+            if (matches.length > 0) {
+                searchSuggestions.innerHTML = matches.map(item => `
+                    <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
+                        <div class="suggestion-category">${item.category}</div>
+                        <div class="suggestion-title">${item.title}</div>
+                    </div>
+                `).join('');
+                searchSuggestions.style.display = 'block';
+            } else {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase().trim();
+                const firstMatch = allSearchItems.find(item => 
+                    item.title.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query)
+                );
+                if (firstMatch) {
+                    navigateToPage(firstMatch.page);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
