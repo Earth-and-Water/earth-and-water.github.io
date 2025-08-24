@@ -899,7 +899,7 @@ let allSearchItems = [];
 
 async function loadSearchData() {
     try {
-        const response = await fetch('search-data.json');
+        const response = await fetch('search-data.js');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -979,3 +979,4 @@ document.addEventListener('DOMContentLoaded', async function() {
     </script>
 </body>
 </html>
+
