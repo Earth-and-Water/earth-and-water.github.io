@@ -894,26 +894,7 @@ html {
     </div>
 
    <script>
-        let searchData = {};
-let allSearchItems = [];
-
-async function loadSearchData() {
-    try {
-        const response = await fetch('search-data.js');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        searchData = await response.json();
-        allSearchItems = Object.values(searchData).flat();
-        console.log('Search data loaded successfully');
-    } catch (error) {
-        console.error('Error loading search data:', error);
-        searchData = {};
-        allSearchItems = [];
-    }
-}
-
-function initializeSearch() {
+        function initializeSearch() {
     const searchInput = document.getElementById('searchInput');
     const searchSuggestions = document.getElementById('searchSuggestions');
 
@@ -923,17 +904,15 @@ function initializeSearch() {
     }
 
     searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-        
+        const query = this.value.trim();
+
         if (query.length === 0) {
             searchSuggestions.style.display = 'none';
             return;
         }
 
-        const matches = allSearchItems.filter(item => 
-            item.title.toLowerCase().includes(query) ||
-            item.category.toLowerCase().includes(query)
-        ).slice(0, 8);
+        // Use the search function from search-data.js
+        const matches = performSearch(query);
 
         if (matches.length > 0) {
             searchSuggestions.innerHTML = matches.map(item => `
@@ -956,13 +935,10 @@ function initializeSearch() {
 
     searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            const query = this.value.toLowerCase().trim();
-            const firstMatch = allSearchItems.find(item => 
-                item.title.toLowerCase().includes(query) ||
-                item.category.toLowerCase().includes(query)
-            );
-            if (firstMatch) {
-                navigateToPage(firstMatch.page);
+            const query = this.value.trim();
+            const matches = performSearch(query);
+            if (matches.length > 0) {
+                navigateToPage(matches[0].page);
             }
         }
     });
@@ -972,11 +948,10 @@ function navigateToPage(page) {
     window.location.href = page;
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
-    await loadSearchData();
-    initializeSearch();
-});
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeSearch);
     </script>
 </body>
 </html>
+
 
