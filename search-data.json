@@ -8,6 +8,7 @@
     ],
     "Blocks": [
         { "title": "Block", "page": "blocks.html", "category": "Category" },
+        { "title": "TEST", "page": "blocks.html", "category": "Category" },
         { "title": "Dripstone Stairs", "page": "blocks/dripstone_stairs.html", "category": "Blocks" },
         { "title": "Dripstone Slab", "page": "blocks/dripstone_slab.html", "category": "Blocks" },
         { "title": "Dripstone Wall", "page": "blocks/dripstone_wall.html", "category": "Blocks" },
