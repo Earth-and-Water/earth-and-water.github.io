@@ -8,6 +8,7 @@ var SEARCH_DATA = [
     
     // Blocks
     { id: 'block', title: 'Block', url: 'blocks.html', category: 'Category' },
+    { id: 'test', title: 'TEST', url: 'blocks.html', category: 'Category' },
     { id: 'dripstone_stairs', title: 'Dripstone Stairs', url: 'blocks/dripstone_stairs.html', category: 'Blocks' },
     { id: 'dripstone_slab', title: 'Dripstone Slab', url: 'blocks/dripstone_slab.html', category: 'Blocks' },
     { id: 'dripstone_wall', title: 'Dripstone Wall', url: 'blocks/dripstone_wall.html', category: 'Blocks' },
