@@ -1,5 +1,4 @@
-
-window.searchData = {
+const searchData = {
     'Mobs': [
         { title: 'Mob', page: 'mobs.html', category: 'Category' },
         { title: 'Bore', page: 'mobs/bore.html', category: 'Mobs' },
@@ -110,3 +109,68 @@ window.searchData = {
         { title: 'Ruins', page: 'paintings/ruins.html', category: 'Paintings' }
     ]
 };
+// Create flattened array for easier searching  
+const allSearchItems = Object.values(searchData).flat();
+
+// Enhanced search function with better matching
+function performSearch(query) {
+    if (!query || query.length === 0) {
+        return [];
+    }
+    
+    const lowerQuery = query.toLowerCase().trim();
+    const words = lowerQuery.split(/\s+/);
+    
+    return window.allSearchItems
+        .map(item => {
+            let score = 0;
+            const titleLower = item.title.toLowerCase();
+            const categoryLower = item.category.toLowerCase();
+            const keywordsLower = (item.keywords || []).map(k => k.toLowerCase());
+            
+            // Exact title match (highest priority)
+            if (titleLower === lowerQuery) {
+                score += 100;
+            }
+            // Title starts with query
+            else if (titleLower.startsWith(lowerQuery)) {
+                score += 80;
+            }
+            // Title contains full query
+            else if (titleLower.includes(lowerQuery)) {
+                score += 60;
+            }
+            
+            // Category matches
+            if (categoryLower === lowerQuery) {
+                score += 50;
+            } else if (categoryLower.includes(lowerQuery)) {
+                score += 30;
+            }
+            
+            // Keyword matches
+            keywordsLower.forEach(keyword => {
+                if (keyword === lowerQuery) {
+                    score += 40;
+                } else if (keyword.includes(lowerQuery)) {
+                    score += 20;
+                }
+            });
+            
+            // Multi-word query support
+            if (words.length > 1) {
+                words.forEach(word => {
+                    if (titleLower.includes(word)) score += 10;
+                    if (categoryLower.includes(word)) score += 5;
+                    keywordsLower.forEach(keyword => {
+                        if (keyword.includes(word)) score += 5;
+                    });
+                });
+            }
+            
+            return score > 0 ? { ...item, score } : null;
+        })
+        .filter(item => item !== null)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 8);
+}
