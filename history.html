@@ -903,6 +903,12 @@ html {
         return;
     }
 
+    // Check if search data is available
+    if (typeof searchData === 'undefined') {
+        console.error('Search data not loaded');
+        return;
+    }
+
     searchInput.addEventListener('input', function() {
         const query = this.value.trim();
 
@@ -953,5 +959,6 @@ document.addEventListener('DOMContentLoaded', initializeSearch);
     </script>
 </body>
 </html>
+
 
 
