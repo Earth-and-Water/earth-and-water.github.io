@@ -1,4 +1,4 @@
-const searchData = {
+var searchData = {
     'Mobs': [
         { title: 'Mob', page: 'mobs.html', category: 'Category' },
         { title: 'Bore', page: 'mobs/bore.html', category: 'Mobs' },
@@ -99,7 +99,7 @@ const searchData = {
     'Advancements': [
         { title: 'Advancement', page: 'advancements.html', category: 'Category' },
         { title: 'Mob Lock', page: 'advancements/mob_lock.html', category: 'Advancements' },
-        { title: 'Long Ago…', page: 'advancements/long_ago.html', category: 'Advancements' },
+        { title: 'Long Agoâ€¦', page: 'advancements/long_ago.html', category: 'Advancements' },
         { title: 'Boreing', page: 'advancements/boreing.html', category: 'Advancements' },
         { title: 'Atlantean Eye', page: 'advancements/atlantean_eye.html', category: 'Advancements' },
         { title: 'Stalactite Sanctum', page: 'advancements/stalactite_sanctum.html', category: 'Advancements' }
@@ -109,8 +109,9 @@ const searchData = {
         { title: 'Ruins', page: 'paintings/ruins.html', category: 'Paintings' }
     ]
 };
+
 // Create flattened array for easier searching  
-const allSearchItems = Object.values(searchData).flat();
+var allSearchItems = Object.values(searchData).flat();
 
 // Enhanced search function with better matching
 function performSearch(query) {
@@ -118,59 +119,46 @@ function performSearch(query) {
         return [];
     }
     
-    const lowerQuery = query.toLowerCase().trim();
-    const words = lowerQuery.split(/\s+/);
+    var lowerQuery = query.toLowerCase().trim();
+    var words = lowerQuery.split(/\s+/);
     
-    return window.allSearchItems
-        .map(item => {
-            let score = 0;
-            const titleLower = item.title.toLowerCase();
-            const categoryLower = item.category.toLowerCase();
-            const keywordsLower = (item.keywords || []).map(k => k.toLowerCase());
+    return allSearchItems
+        .map(function(item) {
+            var score = 0;
+            var titleLower = item.title.toLowerCase();
+            var categoryLower = item.category.toLowerCase();
             
             // Exact title match (highest priority)
             if (titleLower === lowerQuery) {
                 score += 100;
             }
             // Title starts with query
-            else if (titleLower.startsWith(lowerQuery)) {
+            else if (titleLower.indexOf(lowerQuery) === 0) {
                 score += 80;
             }
             // Title contains full query
-            else if (titleLower.includes(lowerQuery)) {
+            else if (titleLower.indexOf(lowerQuery) !== -1) {
                 score += 60;
             }
             
             // Category matches
             if (categoryLower === lowerQuery) {
                 score += 50;
-            } else if (categoryLower.includes(lowerQuery)) {
+            } else if (categoryLower.indexOf(lowerQuery) !== -1) {
                 score += 30;
             }
             
-            // Keyword matches
-            keywordsLower.forEach(keyword => {
-                if (keyword === lowerQuery) {
-                    score += 40;
-                } else if (keyword.includes(lowerQuery)) {
-                    score += 20;
-                }
-            });
-            
             // Multi-word query support
             if (words.length > 1) {
-                words.forEach(word => {
-                    if (titleLower.includes(word)) score += 10;
-                    if (categoryLower.includes(word)) score += 5;
-                    keywordsLower.forEach(keyword => {
-                        if (keyword.includes(word)) score += 5;
-                    });
+                words.forEach(function(word) {
+                    if (titleLower.indexOf(word) !== -1) score += 10;
+                    if (categoryLower.indexOf(word) !== -1) score += 5;
                 });
             }
             
-            return score > 0 ? { ...item, score } : null;
+            return score > 0 ? Object.assign({}, item, {score: score}) : null;
         })
-        .filter(item => item !== null)
-        .sort((a, b) => b.score - a.score)
+        .filter(function(item) { return item !== null; })
+        .sort(function(a, b) { return b.score - a.score; })
         .slice(0, 8);
 }
