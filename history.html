@@ -893,11 +893,10 @@ html {
         </div>
     </div>
 
-    <script>
+   <script>
         let searchData = {};
 let allSearchItems = [];
 
-// Load search data from JSON file
 async function loadSearchData() {
     try {
         const response = await fetch('search-data.json');
@@ -909,13 +908,11 @@ async function loadSearchData() {
         console.log('Search data loaded successfully');
     } catch (error) {
         console.error('Error loading search data:', error);
-        // Fallback: you could put a minimal search data here if needed
         searchData = {};
         allSearchItems = [];
     }
 }
 
-// Initialize search functionality
 function initializeSearch() {
     const searchInput = document.getElementById('searchInput');
     const searchSuggestions = document.getElementById('searchSuggestions');
@@ -951,14 +948,12 @@ function initializeSearch() {
         }
     });
 
-    // Hide suggestions when clicking outside
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.search-container')) {
             searchSuggestions.style.display = 'none';
         }
     });
 
-    // Handle Enter key
     searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
             const query = this.value.toLowerCase().trim();
@@ -973,12 +968,10 @@ function initializeSearch() {
     });
 }
 
-// Navigation function
 function navigateToPage(page) {
     window.location.href = page;
 }
 
-// Load search data when the DOM is ready
 document.addEventListener('DOMContentLoaded', async function() {
     await loadSearchData();
     initializeSearch();
@@ -986,4 +979,3 @@ document.addEventListener('DOMContentLoaded', async function() {
     </script>
 </body>
 </html>
-
