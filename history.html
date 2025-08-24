@@ -894,92 +894,69 @@ html {
     </div>
 <script src="search-data.js"></script>
    <script>
-       function initializeSearch() {
-    var searchInput = document.getElementById('searchInput');
-    var searchSuggestions = document.getElementById('searchSuggestions');
+        function initializeSearch() {
+            var searchInput = document.getElementById('searchInput');
+            var searchSuggestions = document.getElementById('searchSuggestions');
 
-    if (!searchInput || !searchSuggestions) {
-        console.error('Search elements not found');
-        return;
-    }
+            if (!searchInput || !searchSuggestions) return;
 
-    // Check if search data is available (use setTimeout to ensure script loads)
-    setTimeout(function() {
-        if (typeof searchData === 'undefined') {
-            console.error('Search data still not loaded after delay');
-            return;
-        }
-        console.log('Search data loaded successfully');
-    }, 100);
-
-    searchInput.addEventListener('input', function() {
-        var query = this.value.trim();
-
-        if (query.length === 0) {
-            searchSuggestions.style.display = 'none';
-            return;
-        }
-
-        // Check if functions are available
-        if (typeof performSearch !== 'function') {
-            console.error('performSearch function not found');
-            return;
-        }
-
-        var matches = performSearch(query);
-
-        if (matches.length > 0) {
-            searchSuggestions.innerHTML = matches.map(function(item) {
-                return '<div class="search-suggestion" onclick="navigateToPage(\'' + item.page + '\')">' +
-                       '<div class="suggestion-category">' + item.category + '</div>' +
-                       '<div class="suggestion-title">' + item.title + '</div>' +
-                       '</div>';
-            }).join('');
-            searchSuggestions.style.display = 'block';
-        } else {
-            searchSuggestions.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.search-container')) {
-            searchSuggestions.style.display = 'none';
-        }
-    });
-
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            var query = this.value.trim();
-            if (typeof performSearch === 'function') {
-                var matches = performSearch(query);
-                if (matches.length > 0) {
-                    navigateToPage(matches[0].page);
+            function waitForSearchData(callback) {
+                if (window.searchDataReady && window.performSearch) {
+                    callback();
+                } else {
+                    setTimeout(function() { waitForSearchData(callback); }, 50);
                 }
             }
+
+            waitForSearchData(function() {
+                searchInput.addEventListener('input', function() {
+                    var query = this.value.trim();
+                    if (query.length === 0) {
+                        searchSuggestions.style.display = 'none';
+                        return;
+                    }
+
+                    var matches = window.performSearch(query);
+                    if (matches.length > 0) {
+                        searchSuggestions.innerHTML = matches.map(function(item) {
+                            return '<div class="search-suggestion" onclick="navigateToPage(\'' + item.page + '\')">' +
+                                   '<div class="suggestion-category">' + item.category + '</div>' +
+                                   '<div class="suggestion-title">' + item.title + '</div></div>';
+                        }).join('');
+                        searchSuggestions.style.display = 'block';
+                    } else {
+                        searchSuggestions.style.display = 'none';
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.search-container')) {
+                        searchSuggestions.style.display = 'none';
+                    }
+                });
+
+                searchInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        var matches = window.performSearch(this.value.trim());
+                        if (matches.length > 0) navigateToPage(matches[0].page);
+                    }
+                });
+            });
         }
-    });
-}
 
-function navigateToPage(page) {
-    window.location.href = page;
-}
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
 
-// Multiple ways to ensure initialization
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeSearch);
-} else {
-    initializeSearch();
-}
-
-// Also try with window load as backup
-window.addEventListener('load', function() {
-    if (typeof searchData !== 'undefined') {
-        console.log('Search data confirmed loaded on window load');
-    }
-});
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeSearch);
+        } else {
+            initializeSearch();
+        }
     </script>
 </body>
 </html>
+
 
 
 
