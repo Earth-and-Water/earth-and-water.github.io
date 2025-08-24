@@ -892,62 +892,91 @@ html {
             </div>
         </div>
     </div>
-<script src="search-data.js"></script>
-   <script>
-        // Standard static site search implementation
-        document.addEventListener('DOMContentLoaded', function() {
-            var searchInput = document.getElementById('searchInput');
-            var searchSuggestions = document.getElementById('searchSuggestions');
-            
-            if (!searchInput || !searchSuggestions) return;
-            
-            searchInput.addEventListener('input', function() {
-                var query = this.value.trim();
-                
-                if (query === '') {
-                    searchSuggestions.style.display = 'none';
-                    return;
-                }
-                
-                var results = searchSite(query);
-                
-                if (results.length > 0) {
-                    searchSuggestions.innerHTML = results.map(function(result) {
-                        return '<div class="search-suggestion" onclick="window.location.href=\'' + result.url + '\'">' +
-                               '<div class="suggestion-category">' + result.category + '</div>' +
-                               '<div class="suggestion-title">' + result.title + '</div>' +
-                               '</div>';
-                    }).join('');
-                    searchSuggestions.style.display = 'block';
-                } else {
-                    searchSuggestions.style.display = 'none';
-                }
-            });
-            
-            // Hide suggestions when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
-                    searchSuggestions.style.display = 'none';
-                }
-            });
-            
-            // Handle Enter key
-            searchInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    var results = searchSite(this.value.trim());
-                    if (results.length > 0) {
-                        window.location.href = results[0].url;
-                    }
-                }
-            });
-        });
+
+    <script>
+        let searchData = {};
+let allSearchItems = [];
+
+async function loadSearchData() {
+    try {
+        const response = await fetch('search-data.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        searchData = await response.json();
+        allSearchItems = Object.values(searchData).flat();
+        console.log('Search data loaded successfully');
+    } catch (error) {
+        console.error('Error loading search data:', error);
+        searchData = {};
+        allSearchItems = [];
+    }
+}
+
+function initializeSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchSuggestions = document.getElementById('searchSuggestions');
+
+    if (!searchInput || !searchSuggestions) {
+        console.error('Search elements not found');
+        return;
+    }
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        
+        if (query.length === 0) {
+            searchSuggestions.style.display = 'none';
+            return;
+        }
+
+        const matches = allSearchItems.filter(item => 
+            item.title.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query)
+        ).slice(0, 8);
+
+        if (matches.length > 0) {
+            searchSuggestions.innerHTML = matches.map(item => `
+                <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
+                    <div class="suggestion-category">${item.category}</div>
+                    <div class="suggestion-title">${item.title}</div>
+                </div>
+            `).join('');
+            searchSuggestions.style.display = 'block';
+        } else {
+            searchSuggestions.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container')) {
+            searchSuggestions.style.display = 'none';
+        }
+    });
+
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const query = this.value.toLowerCase().trim();
+            const firstMatch = allSearchItems.find(item => 
+                item.title.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query)
+            );
+            if (firstMatch) {
+                navigateToPage(firstMatch.page);
+            }
+        }
+    });
+}
+
+function navigateToPage(page) {
+    window.location.href = page;
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadSearchData();
+    initializeSearch();
+});
     </script>
 </body>
 </html>
-
-
-
-
-
-
 
