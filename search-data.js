@@ -2,6 +2,7 @@ var searchData = {
     'Mobs': [
         { title: 'Mob', page: 'mobs.html', category: 'Category' },
         { title: 'TEST', page: 'mobs.html', category: 'Category' },
+        { title: 'TES2T', page: 'mobs.html', category: 'Category' },
         { title: 'Bore', page: 'mobs/bore.html', category: 'Mobs' },
         { title: 'Brine', page: 'mobs/brine.html', category: 'Mobs' },
         { title: 'Earth Charge', page: 'mobs/earth_charge.html', category: 'Mobs' },
