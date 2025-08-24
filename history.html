@@ -894,39 +894,47 @@ html {
     </div>
 
    <script>
-        function initializeSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchSuggestions = document.getElementById('searchSuggestions');
+       function initializeSearch() {
+    var searchInput = document.getElementById('searchInput');
+    var searchSuggestions = document.getElementById('searchSuggestions');
 
     if (!searchInput || !searchSuggestions) {
         console.error('Search elements not found');
         return;
     }
 
-    // Check if search data is available
-    if (typeof searchData === 'undefined') {
-        console.error('Search data not loaded');
-        return;
-    }
+    // Check if search data is available (use setTimeout to ensure script loads)
+    setTimeout(function() {
+        if (typeof searchData === 'undefined') {
+            console.error('Search data still not loaded after delay');
+            return;
+        }
+        console.log('Search data loaded successfully');
+    }, 100);
 
     searchInput.addEventListener('input', function() {
-        const query = this.value.trim();
+        var query = this.value.trim();
 
         if (query.length === 0) {
             searchSuggestions.style.display = 'none';
             return;
         }
 
-        // Use the search function from search-data.js
-        const matches = performSearch(query);
+        // Check if functions are available
+        if (typeof performSearch !== 'function') {
+            console.error('performSearch function not found');
+            return;
+        }
+
+        var matches = performSearch(query);
 
         if (matches.length > 0) {
-            searchSuggestions.innerHTML = matches.map(item => `
-                <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
-                    <div class="suggestion-category">${item.category}</div>
-                    <div class="suggestion-title">${item.title}</div>
-                </div>
-            `).join('');
+            searchSuggestions.innerHTML = matches.map(function(item) {
+                return '<div class="search-suggestion" onclick="navigateToPage(\'' + item.page + '\')">' +
+                       '<div class="suggestion-category">' + item.category + '</div>' +
+                       '<div class="suggestion-title">' + item.title + '</div>' +
+                       '</div>';
+            }).join('');
             searchSuggestions.style.display = 'block';
         } else {
             searchSuggestions.style.display = 'none';
@@ -941,10 +949,12 @@ html {
 
     searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            const query = this.value.trim();
-            const matches = performSearch(query);
-            if (matches.length > 0) {
-                navigateToPage(matches[0].page);
+            var query = this.value.trim();
+            if (typeof performSearch === 'function') {
+                var matches = performSearch(query);
+                if (matches.length > 0) {
+                    navigateToPage(matches[0].page);
+                }
             }
         }
     });
@@ -954,11 +964,23 @@ function navigateToPage(page) {
     window.location.href = page;
 }
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeSearch);
+// Multiple ways to ensure initialization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSearch);
+} else {
+    initializeSearch();
+}
+
+// Also try with window load as backup
+window.addEventListener('load', function() {
+    if (typeof searchData !== 'undefined') {
+        console.log('Search data confirmed loaded on window load');
+    }
+});
     </script>
 </body>
 </html>
+
 
 
 
