@@ -799,6 +799,7 @@
   }
 }	    
     </style>
+	<script src="search-data.js"></script>
 </head>
 <body>
     <div class="header">
@@ -877,23 +878,66 @@
     </div>
 
     <script>
-        let searchData = {};
-let allSearchItems = [];
+        let allSearchItems = [];
 
-async function loadSearchData() {
-    try {
-        const response = await fetch('search-data.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        searchData = await response.json();
-        allSearchItems = Object.values(searchData).flat();
+function loadSearchData() {
+    // Data is already loaded via the search-data.js script tag
+    if (window.searchData) {
+        allSearchItems = Object.values(window.searchData).flat();
         console.log('Search data loaded successfully');
-    } catch (error) {
-        console.error('Error loading search data:', error);
-        searchData = {};
+    } else {
+        console.error('Search data not found');
         allSearchItems = [];
     }
+}
+
+function performSearch(query) {
+    if (!query || query.length === 0) {
+        return [];
+    }
+    
+    const lowerQuery = query.toLowerCase().trim();
+    const words = lowerQuery.split(/\s+/);
+    
+    return allSearchItems
+        .map(item => {
+            let score = 0;
+            const titleLower = item.title.toLowerCase();
+            const categoryLower = item.category.toLowerCase();
+            
+            // Exact title match (highest priority)
+            if (titleLower === lowerQuery) {
+                score += 100;
+            }
+            // Title starts with query
+            else if (titleLower.startsWith(lowerQuery)) {
+                score += 80;
+            }
+            // Title contains full query
+            else if (titleLower.includes(lowerQuery)) {
+                score += 60;
+            }
+            
+            // Category matches
+            if (categoryLower === lowerQuery) {
+                score += 50;
+            } else if (categoryLower.includes(lowerQuery)) {
+                score += 30;
+            }
+            
+            // Multi-word query support
+            if (words.length > 1) {
+                words.forEach(word => {
+                    if (titleLower.includes(word)) score += 10;
+                    if (categoryLower.includes(word)) score += 5;
+                });
+            }
+            
+            return score > 0 ? { ...item, score } : null;
+        })
+        .filter(item => item !== null)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 8);
 }
 
 function initializeSearch() {
@@ -906,17 +950,14 @@ function initializeSearch() {
     }
 
     searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
+        const query = this.value.trim();
 
         if (query.length === 0) {
             searchSuggestions.style.display = 'none';
             return;
         }
 
-        const matches = allSearchItems.filter(item =>
-            item.title.toLowerCase().includes(query) ||
-            item.category.toLowerCase().includes(query)
-        ).slice(0, 8);
+        const matches = performSearch(query);
 
         if (matches.length > 0) {
             searchSuggestions.innerHTML = matches.map(item => `
@@ -939,13 +980,10 @@ function initializeSearch() {
 
     searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            const query = this.value.toLowerCase().trim();
-            const firstMatch = allSearchItems.find(item =>
-                item.title.toLowerCase().includes(query) ||
-                item.category.toLowerCase().includes(query)
-            );
-            if (firstMatch) {
-                navigateToPage(firstMatch.page);
+            const query = this.value.trim();
+            const matches = performSearch(query);
+            if (matches.length > 0) {
+                navigateToPage(matches[0].page);
             }
         }
     });
@@ -955,8 +993,8 @@ function navigateToPage(page) {
     window.location.href = page;
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
-    await loadSearchData();
+document.addEventListener('DOMContentLoaded', function() {
+    loadSearchData();
     initializeSearch();
 });
     </script>
