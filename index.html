@@ -76,7 +76,7 @@
     width: 100%;
     padding: 8px 12px;
     background: #3a3a3a;
-    border: none; /* No border when unfocused */
+    border: none;
     color: #e6e6e6;
     font-size: 16px;
     font-family: 'Nunito', sans-serif;
@@ -85,8 +85,8 @@
 }
 
 .search-box:focus {
-    outline: none; /* Remove Safari's ugly blue outline */
-    border: 2px solid #0ea394; /* Add your teal border when focused */
+    outline: none;
+    border: 2px solid #0ea394;
 }
 
 .search-suggestions {
@@ -171,7 +171,7 @@
 
 @media (max-width: 768px) {
     .search-box {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
     }
 }
 
@@ -180,8 +180,8 @@
     border-bottom: 3px solid #4a4a4a;
     padding: 15px 0;
     backdrop-filter: blur(10px);
-    position: relative; /* Add this */
-    z-index: 100; /* Add this - lower than search suggestions */
+    position: relative;
+    z-index: 100;
 }
 
         .header-content {

@@ -881,7 +881,6 @@
         let allSearchItems = [];
 
 function loadSearchData() {
-    // Data is already loaded via the search-data.js script tag
     if (window.searchData) {
         allSearchItems = Object.values(window.searchData).flat();
         console.log('Search data loaded successfully');
@@ -904,28 +903,23 @@ function performSearch(query) {
             let score = 0;
             const titleLower = item.title.toLowerCase();
             const categoryLower = item.category.toLowerCase();
-            
-            // Exact title match (highest priority)
+
             if (titleLower === lowerQuery) {
                 score += 100;
             }
-            // Title starts with query
             else if (titleLower.startsWith(lowerQuery)) {
                 score += 80;
             }
-            // Title contains full query
             else if (titleLower.includes(lowerQuery)) {
                 score += 60;
             }
-            
-            // Category matches
+
             if (categoryLower === lowerQuery) {
                 score += 50;
             } else if (categoryLower.includes(lowerQuery)) {
                 score += 30;
             }
-            
-            // Multi-word query support
+
             if (words.length > 1) {
                 words.forEach(word => {
                     if (titleLower.includes(word)) score += 10;
