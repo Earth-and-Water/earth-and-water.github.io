@@ -65,9 +65,13 @@
         { "title": "Whip", "page": "items/whip.html", "category": "Weapons" },
         { "title": "Battle Axe", "page": "items/battle_axe.html", "category": "Weapons" }
     ],
-    "Biomes": [
-        { "title": "Biome", "page": "biomes.html", "category": "Category" },
-        { "title": "Dark Dripstone Cave", "page": "biomes/dark_dripstone_cave.html", "category": "Biomes" }
+    "Features": [
+        { "title": "Features", "page": "world_features.html", "category": "Category" },
+        { "title": "Oxygen Cross", "page": "world_features/oxygen_cross.html", "category": "Biomes" },
+        { "title": "Limestone Rock", "page": "world_features/limestone_rock.html", "category": "Biomes" },
+        { "title": "Dark Dripstone Cluster", "page": "world_features/dark_dripstone_cluster.html", "category": "Biomes" },
+        { "title": "Large Dark Dripstone", "page": "world_features/large_dark_dripstone.html", "category": "Biomes" },
+        { "title": "Pointed Dark Dripstone", "page": "world_features/pointed_dark_dripstone.html", "category": "Biomes" }
     ],
     "Effects": [
         { "title": "Effect", "page": "effects.html", "category": "Category" },
@@ -98,11 +102,11 @@
     ],
     "Advancements": [
         { "title": "Advancement", "page": "advancements.html", "category": "Category" },
-        { "title": "Mob Lock", "page": "advancements/mob_lock.html", "category": "Advancements" },
-        { "title": "Long Ago…", "page": "advancements/long_ago.html", "category": "Advancements" },
-        { "title": "Boreing", "page": "advancements/boreing.html", "category": "Advancements" },
-        { "title": "Atlantean Eye", "page": "advancements/atlantean_eye.html", "category": "Advancements" },
-        { "title": "Stalactite Sanctum", "page": "advancements/stalactite_sanctum.html", "category": "Advancements" }
+        { "title": "Mob Lock", "page": "advancements.html", "category": "Advancements" },
+        { "title": "Long Ago…", "page": "advancements.html", "category": "Advancements" },
+        { "title": "Boreing", "page": "advancements.html", "category": "Advancements" },
+        { "title": "Atlantean Eye", "page": "advancements.html", "category": "Advancements" },
+        { "title": "Stalactite Sanctum", "page": "advancements.html", "category": "Advancements" }
     ],
     "Paintings": [
         { "title": "Painting", "page": "paintings.html", "category": "Category" },
