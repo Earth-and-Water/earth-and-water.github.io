@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://earth-and-water.github.io">
-	<meta property="og:title" content="Earth & Water Wiki">
-	<meta property="og:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
-	<meta property="og:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
-	<meta property="og:image:width" content="1200">
-	<meta property="og:image:height" content="630">
-	<meta property="og:site_name" content="Earth & Water Wiki">
-	<meta name="theme-color" content="#0ea394">
-	<meta property="og:locale" content="en_US">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://earth-and-water.github.io">
-	<meta name="twitter:title" content="Earth & Water Wiki">
-	<meta name="twitter:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
-	<meta name="twitter:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://earth-and-water.github.io">
+    <meta property="og:title" content="Earth & Water Wiki">
+    <meta property="og:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
+    <meta property="og:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Earth & Water Wiki">
+    <meta name="theme-color" content="#0ea394">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://earth-and-water.github.io">
+    <meta name="twitter:title" content="Earth & Water Wiki">
+    <meta name="twitter:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
+    <meta name="twitter:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
     <title>Earth & Water Wiki</title>
     <link rel="icon" type="image/x-icon" href="wiki_favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         @font-face {
     	font-family: 'Minecraft Ten';
@@ -34,7 +34,7 @@
     	font-display: swap;
 	}
     </style>
-    
+
     <style>
         * {
             margin: 0;
@@ -105,7 +105,6 @@
         inset 2px 2px 0 #3b3e47,
         inset -2px -2px 0 #2e313a,
         0 4px 8px rgba(0,0,0,0.3);
-    border-radius: 0 0 8px 8px;
 }
 
 .search-suggestion {
@@ -176,7 +175,7 @@
 }
 
         .header {
-    background: rgba(45, 45, 45, 0.9);
+    background: rgba(45, 45, 45, 1.0);
     border-bottom: 3px solid #4a4a4a;
     padding: 15px 0;
     backdrop-filter: blur(10px);
@@ -205,20 +204,35 @@
         }
 
         .nav-tabs {
-            background: rgba(51, 51, 51, 0.9);
-            border-bottom: 2px solid #4a4a4a;
-            backdrop-filter: blur(10px);
-        }
+    background: rgba(51, 51, 51, 1.0);
+    border-bottom: 2px solid #4a4a4a;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
 
-        .nav-content {
-            max-width: 95vw;
-            margin: 0 auto;
-            display: flex;
-            padding: 0 20px;
-        }
+.nav-scroll-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
-        .nav-tab {
-    padding: 8px 70px;
+@media (max-width: 768px) {
+    .nav-scroll-wrapper {
+        width: 100%;
+        justify-content: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-scroll-wrapper {
+        padding: 0 20px;
+    }
+}
+
+.nav-button {
     background: #0ea394;
     border: 2px solid #17584e;
     border-bottom: none;
@@ -226,12 +240,101 @@
     cursor: pointer;
     font-size: 14px;
     color: white;
-     font-family: 'Minecraft Ten', 'Inter', sans-serif;
+    font-family: 'Minecraft Ten', 'Inter', sans-serif;
     font-weight: 6000;
     text-shadow: 2px 2px 0px rgba(23,88,78,0.8);
-    box-shadow: 
+    box-shadow:
         inset 2px 2px 0 #20cfbe,
         inset -2px -2px 0 #18baaa;
+    text-decoration: none;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 20px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.nav-button:last-child {
+    margin-right: 0;
+}
+
+.nav-button:hover {
+    background: #0c8b7e;
+}
+
+.nav-button.active {
+    background: #0c8b7e;
+}
+
+.nav-button.hidden {
+    display: none;
+}
+
+.nav-button img {
+    width: 16px;
+    height: 16px;
+    image-rendering: auto;
+    border: 1px solid #17584e;
+}
+
+.nav-button.nav-arrow img {
+    border: none;
+    width: 28px;
+}
+
+.nav-button-text {
+    display: inline;
+}
+
+.nav-button-icon {
+    display: inline-block;
+    margin-right: 6px;
+    order: -1;
+}
+
+.nav-button-icon {
+    width: 23px !important;
+    height: 23px !important;
+    border: 2px solid #17584e !important;
+    image-rendering: -moz-crisp-edges !important;
+    image-rendering: -webkit-crisp-edges !important;
+    image-rendering: pixelated !important;
+    image-rendering: crisp-edges !important;
+}
+
+@media (max-width: 768px) {
+    .nav-button {
+        padding: 10px 4px;
+        font-size: 11px;
+    }
+
+    .nav-button img {
+        width: 25px;
+        height: 25px;
+        image-rendering: auto;
+        border: 2px solid #17584e;
+    }
+
+    .nav-button-text {
+        display: none;
+    }
+
+    .nav-button-icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #17584e;
+    }
+
+    .nav-button.nav-arrow img {
+        border: none;
+        width: 35px;
+    }
 }
 
         .main-container {
@@ -261,6 +364,18 @@
             font-family: 'Minecraft Ten', 'Inter', sans-serif;
             font-weight: normal;
         }
+
+        .wiki-box-image {
+    width: 120px;
+    height: auto;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
 
         .featured-section {
             margin-bottom: 35px;
@@ -442,7 +557,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 
+            box-shadow:
                 inset 2px 2px 0 #6c6d6d,
                 inset -2px -2px 0 #5b5c5c;
             overflow: hidden;
@@ -561,7 +676,7 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    box-shadow: 
+    box-shadow:
         inset 2px 2px 0 #3b3e47,
         inset -2px -2px 0 #2e313a;
     pointer-events: none;
@@ -640,7 +755,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: 
+    box-shadow:
         inset 2px 2px 0 #3b3e47,
         inset -2px -2px 0 #2e313a;
     pointer-events: none;
@@ -654,7 +769,7 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    box-shadow: 
+    box-shadow:
         inset 2px 2px 0 #3b3e47,
         inset -2px -2px 0 #2e313a;
     pointer-events: none;
@@ -684,7 +799,7 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    box-shadow: 
+    box-shadow:
         inset 2px 2px 0 #3b3e47,
         inset -2px -2px 0 #2e313a;
     pointer-events: none;
@@ -772,7 +887,7 @@ version-item-image-container {
     height: 80px;
     margin-top: -20px;
 }
-	    
+
 .version-item-image-section {
     flex: 2;
     position: relative;
@@ -804,7 +919,7 @@ version-item-image-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 
+    box-shadow:
         inset 2px 2px 0 #6c6d6d,
         inset -2px -2px 0 #5b5c5c;
     overflow: hidden;
@@ -1139,22 +1254,22 @@ version-item-image-container {
         grid-template-columns: 1fr 300px;
         gap: 15px;
     }
-    
+
     .nav-tab {
         padding: 8px 40px;
         font-size: 12px;
     }
-    
+
     .category-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
-    
+
     .category-item {
         width: 140px;
         height: 140px;
     }
-    
+
     .category-item img {
         width: 70px;
         height: 70px;
@@ -1172,51 +1287,51 @@ version-item-image-container {
         gap: 15px;
         padding: 0 15px;
     }
-    
+
     .search-container {
         margin: 0;
         max-width: 100%;
     }
-    
+
     .nav-content {
         justify-content: center;
     }
-    
+
     .nav-tab {
         padding: 8px 30px;
         font-size: 11px;
     }
-    
+
     .main-container {
         grid-template-columns: 1fr 280px;
         gap: 15px;
     }
-    
+
     .category-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
-    
+
     .category-item {
         width: 130px;
         height: 130px;
     }
-    
+
     .category-item img {
         width: 65px;
         height: 65px;
     }
-    
+
     .versions-content {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     .version-item {
         width: 200px;
         height: 130px;
     }
-    
+
     .version-item img {
         width: 60px;
         height: 60px;
@@ -1228,17 +1343,17 @@ version-item-image-container {
         padding: 0 10px;
         gap: 10px;
     }
-    
+
     .logo {
         height: 50px;
     }
-    
+
     .nav-content {
         flex-direction: column;
         gap: 5px;
         padding: 0 10px;
     }
-    
+
     .nav-tab {
         padding: 10px 20px;
         font-size: 10px;
@@ -1246,84 +1361,84 @@ version-item-image-container {
         text-align: center;
         margin-bottom: 2px;
     }
-    
+
     .main-container {
         grid-template-columns: 1fr;
         max-width: 95vw;
         gap: 20px;
         padding: 15px;
     }
-    
+
     .content {
         padding: 20px;
     }
-    
+
     .page-title {
         font-size: 24px;
     }
-    
+
     .sidebar-section {
         border-left: none;
         padding: 20px;
     }
-    
+
     .featured-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .featured-card {
         min-height: 250px;
     }
-    
+
     .category-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         justify-items: center;
     }
-    
+
     .category-item {
         width: 160px;
         height: 160px;
     }
-    
+
     .category-item img {
         width: 80px;
         height: 80px;
     }
-    
+
     .category-name {
         font-size: 14px;
     }
-    
+
     .versions-content {
         grid-template-columns: 1fr;
         gap: 15px;
         justify-items: center;
     }
-    
+
     .version-item {
         width: 280px;
         height: 180px;
     }
-    
+
     .version-item img {
         width: 90px;
         height: 90px;
     }
-    
+
     .version-item-name {
         font-size: 14px;
     }
-    
+
     .latest-versions {
         margin-top: 25px;
     }
-    
+
     .versions-header {
         padding: 15px;
     }
-    
+
     .versions-header-text {
         font-size: 17px;
     }
@@ -1333,43 +1448,43 @@ version-item-image-container {
     .header-content {
         padding: 0 5px;
     }
-    
+
     .main-container {
         padding: 10px;
         gap: 15px;
     }
-    
+
     .content {
         padding: 15px;
     }
-    
+
     .page-title {
         font-size: 20px;
     }
-    
+
     .nav-tab {
         padding: 8px 15px;
         font-size: 9px;
     }
-    
+
     .category-grid {
         gap: 12px;
     }
-    
+
     .category-item {
         width: 140px;
         height: 140px;
     }
-    
+
     .category-item img {
         width: 70px;
         height: 70px;
     }
-    
+
     .category-name {
         font-size: 9px;
     }
-	
+
 	.category-item {
     text-decoration: none;
     color: inherit;
@@ -1383,31 +1498,29 @@ a {
     color: inherit;
 }
 
-
-
 .category-grid a .category-name {
     text-decoration: none !important;
     color: inherit !important;
 }
-    
+
     .version-item {
         width: 250px;
         height: 160px;
     }
-    
+
     .version-item img {
         width: 80px;
         height: 80px;
     }
-    
+
     .featured-card {
         min-height: 200px;
     }
-    
+
     .card-title {
         font-size: 16px;
     }
-    
+
     .card-content {
         font-size: 13px;
     }
@@ -1424,308 +1537,6 @@ a {
     width: 100%;
   }
 }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="header-content">
-            <div class="logo">
-    <a href="https://earth-and-water.github.io">
-        <img src="assets/wiki/earth_water_wiki.png" alt="Earth & Water Wiki">
-    </a>
-</div>
-            <div class="search-container">
-    <input type="text" class="search-box" placeholder="Search Earth & Water Wiki" id="searchInput" autocomplete="off">
-    <div class="search-suggestions" id="searchSuggestions"></div>
-</div>
-        </div>
-    </div>
-
-    <div class="nav-tabs">
-        <div class="nav-content">
-            <div class="nav-tab">E&W</div>
-        </div>
-    </div>
-
-    <div class="main-container">
-        <div class="content">
-            <h1 class="page-title">Welcome to The Earth & Water Wiki!</h1>
-            
-            <div class="featured-section">
-                <div class="featured-grid">
-                    <div class="featured-card">
-                        <img src="assets/wiki/news/news1.png" alt="Dripstone Content">
-                        <div class="card-title">Dripstone</div>
-                        <div class="card-content">
-                            Dripstone, the "Earth" part of Earth & Water. E&W adds a new dripstone brick set, an entire underground structure, and mob, the Bore. Not to mention Dark Dripstone and its set.
-                        </div>
-                    </div>
-                    
-                    <div class="featured-card">
-                        <img src="assets/wiki/news/news2.png" alt="Prismarine Content">
-                        <div class="card-title">Prismarine</div>
-                        <div class="card-content">
-                            Prismarine, the obvious "Water" part of Earth & Water. E&W adds Prismarine Pillars, Prismarine Tiles, an Conduit themed structure, a mob known as the Brine, and the block everyone needed: the Dark Prismarine Wall.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Mod Categories</h2>
-            <div class="category-grid">
-    <a href="mobs.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/mobs_button.png" alt="Mobs">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">Mobs</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-
-    <a href="blocks.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/blocks_button.png" alt="Blocks">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">Blocks</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-
-    <a href="items.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/items_button.png" alt="Items">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">Items</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-
-    <a href="biomes.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/biomes_button.png" alt="Biomes">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">Biomes</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-
-    <a href="effects.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/effects_button.png" alt="Effects">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">Effects</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-
-    <a href="smithing.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/smithing_button.png" alt="Smithing">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">Smithing</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-
-    <a href="structures.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/structures_button.png" alt="Structures">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">Structures</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-
-    <a href="history.html" class="category-item">
-        <div class="category-top-outline"></div>
-        <div class="category-left-outline"></div>
-        <div class="category-right-outline"></div>
-        <div class="category-top-highlight"></div>
-        <div class="category-image-container">
-            <img src="assets/wiki/buttons/history_button.png" alt="History">
-        </div>
-        <div class="category-image-section"></div>
-        <div class="category-button-section">
-            <div class="category-name">History</div>
-        </div>
-        <div class="category-dark-strip"></div>
-        <div class="category-bottom-outline"></div>
-        <div class="category-shadow"></div>
-    </a>
-</div>
-
-            <div class="latest-versions">
-                <div class="versions-header" onclick="toggleVersions()">
-    <div class="versions-inset-shadow"></div>
-    <div class="versions-header-text">Latest Versions</div>
-    <div class="versions-header-arrow">
-        <img src="assets/wiki/buttons/dropdown_arrow.png" alt="Dropdown Arrow">
-    </div>
-</div>
-                <div class="versions-grid" id="versions-grid">
-                    <div class="versions-content">
-                        <a href="https://modrinth.com/mod/earth-and-water" class="version-item" target="_blank">
-    <div class="version-item-top-outline"></div>
-    <div class="version-item-left-outline"></div>
-    <div class="version-item-right-outline"></div>
-    <div class="version-item-top-highlight"></div>
-
-   <div class="version-item-image-container">
-    <img src="assets/wiki/buttons/modrinth_button.png" alt="Modrinth">
-</div>
-<div class="version-item-image-section"></div>
-
-    <div class="version-item-button-section">
-        <div class="version-item-name">Modrinth</div>
-    </div>
-
-    <div class="version-item-dark-strip"></div>
-    <div class="version-item-bottom-outline"></div>
-    <div class="version-item-shadow"></div>
-</a>
-
-<a href="https://www.curseforge.com/minecraft/mc-mods/earth-and-water" class="version-item" target="_blank">
-    <div class="version-item-top-outline"></div>
-    <div class="version-item-left-outline"></div>
-    <div class="version-item-right-outline"></div>
-    <div class="version-item-top-highlight"></div>
-
-   <div class="version-item-image-container">
-    <img src="assets/wiki/buttons/curseforge_button.png" alt="Curseforge">
-</div>
-<div class="version-item-image-section"></div>
-
-    <div class="version-item-button-section">
-        <div class="version-item-name">Curseforge</div>
-    </div>
-
-    <div class="version-item-dark-strip"></div>
-    <div class="version-item-bottom-outline"></div>
-    <div class="version-item-shadow"></div>
-</a>
-
-<a href="https://www.planetminecraft.com" class="version-item" target="_blank">
-    <div class="version-item-top-outline"></div>
-    <div class="version-item-left-outline"></div>
-    <div class="version-item-right-outline"></div>
-    <div class="version-item-top-highlight"></div>
-
-   <div class="version-item-image-container">
-    <img src="assets/wiki/buttons/planet_minecraft_button.png" alt="Planet Minecraft">
-</div>
-<div class="version-item-image-section"></div>
-
-    <div class="version-item-button-section">
-        <div class="version-item-name">Planet Minecraft</div>
-    </div>
-
-    <div class="version-item-dark-strip"></div>
-    <div class="version-item-bottom-outline"></div>
-    <div class="version-item-shadow"></div>
-</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-section">
-    <div class="about-section">
-    <div class="wiki-boxes">
-        <div class="wiki-box">
-            <h2>about the Mod</h2>
-            <p>
-                <strong>Earth & Water</strong> is a mod that expands on elemental mobs. Minecraft has the Blaze and Breeze, which fills in half the elemental mobs. E&W adds the other two elemental mobs, the Bore and Brine! These two mobs come with their own blocks and structures that fit them respectively.
-            </p>
-            <p>
-                The <strong>Bore</strong> dwells in Ancient Ruins, shooting Earth Charges and burrowing underground when threatened. The <strong>Brine</strong> lurks in Conduit Monuments, dashing through water and launching explosive Water Charges. The mod introduces new weapons like the dashing <strong>Battle Axe</strong>, the stunning <strong>Whip</strong>, and the damage-reflecting <strong>Spiked Shield</strong>. Some of these are crafted with <strong>Steel,</strong> a sort of upgraded iron.
-            </p>
-            <div class="wiki-button">
-                <div class="wiki-button-left-outline"></div>
-                <div class="wiki-button-right-outline"></div>
-                <div class="wiki-button-section">
-                    <div class="wiki-button-name">Get E&W</div>
-                </div>
-                <div class="wiki-button-dark-strip"></div>
-                <div class="wiki-button-bottom-outline"></div>
-                <div class="wiki-button-shadow"></div>
-            </div>
-        </div>
-
-        <div class="wiki-box">
-            <h2>Featured article</h2>
-            <p>
-                <strong>Reinforced Spawners</strong> are special spawner blocks that create infinite waves of mobs. Found in Ancient Ruins and Conduit Monuments, these spawners continuously spawn the little mob inside of it.
-            </p>
-            <div class="wiki-button">
-                <div class="wiki-button-left-outline"></div>
-                <div class="wiki-button-right-outline"></div>
-                <div class="wiki-button-section">
-                    <div class="wiki-button-name">Read More</div>
-                </div>
-                <div class="wiki-button-dark-strip"></div>
-                <div class="wiki-button-bottom-outline"></div>
-                <div class="wiki-button-shadow"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
 
 .wiki-boxes {
     display: flex;
@@ -1749,7 +1560,7 @@ a {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    box-shadow: 
+    box-shadow:
         inset 2px 2px 0 #3b3e47,
         inset -2px -2px 0 #2e313a;
     pointer-events: none;
@@ -1799,7 +1610,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 
+    box-shadow:
         inset 1px 1px 0 #6c6d6d,
         inset -1px -1px 0 #5b5c5c;
     overflow: hidden;
@@ -1887,328 +1698,824 @@ a {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .wiki-button {
         width: 160px;
         height: 40px;
     }
-    
+
     .wiki-button-name {
         font-size: 15px;
     }
 }
-</style>
-
-<script>
-document.querySelectorAll('.wiki-button').forEach(button => {
-    button.addEventListener('mousedown', function() {
-        this.classList.add('pressed');
-    });
-    
-    button.addEventListener('mouseup', function() {
-        this.classList.remove('pressed');
-    });
-    
-    button.addEventListener('mouseleave', function() {
-        this.classList.remove('pressed');
-    });
-    
-    button.addEventListener('click', function() {
-        const buttonText = this.querySelector('.wiki-button-name').textContent;
-        if (buttonText === 'Get E&W') {
-            window.open('https://modrinth.com', '_blank');
-        } else if (buttonText === 'Read More') {
-            alert('Opening featured article...');
-        }
-    });
-});
-
-document.querySelectorAll('.version-item').forEach(item => {
-    item.addEventListener('mousedown', function() {
-        this.classList.add('pressed');
-    });
-    
-    item.addEventListener('mouseup', function() {
-        this.classList.remove('pressed');
-    });
-    
-    item.addEventListener('mouseleave', function() {
-        this.classList.remove('pressed');
-    });
-});
-</script>
-</div>
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="header-content">
+        <div class="logo">
+            <a href="https://earth-and-water.github.io">
+                <img src="assets/wiki/earth_water_wiki.png" alt="Earth & Water Wiki">
+            </a>
         </div>
-
-        <div class="sidebar">
-           <div class="sidebar-section stats">
-    <div class="stat-number">9</div>
-    <div class="stat-label">Articles</div>
-    <div style="margin: 15px 0;">•</div>
-    <div class="stat-number">111</div>
-    <div class="stat-label">Files</div>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search Earth & Water Wiki" id="searchInput" autocomplete="off">
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+    </div>
 </div>
 
-        <div class="sidebar-section">
-                <div class="sidebar-title">Did you know...</div>
-                <ul class="sidebar-list">
-                    <li>...that one of the mod's creators ships Bore and Dark Bore?</li>
-                    <li>...that Dark Chiseled Dripstone Bricks only lights up when players are near it?</li>
-                    <li>...that there was an intended "Shockwave" particle planned for the Water Charge?</li>
-                </ul>
-            </div>
+<div class="nav-tabs">
+    <div class="nav-scroll-wrapper" id="navWrapper">
+    </div>
+</div>
 
-            <div class="sidebar-section creators-section">
-                <div class="creators-content">
-                    <div class="sidebar-title">Creators</div>
-                    
-                    <div class="creator">
-                        <div class="creator-name">PotatoWolfie</div>
-                        <div class="creator-links">
-                            <a href="https://www.youtube.com/@PotatoWolfie" class="creator-link" target="_blank">YouTube</a>
-                            <a href="https://www.twitch.tv/potatowolfie64" class="creator-link" target="_blank">Twitch</a>
-                            <a href="https://www.planetminecraft.com/member/potatowolfie/" class="creator-link" target="_blank">Planet Minecraft</a>
-                            <a href="https://www.curseforge.com/members/potatowolfie/projects" class="creator-link" target="_blank">CurseForge</a>
-                            <a href="https://modrinth.com/user/PotatoWolfie" class="creator-link" target="_blank">Modrinth</a>
-                            <a href="https://github.com/PotatoWolfie" class="creator-link" target="_blank">Github</a>
-                        </div>
+<div class="main-container">
+    <div class="content">
+        <h1 class="page-title">Welcome to The Earth & Water Wiki!</h1>
+
+        <div class="featured-section">
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <img src="assets/wiki/news/news1.png" alt="Dripstone Content">
+                    <div class="card-title">Dripstone</div>
+                    <div class="card-content">
+                        Dripstone, the "Earth" part of Earth & Water. E&W adds a new dripstone brick set, an entire underground structure, and mob, the Bore. Not to mention Dark Dripstone and its set.
                     </div>
-                    
-                    <div class="creator">
-                        <div class="creator-name">Demidiant</div>
-                        <div class="creator-links">
-                            <a href="https://www.youtube.com/@DemidiantTheBuilder" class="creator-link" target="_blank">YouTube</a>
-                            <a href="https://www.planetminecraft.com/member/demidiant_/" class="creator-link" target="_blank">Planet Minecraft</a>
-                            <a href="https://modrinth.com/user/Demidiant" class="creator-link" target="_blank">Modrinth</a>
-                            <a href="https://github.com/Demidiant" class="creator-link" target="_blank">Github</a>
-                        </div>
+                </div>
+
+                <div class="featured-card">
+                    <img src="assets/wiki/news/news2.png" alt="Prismarine Content">
+                    <div class="card-title">Prismarine</div>
+                    <div class="card-content">
+                        Prismarine, the obvious "Water" part of Earth & Water. E&W adds Prismarine Pillars, Prismarine Tiles, an Conduit themed structure, a mob known as the Brine, and the block everyone needed: the Dark Prismarine Wall.
                     </div>
                 </div>
             </div>
-			
-			<div class="sidebar-section minecraft">
-                <div class="sidebar-title">Legal Notice</div>
-                <ul class="sidebar-list">
-                    <li>Earth & Water is an unofficial Minecraft mod and is not affiliated with, endorsed by, or associated with Mojang Studios or Microsoft in any way. Minecraft is a sandbox video game developed by Mojang Studios that allows players to explore, build, and survive in a block-based world.</li>
-                </ul>
+        </div>
+
+        <h2>Mod Categories</h2>
+        <div class="category-grid">
+            <a href="mobs.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/mobs_button.png" alt="Mobs">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">Mobs</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+
+            <a href="blocks.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/blocks_button.png" alt="Blocks">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">Blocks</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+
+            <a href="items.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/items_button.png" alt="Items">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">Items</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+
+            <a href="biomes.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/biomes_button.png" alt="Biomes">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">Biomes</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+
+            <a href="effects.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/effects_button.png" alt="Effects">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">Effects</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+
+            <a href="smithing.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/smithing_button.png" alt="Smithing">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">Smithing</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+
+            <a href="structures.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/structures_button.png" alt="Structures">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">Structures</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+
+            <a href="history.html" class="category-item">
+                <div class="category-top-outline"></div>
+                <div class="category-left-outline"></div>
+                <div class="category-right-outline"></div>
+                <div class="category-top-highlight"></div>
+                <div class="category-image-container">
+                    <img src="assets/wiki/buttons/history_button.png" alt="History">
+                </div>
+                <div class="category-image-section"></div>
+                <div class="category-button-section">
+                    <div class="category-name">History</div>
+                </div>
+                <div class="category-dark-strip"></div>
+                <div class="category-bottom-outline"></div>
+                <div class="category-shadow"></div>
+            </a>
+        </div>
+
+        <div class="latest-versions">
+            <div class="versions-header" onclick="toggleVersions()">
+                <div class="versions-inset-shadow"></div>
+                <div class="versions-header-text">Latest Versions</div>
+                <div class="versions-header-arrow">
+                    <img src="assets/wiki/buttons/dropdown_arrow.png" alt="Dropdown Arrow">
+                </div>
+            </div>
+            <div class="versions-grid" id="versions-grid">
+                <div class="versions-content">
+                    <a href="https://modrinth.com/mod/earth-and-water" class="version-item" target="_blank">
+                        <div class="version-item-top-outline"></div>
+                        <div class="version-item-left-outline"></div>
+                        <div class="version-item-right-outline"></div>
+                        <div class="version-item-top-highlight"></div>
+
+                        <div class="version-item-image-container">
+                            <img src="assets/wiki/buttons/modrinth_button.png" alt="Modrinth">
+                        </div>
+                        <div class="version-item-image-section"></div>
+
+                        <div class="version-item-button-section">
+                            <div class="version-item-name">Modrinth</div>
+                        </div>
+
+                        <div class="version-item-dark-strip"></div>
+                        <div class="version-item-bottom-outline"></div>
+                        <div class="version-item-shadow"></div>
+                    </a>
+
+                    <a href="https://www.curseforge.com/minecraft/mc-mods/earth-and-water" class="version-item" target="_blank">
+                        <div class="version-item-top-outline"></div>
+                        <div class="version-item-left-outline"></div>
+                        <div class="version-item-right-outline"></div>
+                        <div class="version-item-top-highlight"></div>
+
+                        <div class="version-item-image-container">
+                            <img src="assets/wiki/buttons/curseforge_button.png" alt="Curseforge">
+                        </div>
+                        <div class="version-item-image-section"></div>
+
+                        <div class="version-item-button-section">
+                            <div class="version-item-name">Curseforge</div>
+                        </div>
+
+                        <div class="version-item-dark-strip"></div>
+                        <div class="version-item-bottom-outline"></div>
+                        <div class="version-item-shadow"></div>
+                    </a>
+
+                    <a href="https://www.planetminecraft.com" class="version-item" target="_blank">
+                        <div class="version-item-top-outline"></div>
+                        <div class="version-item-left-outline"></div>
+                        <div class="version-item-right-outline"></div>
+                        <div class="version-item-top-highlight"></div>
+
+                        <div class="version-item-image-container">
+                            <img src="assets/wiki/buttons/planet_minecraft_button.png" alt="Planet Minecraft">
+                        </div>
+                        <div class="version-item-image-section"></div>
+
+                        <div class="version-item-button-section">
+                            <div class="version-item-name">Planet Minecraft</div>
+                        </div>
+
+                        <div class="version-item-dark-strip"></div>
+                        <div class="version-item-bottom-outline"></div>
+                        <div class="version-item-shadow"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div class="about-section">
+                <div class="wiki-boxes">
+                    <div class="wiki-box">
+                        <h2>about the Mod</h2>
+                        <p>
+                            <strong>Earth & Water</strong> is a mod that expands on elemental mobs. Minecraft has the Blaze and Breeze, which fills in half the elemental mobs. E&W adds the other two elemental mobs, the Bore and Brine! These two mobs come with their own blocks and structures that fit them respectively.
+                        </p>
+                        <p>
+                            The <strong>Bore</strong> dwells in Ancient Ruins, shooting Earth Charges and burrowing underground when threatened. The <strong>Brine</strong> lurks in Conduit Monuments, dashing through water and launching explosive Water Charges. The mod introduces new weapons like the dashing <strong>Battle Axe</strong>, the stunning <strong>Whip</strong>, and the damage-reflecting <strong>Spiked Shield</strong>. Some of these are crafted with <strong>Steel,</strong> a sort of upgraded iron.
+                        </p>
+                        <div class="wiki-button">
+                            <div class="wiki-button-left-outline"></div>
+                            <div class="wiki-button-right-outline"></div>
+                            <div class="wiki-button-section">
+                                <div class="wiki-button-name">Get E&W</div>
+                            </div>
+                            <div class="wiki-button-dark-strip"></div>
+                            <div class="wiki-button-bottom-outline"></div>
+                            <div class="wiki-button-shadow"></div>
+                        </div>
+                    </div>
+
+                    <div class="wiki-box">
+                        <h2>Featured Article</h2>
+                        <img src="assets/blocks/reinforced_spawner_on.png" alt="E&W Wiki" class="wiki-box-image">
+                        <p>
+                            <strong>Reinforced Spawners</strong> are similar to the Trial Spawners that were added in
+                            the Tricky Trials (1.21) update. They spawn whatever mob is inside of it. However, unlike
+                            the Trial Spawner, these Reinforced Spawners spawn infinite waves of mobs. They can only be
+                            turned off using a Reinforced Key. These keys can be found in Ancient Ruins or Conduit Monument
+                            structures.
+                        </p>
+                        <div class="wiki-button">
+                            <div class="wiki-button-left-outline"></div>
+                            <div class="wiki-button-right-outline"></div>
+                            <div class="wiki-button-section">
+                                <div class="wiki-button-name">Learn More</div>
+                            </div>
+                            <div class="wiki-button-dark-strip"></div>
+                            <div class="wiki-button-bottom-outline"></div>
+                            <div class="wiki-button-shadow"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <script>
-let targetRotation = 0;
-let currentRotation = 0;
-let isArrowAnimating = false;
-let isDropdownAnimating = false;
+    <div class="sidebar">
+        <div class="sidebar-section stats">
+            <div class="stat-number" id="downloadCount">---</div>
+            <div class="stat-label">Downloads</div>
+            <div style="margin: 15px 0;">•</div>
+            <div class="stat-number" id="articleCount">9</div>
+            <div class="stat-label">Articles</div>
+        </div>
 
-let searchData = {};
-let allSearchItems = [];
+        <div class="sidebar-section">
+            <div class="sidebar-title">Did you know...</div>
+            <ul class="sidebar-list">
+                <li>...that one of the mod's creators ships Bore and Dark Bore?</li>
+                <li>...that Dark Chiseled Dripstone Bricks only lights up when players are near it?</li>
+                <li>...that there was an intended "Shockwave" particle planned for the Water Charge?</li>
+            </ul>
+        </div>
 
-async function loadSearchData() {
-    try {
-        const response = await fetch('search-data.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+        <div class="sidebar-section creators-section">
+            <div class="creators-content">
+                <div class="sidebar-title">Creators</div>
+
+                <div class="creator">
+                    <div class="creator-name">PotatoWolfie</div>
+                    <div class="creator-links">
+                        <a href="https://www.youtube.com/@PotatoWolfie" class="creator-link" target="_blank">YouTube</a>
+                        <a href="https://www.twitch.tv/potatowolfie64" class="creator-link" target="_blank">Twitch</a>
+                        <a href="https://www.planetminecraft.com/member/potatowolfie/" class="creator-link" target="_blank">Planet Minecraft</a>
+                        <a href="https://www.curseforge.com/members/potatowolfie/projects" class="creator-link" target="_blank">CurseForge</a>
+                        <a href="https://modrinth.com/user/PotatoWolfie" class="creator-link" target="_blank">Modrinth</a>
+                        <a href="https://github.com/PotatoWolfie" class="creator-link" target="_blank">Github</a>
+                    </div>
+                </div>
+
+                <div class="creator">
+                    <div class="creator-name">Demidiant</div>
+                    <div class="creator-links">
+                        <a href="https://www.youtube.com/@DemidiantTheBuilder" class="creator-link" target="_blank">YouTube</a>
+                        <a href="https://www.planetminecraft.com/member/demidiant_/" class="creator-link" target="_blank">Planet Minecraft</a>
+                        <a href="https://modrinth.com/user/Demidiant" class="creator-link" target="_blank">Modrinth</a>
+                        <a href="https://github.com/Demidiant" class="creator-link" target="_blank">Github</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section minecraft">
+            <div class="sidebar-title">Legal Notice</div>
+            <ul class="sidebar-list">
+                <li>Earth & Water is an unofficial Minecraft mod and is not affiliated with, endorsed by, or associated with Mojang Studios or Microsoft in any way. Minecraft is a sandbox video game developed by Mojang Studios that allows players to explore, build, and survive in a block-based world.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    let targetRotation = 0;
+    let currentRotation = 0;
+    let isArrowAnimating = false;
+    let isDropdownAnimating = false;
+
+    let searchData = {};
+    let allSearchItems = [];
+
+    const searchDataFiles = [
+        'search-data.json'
+    ];
+
+    async function loadSearchData() {
+        try {
+            const allData = [];
+            const cacheBuster = new Date().getTime();
+
+            for (const file of searchDataFiles) {
+                try {
+                    const response = await fetch(`${file}?v=${cacheBuster}`, {
+                        cache: 'no-store',
+                        headers: {
+                            'Cache-Control': 'no-cache',
+                            'Pragma': 'no-cache'
+                        }
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        const items = Object.values(data).flat();
+                        allData.push(...items);
+                        console.log(`Loaded search data from ${file}`);
+                    }
+                } catch (error) {
+                    console.warn(`Could not load ${file}:`, error);
+                }
+            }
+
+            allSearchItems = allData;
+            console.log(`Total search items loaded: ${allSearchItems.length}`);
+        } catch (error) {
+            console.error('Error loading search data:', error);
+            allSearchItems = [];
         }
-        searchData = await response.json();
-        allSearchItems = Object.values(searchData).flat();
-        console.log('Search data loaded successfully');
-    } catch (error) {
-        console.error('Error loading search data:', error);
-        searchData = {};
-        allSearchItems = [];
-    }
-}
-
-function initializeSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchSuggestions = document.getElementById('searchSuggestions');
-
-    if (!searchInput || !searchSuggestions) {
-        console.error('Search elements not found');
-        return;
     }
 
-    searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-        
-        if (query.length === 0) {
-            searchSuggestions.style.display = 'none';
+    function initializeSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+
+        if (!searchInput || !searchSuggestions) {
+            console.error('Search elements not found');
             return;
         }
 
-        const matches = allSearchItems.filter(item => 
-            item.title.toLowerCase().includes(query) ||
-            item.category.toLowerCase().includes(query)
-        ).slice(0, 8);
-
-        if (matches.length > 0) {
-            searchSuggestions.innerHTML = matches.map(item => `
-                <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
-                    <div class="suggestion-category">${item.category}</div>
-                    <div class="suggestion-title">${item.title}</div>
-                </div>
-            `).join('');
-            searchSuggestions.style.display = 'block';
-        } else {
-            searchSuggestions.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.search-container')) {
-            searchSuggestions.style.display = 'none';
-        }
-    });
-
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
+        searchInput.addEventListener('input', function() {
             const query = this.value.toLowerCase().trim();
-            const firstMatch = allSearchItems.find(item => 
+
+            if (query.length === 0) {
+                searchSuggestions.style.display = 'none';
+                return;
+            }
+
+            const matches = allSearchItems.filter(item =>
                 item.title.toLowerCase().includes(query) ||
                 item.category.toLowerCase().includes(query)
-            );
-            if (firstMatch) {
-                navigateToPage(firstMatch.page);
+            ).slice(0, 8);
+
+            if (matches.length > 0) {
+                searchSuggestions.innerHTML = matches.map(item => `
+                    <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
+                        <div class="suggestion-category">${item.category}</div>
+                        <div class="suggestion-title">${item.title}</div>
+                    </div>
+                `).join('');
+                searchSuggestions.style.display = 'block';
+            } else {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase().trim();
+                const firstMatch = allSearchItems.find(item =>
+                    item.title.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query)
+                );
+                if (firstMatch) {
+                    navigateToPage(firstMatch.page);
+                }
+            }
+        });
+    }
+
+    function navigateToPage(page) {
+        window.location.href = page;
+    }
+
+    function updateArrow() {
+        if (currentRotation === targetRotation || isArrowAnimating) return;
+
+        const arrow = document.querySelector('.versions-header-arrow');
+        isArrowAnimating = true;
+
+        let nextRotation = currentRotation + 180;
+
+        arrow.style.transform = `rotate(${nextRotation}deg)`;
+
+        arrow.addEventListener('transitionend', function handler(e) {
+            if (e.propertyName !== 'transform') return;
+
+            arrow.removeEventListener('transitionend', handler);
+
+            currentRotation = nextRotation;
+
+            if (currentRotation >= 360) {
+                arrow.style.transition = 'none';
+                currentRotation -= 360;
+                targetRotation -= 360;
+                arrow.style.transform = `rotate(${currentRotation}deg)`;
+
+                void arrow.offsetWidth;
+                arrow.style.transition = 'transform 0.4s ease';
+            }
+
+            isArrowAnimating = false;
+
+            setTimeout(updateArrow, 10);
+        });
+    }
+
+    function toggleVersions() {
+        const grid = document.getElementById('versions-grid');
+        const container = document.querySelector('.latest-versions');
+
+        if (isDropdownAnimating) return;
+
+        isDropdownAnimating = true;
+
+        if (grid.classList.contains('open')) {
+            const fullHeight = grid.scrollHeight + 'px';
+            grid.style.maxHeight = fullHeight;
+            requestAnimationFrame(() => {
+                grid.style.maxHeight = '0px';
+            });
+        } else {
+            grid.classList.add('open');
+            grid.style.maxHeight = '0px';
+            requestAnimationFrame(() => {
+                grid.style.maxHeight = grid.scrollHeight + 'px';
+            });
+        }
+
+        grid.addEventListener('transitionend', function handler() {
+            grid.removeEventListener('transitionend', handler);
+
+            if (grid.style.maxHeight === '0px') {
+                grid.classList.remove('open');
+            }
+
+            isDropdownAnimating = false;
+        });
+
+        container.classList.toggle('expanded');
+
+        targetRotation += 180;
+        if (!isArrowAnimating) {
+            updateArrow();
+        }
+    }
+
+    const navTabs = [
+        { text: 'E&W', href: 'index.html', icon: 'assets/wiki/buttons/earth_water_mini.png', active: true }
+    ];
+
+    let currentPage = 0;
+
+    function getButtonWidth() {
+        let availableWidth;
+
+        if (window.innerWidth <= 768) {
+            const mainContainer = document.querySelector('.main-container');
+            const containerWidth = mainContainer ? mainContainer.offsetWidth : window.innerWidth - 30;
+            const totalMargins = 5 * 2;
+            return (containerWidth - totalMargins) / 6;
+        } else {
+            availableWidth = window.innerWidth - 40;
+            const totalMargins = 7 * 2;
+            return (availableWidth - totalMargins) / 8;
+        }
+    }
+
+    function renderNavigation() {
+        const wrapper = document.getElementById('navWrapper');
+        const buttonWidth = getButtonWidth();
+        const buttonsPerPage = window.innerWidth <= 768 ? 6 : 8;
+
+        wrapper.innerHTML = '';
+
+        let buttons = [];
+
+        if (navTabs.length <= buttonsPerPage) {
+            buttons = navTabs.map(tab => ({
+                type: 'tab',
+                data: tab
+            }));
+        } else {
+            if (currentPage === 0) {
+                for (let i = 0; i < buttonsPerPage - 1 && i < navTabs.length; i++) {
+                    buttons.push({ type: 'tab', data: navTabs[i] });
+                }
+                buttons.push({ type: 'next' });
+            } else {
+                const firstPageTabs = buttonsPerPage - 1;
+                const otherPageTabs = buttonsPerPage - 2;
+                const startIndex = firstPageTabs + (currentPage - 1) * otherPageTabs;
+
+                const remainingTabs = navTabs.length - startIndex;
+                const isLastPage = remainingTabs <= buttonsPerPage - 1;
+
+                if (isLastPage) {
+                    buttons.push({ type: 'prev' });
+                    for (let i = startIndex; i < navTabs.length; i++) {
+                        buttons.push({ type: 'tab', data: navTabs[i] });
+                    }
+                } else {
+                    buttons.push({ type: 'prev' });
+                    for (let i = startIndex; i < startIndex + otherPageTabs && i < navTabs.length; i++) {
+                        buttons.push({ type: 'tab', data: navTabs[i] });
+                    }
+                    buttons.push({ type: 'next' });
+                }
             }
         }
-    });
-}
 
-function navigateToPage(page) {
-    window.location.href = page;
-}
+        buttons.forEach((button, index) => {
+            const btn = document.createElement('a');
+            btn.className = 'nav-button';
+            btn.style.width = buttonWidth + 'px';
 
-function updateArrow() {
-    if (currentRotation === targetRotation || isArrowAnimating) return;
-    
-    const arrow = document.querySelector('.versions-header-arrow');
-    isArrowAnimating = true;
-    
-    let nextRotation = currentRotation + 180;
-    
-    arrow.style.transform = `rotate(${nextRotation}deg)`;
-    
-    arrow.addEventListener('transitionend', function handler(e) {
-        if (e.propertyName !== 'transform') return;
-        
-        arrow.removeEventListener('transitionend', handler);
-        
-        currentRotation = nextRotation;
-        
-        if (currentRotation >= 360) {
-            arrow.style.transition = 'none';
-            currentRotation -= 360;
-            targetRotation -= 360;
-            arrow.style.transform = `rotate(${currentRotation}deg)`;
-            
-            void arrow.offsetWidth;
-            arrow.style.transition = 'transform 0.4s ease';
-        }
-        
-        isArrowAnimating = false;
-        
-        setTimeout(updateArrow, 10);
-    });
-}
+            if (button.type === 'prev') {
+                btn.classList.add('nav-arrow');
+                btn.innerHTML = `
+                    <span class="nav-button-text">Previous</span>
+                    <img src="assets/wiki/buttons/next_arrow.png" alt="←" style="transform: scaleX(-1);" class="nav-button-icon">
+                `;
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    if (currentPage > 0) {
+                        currentPage--;
+                        renderNavigation();
+                    }
+                };
+            } else if (button.type === 'next') {
+                btn.classList.add('nav-arrow');
+                btn.innerHTML = `
+                    <span class="nav-button-text">Next</span>
+                    <img src="assets/wiki/buttons/next_arrow.png" alt="→" class="nav-button-icon">
+                `;
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    currentPage++;
+                    renderNavigation();
+                };
+            } else {
+                btn.href = button.data.href;
+                btn.innerHTML = `
+                    <span class="nav-button-text">${button.data.text}</span>
+                    <img src="${button.data.icon}" alt="${button.data.text}" class="nav-button-icon">
+                `;
+                if (button.data.active) {
+                    btn.classList.add('active');
+                }
+            }
 
-function toggleVersions() {
-    const grid = document.getElementById('versions-grid');
-    const container = document.querySelector('.latest-versions');
-
-    if (isDropdownAnimating) return;
-
-    isDropdownAnimating = true;
-
-    if (grid.classList.contains('open')) {
-        const fullHeight = grid.scrollHeight + 'px';
-        grid.style.maxHeight = fullHeight;
-        requestAnimationFrame(() => {
-            grid.style.maxHeight = '0px';
-        });
-    } else {
-        grid.classList.add('open');
-        grid.style.maxHeight = '0px';
-        requestAnimationFrame(() => {
-            grid.style.maxHeight = grid.scrollHeight + 'px';
+            wrapper.appendChild(btn);
         });
     }
 
-    grid.addEventListener('transitionend', function handler() {
-        grid.removeEventListener('transitionend', handler);
+    async function fetchDownloadCount() {
+        try {
+            let modrinthDownloads = 0;
+            let curseforgeDownloads = 0;
 
-        if (grid.style.maxHeight === '0px') {
-            grid.classList.remove('open');
+            try {
+                const modrinthResponse = await fetch('https://api.modrinth.com/v2/project/earth-and-water', {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+
+                if (modrinthResponse.ok) {
+                    const modrinthData = await modrinthResponse.json();
+                    modrinthDownloads = modrinthData.downloads || 0;
+                    console.log('Modrinth downloads:', modrinthDownloads);
+                }
+            } catch (error) {
+                console.warn('Could not fetch Modrinth downloads:', error);
+            }
+
+            try {
+                const curseforgeProjectId = '1263951';
+                const cfResponse = await fetch(
+                    `https://api.cfwidget.com/minecraft/mc-mods/${curseforgeProjectId}`
+                );
+
+                if (cfResponse.ok) {
+                    const cfData = await cfResponse.json();
+                    curseforgeDownloads = cfData.downloads?.total || 0;
+                    console.log('CurseForge downloads:', curseforgeDownloads);
+                }
+            } catch (error) {
+                console.warn('Could not fetch CurseForge downloads:', error);
+            }
+
+            const totalDownloads = modrinthDownloads + curseforgeDownloads;
+            console.log('Total downloads:', totalDownloads);
+            updateDownloadCounter(totalDownloads, modrinthDownloads, curseforgeDownloads);
+
+        } catch (error) {
+            console.error('Error fetching download count:', error);
+            updateDownloadCounter(null);
         }
-
-        isDropdownAnimating = false;
-    });
-
-    container.classList.toggle('expanded');
-
-    targetRotation += 180;
-    if (!isArrowAnimating) {
-        updateArrow();
     }
-}
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.category-item').forEach(item => {
-        item.addEventListener('mousedown', function() {
-            this.classList.add('pressed');
-        });
-        
-        item.addEventListener('mouseup', function() {
-            this.classList.remove('pressed');
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.classList.remove('pressed');
-        });
-    });
-});
+    function updateDownloadCounter(total, modrinth, curseforge) {
+        const countElement = document.getElementById('downloadCount');
 
-document.querySelectorAll('.wiki-button').forEach(button => {
-    button.addEventListener('mousedown', function() {
-        this.classList.add('pressed');
-    });
-    
-    button.addEventListener('mouseup', function() {
-        this.classList.remove('pressed');
-    });
-    
-    button.addEventListener('mouseleave', function() {
-        this.classList.remove('pressed');
-    });
-    
-    button.addEventListener('click', function() {
-        const buttonText = this.querySelector('.wiki-button-name').textContent;
-        if (buttonText === 'Get E&W') {
-            window.open('https://modrinth.com', '_blank');
-        } else if (buttonText === 'Read More') {
-            alert('Opening featured article...');
+        if (!countElement) return;
+
+        if (total !== null) {
+            countElement.innerHTML = formatNumber(total);
+            countElement.title = `Modrinth: ${formatNumber(modrinth)}\nCurseForge: ${formatNumber(curseforge)}`;
+        } else {
+            countElement.innerHTML = '---';
         }
-    });
-});
+    }
 
-document.querySelectorAll('.version-item').forEach(item => {
-    item.addEventListener('mousedown', function() {
-        this.classList.add('pressed');
-    });
-    
-    item.addEventListener('mouseup', function() {
-        this.classList.remove('pressed');
-    });
-    
-    item.addEventListener('mouseleave', function() {
-        this.classList.remove('pressed');
-    });
-});
+    function initDownloadCounter() {
+        const countElement = document.getElementById('downloadCount');
+        if (countElement) {
+            countElement.innerHTML = '---';
+        }
+    }
 
-document.addEventListener('DOMContentLoaded', async function() {
-    await loadSearchData();
-    initializeSearch();
-});
+    function formatNumber(num) {
+        if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+        } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toLocaleString();
+    }
+
+    async function countArticles() {
+        if (allSearchItems && allSearchItems.length > 0) {
+            return allSearchItems.length;
+        }
+        return 9;
+    }
+
+    function updateArticleCounter(count) {
+        const articleElement = document.getElementById('articleCount');
+        if (articleElement) {
+            articleElement.textContent = count;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', async function() {
+        initDownloadCounter();
+
+        await loadSearchData();
+        initializeSearch();
+
+        renderNavigation();
+
+        const articleCount = await countArticles();
+        updateArticleCounter(articleCount);
+
+        fetchDownloadCount();
+
+        setInterval(fetchDownloadCount, 5 * 60 * 1000);
+
+        window.addEventListener('resize', function() {
+            renderNavigation();
+        });
+
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('mousedown', function() {
+                this.classList.add('pressed');
+            });
+
+            item.addEventListener('mouseup', function() {
+                this.classList.remove('pressed');
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.classList.remove('pressed');
+            });
+        });
+
+        document.querySelectorAll('.wiki-button').forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.classList.add('pressed');
+            });
+
+            button.addEventListener('mouseup', function() {
+                this.classList.remove('pressed');
+            });
+
+            button.addEventListener('mouseleave', function() {
+                this.classList.remove('pressed');
+            });
+
+            button.addEventListener('click', function() {
+                const buttonText = this.querySelector('.wiki-button-name').textContent;
+                if (buttonText === 'Get E&W') {
+                    window.open('https://modrinth.com/mod/earth-and-water', '_blank');
+                } else if (buttonText === 'Read More') {
+                    alert('Opening featured article...');
+                }
+            });
+        });
+
+        document.querySelectorAll('.version-item').forEach(item => {
+            item.addEventListener('mousedown', function() {
+                this.classList.add('pressed');
+            });
+
+            item.addEventListener('mouseup', function() {
+                this.classList.remove('pressed');
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.classList.remove('pressed');
+            });
+        });
+    });
 </script>
 </body>
 </html>

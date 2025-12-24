@@ -776,7 +776,7 @@ html {
                 <h1 class="page-title">Mod Development History</h1>
 
                 <h2 id="concept" class="main-header">Concept for E&W</h2>
-                <p>The idea for <strong>Earth & Water</strong> began in early 2024 when <strong>Tricky Trials</strong> released. Tricky Trials introduced the Breeze, a mob with similar features to the Blaze. This inspired the creation of the Bore and Brine, which then lead to the rest of the mod being created.</p>
+                <p>The idea for <strong>Earth & Water</strong> began in early 2024 on June 9, a few days before <strong>Tricky Trials</strong> was set to release. Tricky Trials introduced the Breeze, a mob with similar features to the Blaze. This inspired the creation of the Bore and Brine, which then lead to the rest of the mod being created.</p>
 
                 <div class="content-section">
                     <h2 id="v1-0" class="main-header">Version 1.0.0</h2>
@@ -797,13 +797,17 @@ html {
                             <li>Dark Dripstone Pillar</li>
                             <li>Pointed Dark Dripstone</li>
                             <li>Dark Prismarine Pillar, Wall</li>
-                            <li>Steel Block</li>
                             <li>Chiseled Prismarine Bricks</li>
                             <li>Prismarine Pillar, Tiles (+ Stairs, Slab, Wall)</li>
                             <li>Oxygen Block</li>
                             <li>Mixed Prismarine Tiles</li>
                             <li>Chiseled Dark Prismarine</li>
+                            <li>Limestone (+ Stairs, Slab, Wall)</li>
+                            <li>Polished Limestone (+ Stairs, Slab, Wall)</li>
+                            <li>Limestone Bricks (+ Stairs, Slab, Wall)</li>
+                            <li>Chiseled Limestone Bricks</li>
                             <li>Reinforced Spawner</li>
+                            <li>Steel Block</li>
                         </ul>
                     </div>
 
@@ -816,12 +820,6 @@ html {
                             <li>Steel Ingot</li>
                             <li>Steel Nugget</li>
                             <li>Spiked Shield</li>
-                        </ul>
-                    </div>
-
-                    <div class="mini-header">Weapons</div>
-                    <div class="feature-list">
-                        <ul>
                             <li>Whip</li>
                             <li>Battle Axe</li>
                         </ul>
@@ -843,22 +841,49 @@ html {
                         </ul>
                     </div>
 
-                    <div class="mini-header">Effects & Systems</div>
+                    <div class="mini-header">Effects</div>
                     <div class="feature-list">
                         <ul>
-                            <li>Potion Effects: Stun, Breath Giving</li>
-                            <li>Particle: Light Up</li>
-                            <li>Painting: Spawner</li>
-                            <li>Smithing Templates: Steel Upgrade, Block Smithing Template, Guard Smithing Template</li>
+                            <li>Stun</li>
+                            <li>Breath Giving</li>
                         </ul>
                     </div>
 
-                    <div class="mini-header">World Generation</div>
+                    <div class="mini-header">Particles</div>
                     <div class="feature-list">
                         <ul>
-                            <li>Structures: Conduit Monument, Ancient Ruins (with Chest Loot)</li>
-                            <li>Features: Oxygen Cluster, Dark Dripstone Cluster</li>
-                            <li>Biomes: Dark Dripstone Caves</li>
+                            <li>Light Up</li>
+                            <li>Reinforced Spawner Detection</li>
+                            <li>Reinforced Spawner Detection Outward</li>
+                            <li>Reinforced Spawner Detection Inner</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Smithing</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Steel Upgrade Smithing Template</li>
+                            <li>Block Armor Trim</li>
+                            <li>Guard Armor Trim</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Structures</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Ancient Ruins</li>
+                            <li>Conduit Monument</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">World Features</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Dark Dripstone Cluster</li>
+                            <li>Large Dark Dripstone</li>
+                            <li>Pointed Dark Dripstone</li>
+                            <li>Oxygen Cross</li>
+                            <li>Limestone Rock</li>
                         </ul>
                     </div>
 
@@ -890,17 +915,24 @@ html {
                     <div class="mini-header">Scrapped Items</div>
                     <div class="feature-list">
                         <ul>
-                            <li>Spear</li>
+                            <li>Spear (*Replaced by Battle Axe)</li>
                             <li>Steel Helmet</li>
-                            <li>Weakened Trident</li>
+                            <li>Weakened Trident (*Had no name)</li>
                         </ul>
                     </div>
 
-                    <div class="mini-header">Scrapped Effects & Concepts</div>
+                    <div class="mini-header">Scrapped Paintings</div>
+                    <div class="feature-list">
+                        <ul>
+                            <li>Spawner</li>
+                        </ul>
+                    </div>
+
+                    <div class="mini-header">Scrapped Concepts</div>
                     <div class="feature-list">
                         <ul>
                             <li>Particle: Shockwave (Water Charge)</li>
-                            <li>Concept: Bubble Vortex (Water Charge)</li>
+                            <li>Particle Pattern: Bubble Vortex (Water Charge)</li>
                         </ul>
                     </div>
                 </div>
@@ -910,25 +942,46 @@ html {
 
     <script>
         let searchData = {};
-let allSearchItems = [];
+    let allSearchItems = [];
 
-async function loadSearchData() {
-    try {
-        const response = await fetch('search-data.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+    const searchDataFiles = [
+        'search-data.json'
+    ];
+
+    async function loadSearchData() {
+        try {
+            const allData = [];
+            const cacheBuster = new Date().getTime();
+
+            for (const file of searchDataFiles) {
+                try {
+                    const response = await fetch(`${file}?v=${cacheBuster}`, {
+                        cache: 'no-store',
+                        headers: {
+                            'Cache-Control': 'no-cache',
+                            'Pragma': 'no-cache'
+                        }
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        const items = Object.values(data).flat();
+                        allData.push(...items);
+                        console.log(`Loaded search data from ${file}`);
+                    }
+                } catch (error) {
+                    console.warn(`Could not load ${file}:`, error);
+                }
+            }
+
+            allSearchItems = allData;
+            console.log(`Total search items loaded: ${allSearchItems.length}`);
+        } catch (error) {
+            console.error('Error loading search data:', error);
+            allSearchItems = [];
         }
-        searchData = await response.json();
-        allSearchItems = Object.values(searchData).flat();
-        console.log('Search data loaded successfully');
-    } catch (error) {
-        console.error('Error loading search data:', error);
-        searchData = {};
-        allSearchItems = [];
     }
-}
 
-function initializeSearch() {
+    function initializeSearch() {
     const searchInput = document.getElementById('searchInput');
     const searchSuggestions = document.getElementById('searchSuggestions');
 
@@ -939,13 +992,13 @@ function initializeSearch() {
 
     searchInput.addEventListener('input', function() {
         const query = this.value.toLowerCase().trim();
-        
+
         if (query.length === 0) {
             searchSuggestions.style.display = 'none';
             return;
         }
 
-        const matches = allSearchItems.filter(item => 
+        const matches = allSearchItems.filter(item =>
             item.title.toLowerCase().includes(query) ||
             item.category.toLowerCase().includes(query)
         ).slice(0, 8);
@@ -972,7 +1025,7 @@ function initializeSearch() {
     searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
             const query = this.value.toLowerCase().trim();
-            const firstMatch = allSearchItems.find(item => 
+            const firstMatch = allSearchItems.find(item =>
                 item.title.toLowerCase().includes(query) ||
                 item.category.toLowerCase().includes(query)
             );
@@ -981,16 +1034,20 @@ function initializeSearch() {
             }
         }
     });
-}
+    }
 
-function navigateToPage(page) {
-    window.location.href = page;
-}
+    function navigateToPage(page) {
+            if (page.startsWith('http')) {
+                window.location.href = page;
+            } else {
+                window.location.href = 'https://potatowolfie.github.io/' + page;
+            }
+        }
 
-document.addEventListener('DOMContentLoaded', async function() {
+    document.addEventListener('DOMContentLoaded', async function() {
     await loadSearchData();
     initializeSearch();
-});
+    });
     </script>
 </body>
 </html>
