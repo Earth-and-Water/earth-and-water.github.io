@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://earth-and-water.github.io">
     <meta property="og:title" content="Earth & Water History">
@@ -20,49 +20,49 @@
     <meta name="twitter:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
     <title>E&W History</title>
     <link rel="icon" type="image/x-icon" href="wiki_favicon.ico" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="index.css" />
     <style>
         @font-face {
             font-family: 'Minecraft';
             src: url('assets/font/minecraft.woff2') format('woff2'),
-                 url('assets/font/minecraft.woff') format('woff');
+                url('assets/font/minecraft.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
-    font-family: 'Minecraft Ten';
-    src: url('assets/fonts/minecraft.woff2') format('woff2'),
-         url('assets/fonts/minecraft.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-        
+            font-family: 'Minecraft Ten';
+            src: url('assets/fonts/minecraft.woff2') format('woff2'),
+                url('assets/fonts/minecraft.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * {
             box-sizing: border-box;
         }
-		
-		img {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-crisp-edges;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
 
-.logo img {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-}
-        
+        img {
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
         body {
             background: url('assets/wiki/background.png');
             background-color: #2d2d2d;
@@ -74,15 +74,15 @@
             padding: 0;
             line-height: 1.6;
         }
-        
+
         .header {
             background: rgba(45, 45, 45, 0.9);
             border-bottom: 3px solid #4a4a4a;
             padding: 15px 0;
             backdrop-filter: blur(10px);
-		position: static;
+            position: static;
         }
-        
+
         .header-content {
             max-width: 95vw;
             margin: 0 auto;
@@ -92,33 +92,33 @@
             padding: 0 20px;
             gap: 15px;
         }
-        
+
         @media (max-width: 768px) {
             .header-content {
                 padding: 0 15px;
                 gap: 10px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .header-content {
                 padding: 0 10px;
                 gap: 8px;
             }
         }
-        
+
         .logo {
             height: 60px;
             width: auto;
             flex-shrink: 0;
         }
-        
+
         @media (max-width: 480px) {
             .logo {
                 height: 50px;
             }
         }
-        
+
         .logo img {
             height: 100%;
             width: auto;
@@ -178,7 +178,7 @@
             overflow-y: auto;
             z-index: 1000;
             display: none;
-            box-shadow: 
+            box-shadow:
                 inset 2px 2px 0 #3b3e47,
                 inset -2px -2px 0 #2e313a;
         }
@@ -224,9 +224,11 @@
             .search-suggestion:hover {
                 background: transparent;
             }
+
             .search-suggestion:active {
                 background: #4f5a75;
             }
+
             .search-suggestion:active .suggestion-title {
                 color: #0ea394;
             }
@@ -258,6 +260,7 @@
             .suggestion-category {
                 font-size: 11px;
             }
+
             .suggestion-title {
                 font-size: 15px;
                 margin-top: 3px;
@@ -293,7 +296,7 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        
+
         .nav-content {
             max-width: 95vw;
             margin: 0 auto;
@@ -301,19 +304,19 @@
             padding: 0 20px;
             min-width: max-content;
         }
-        
+
         @media (max-width: 768px) {
             .nav-content {
                 padding: 0 15px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .nav-content {
                 padding: 0 10px;
             }
         }
-        
+
         .nav-tab {
             padding: 8px 70px;
             background: #0ea394;
@@ -325,37 +328,37 @@
             color: white;
             font-family: 'Minecraft Ten', 'Inter', sans-serif;
             font-weight: 600;
-            text-shadow: 2px 2px 0px rgba(23,88,78,0.8);
-            box-shadow: 
+            text-shadow: 2px 2px 0px rgba(23, 88, 78, 0.8);
+            box-shadow:
                 inset 2px 2px 0 #20cfbe,
                 inset -2px -2px 0 #18baaa;
             white-space: nowrap;
             flex-shrink: 0;
         }
-        
+
         @media (max-width: 768px) {
             .nav-tab {
                 padding: 8px 40px;
                 font-size: 11px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .nav-tab {
                 padding: 8px 25px;
                 font-size: 10px;
             }
         }
-        
+
         .main-container {
             max-width: 1200px;
             margin: 30px auto;
             background: #2b2f39;
             padding: 30px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             border-radius: 0px;
         }
-        
+
         @media (max-width: 768px) {
             .main-container {
                 margin: 20px 15px;
@@ -363,27 +366,27 @@
                 max-width: none;
             }
         }
-        
+
         @media (max-width: 480px) {
             .main-container {
                 margin: 15px 10px;
                 padding: 20px 15px;
             }
         }
-        
+
         .content-wrapper {
             display: flex;
             gap: 30px;
             align-items: flex-start;
         }
-        
+
         @media (max-width: 768px) {
             .content-wrapper {
                 flex-direction: column;
                 gap: 20px;
             }
         }
-        
+
         .toc {
             background: #31353e;
             border: 2px solid #202125;
@@ -394,11 +397,11 @@
             align-self: flex-start;
             position: sticky;
             top: 27px;
-            box-shadow: 
+            box-shadow:
                 inset 2px 2px 0 #3b3e47,
                 inset -2px -2px 0 #2e313a;
         }
-        
+
         @media (max-width: 768px) {
             .toc {
                 width: 100%;
@@ -406,7 +409,7 @@
                 margin-bottom: 25px;
             }
         }
-        
+
         .toc h2 {
             font-size: 16px;
             color: #0ea394;
@@ -414,17 +417,17 @@
             margin-top: 0;
             font-family: 'Minecraft Ten', 'Nunito', sans-serif;
         }
-        
+
         .toc ul {
             list-style-type: none;
             padding-left: 0;
             margin: 0;
         }
-        
+
         .toc li {
             margin-bottom: 5px;
         }
-        
+
         .toc a {
             color: #cccccc;
             text-decoration: none;
@@ -433,104 +436,106 @@
             border-radius: 3px;
             transition: all 0.2s ease;
         }
-        
+
         .toc a:hover {
             color: #0ea394;
             background: rgba(14, 163, 148, 0.1);
         }
-        
+
         @media (hover: none) {
             .toc a:hover {
                 background: transparent;
             }
+
             .toc a:active {
                 background: rgba(14, 163, 148, 0.1);
             }
         }
-        
+
         .content {
             flex: 1;
             min-width: 0;
         }
-        
-        .page-title, .main-header {
+
+        .page-title,
+        .main-header {
             font-family: 'Minecraft Ten', 'Nunito', sans-serif;
             color: #0ea394;
             word-wrap: break-word;
         }
-        
+
         .page-title {
             font-size: 1.7rem;
             margin-bottom: 25px;
             margin-top: 0;
-			border-bottom: 2px solid #4a4a4a;
+            border-bottom: 2px solid #4a4a4a;
         }
-        
+
         @media (max-width: 768px) {
             .page-title {
                 font-size: 1.5rem;
                 margin-bottom: 20px;
-				border-bottom: 2px solid #4a4a4a;
+                border-bottom: 2px solid #4a4a4a;
             }
         }
-        
+
         @media (max-width: 480px) {
             .page-title {
                 font-size: 1.3rem;
                 margin-bottom: 15px;
-				border-bottom: 2px solid #4a4a4a;
+                border-bottom: 2px solid #4a4a4a;
             }
         }
-        
+
         .main-header {
             font-size: 1.1rem;
             margin: 30px 0 15px 0;
         }
-        
+
         @media (max-width: 768px) {
             .main-header {
                 font-size: 1.1rem;
                 margin: 25px 0 12px 0;
             }
         }
-        
+
         @media (max-width: 480px) {
             .main-header {
                 font-size: 1.1rem;
                 margin: 20px 0 10px 0;
             }
         }
-        
+
         .content-section {
             margin-bottom: 30px;
         }
-        
+
         @media (max-width: 768px) {
             .content-section {
                 margin-bottom: 25px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .content-section {
                 margin-bottom: 20px;
             }
         }
-        
+
         .mini-header {
             font-size: 18px;
             color: #20cfbe;
             margin: 20px 0 10px 0;
             font-weight: 600;
         }
-        
+
         @media (max-width: 480px) {
             .mini-header {
                 font-size: 16px;
                 margin: 15px 0 8px 0;
             }
         }
-        
+
         .feature-list {
             background: #31353e;
             border-left: 4px solid #0ea394;
@@ -539,68 +544,68 @@
             border-radius: 0 4px 4px 0;
             overflow-x: auto;
         }
-        
+
         @media (max-width: 480px) {
             .feature-list {
                 padding: 12px;
                 margin: 8px 0;
             }
         }
-        
+
         .feature-list ul {
             margin: 0;
             padding-left: 20px;
         }
-        
+
         @media (max-width: 480px) {
             .feature-list ul {
                 padding-left: 16px;
             }
         }
-        
+
         .feature-list li {
             margin-bottom: 5px;
             color: #cccccc;
             word-wrap: break-word;
         }
-        
+
         p {
             margin: 0 0 15px 0;
             word-wrap: break-word;
         }
-        
+
         @media (max-width: 480px) {
             p {
                 margin: 0 0 12px 0;
             }
         }
-        
+
         strong {
             color: #20cfbe;
         }
-        
+
         .nav-tabs::-webkit-scrollbar {
             height: 6px;
         }
-        
+
         .nav-tabs::-webkit-scrollbar-track {
             background: rgba(51, 51, 51, 0.5);
         }
-        
+
         .nav-tabs::-webkit-scrollbar-thumb {
             background: #0ea394;
             border-radius: 3px;
         }
-        
+
         .nav-tabs::-webkit-scrollbar-thumb:hover {
             background: #20cfbe;
         }
-        
+
         .nav-tabs {
             scrollbar-width: thin;
             scrollbar-color: #0ea394 rgba(51, 51, 51, 0.5);
         }
-        
+
         .nav-tab:focus,
         .toc a:focus,
         .search-box:focus,
@@ -608,14 +613,15 @@
             outline: 2px solid #0ea394;
             outline-offset: 2px;
         }
-        
+
         @media print {
+
             .header,
             .nav-tabs,
             .search-container {
                 display: none;
             }
-            
+
             .main-container {
                 margin: 0;
                 padding: 20px;
@@ -623,336 +629,336 @@
                 background: white;
                 color: black;
             }
-            
+
             .toc {
                 position: static;
                 page-break-inside: avoid;
             }
-			
-			.history-box {
-    margin-top: 20px;
-    background: #31353e;
-    border: 2px solid #202125;
-    padding: 10px;
-    font-size: 14px;
-    color: #ccc;
-    box-shadow:
-        inset 2px 2px 0 #3b3e47,
-        inset -2px -2px 0 #2e313a;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+
+            .history-box {
+                margin-top: 20px;
+                background: #31353e;
+                border: 2px solid #202125;
+                padding: 10px;
+                font-size: 14px;
+                color: #ccc;
+                box-shadow:
+                    inset 2px 2px 0 #3b3e47,
+                    inset -2px -2px 0 #2e313a;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
         }
-		
-		.side-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    position: sticky;
-    top: 27px;
-    align-self: flex-start;
-    width: 300px;
-}
 
-@media (max-width: 768px) {
-    .side-stack {
-        width: 100%;
-        position: static;
-        margin-bottom: 25px;
-    }
-}
+        .side-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            position: sticky;
+            top: 27px;
+            align-self: flex-start;
+            width: 300px;
+        }
 
-.history-box {
-    background: #31353e;
-    border: 2px solid #202125;
-    padding: 10px;
-    font-size: 14px;
-    color: #ccc;
-    box-shadow:
-        inset 2px 2px 0 #3b3e47,
-        inset -2px -2px 0 #2e313a;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+        @media (max-width: 768px) {
+            .side-stack {
+                width: 100%;
+                position: static;
+                margin-bottom: 25px;
+            }
+        }
 
-.history-box img {
-    width: 100%;
-    image-rendering: pixelated;
-    border: 2px solid #202125;
-}
+        .history-box {
+            background: #31353e;
+            border: 2px solid #202125;
+            padding: 10px;
+            font-size: 14px;
+            color: #ccc;
+            box-shadow:
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-.history-box a {
-    color: #0ea394;
-    text-decoration: none;
-}
+        .history-box img {
+            width: 100%;
+            image-rendering: pixelated;
+            border: 2px solid #202125;
+        }
 
-.history-box a:hover {
-    text-decoration: underline;
-}
+        .history-box a {
+            color: #0ea394;
+            text-decoration: none;
+        }
 
-html {
-    scroll-padding-top: 20px;
-}
-	   h1, h2,
-.page-title,
-.main-header,
-.category-name,
-.version-item-name,
-.versions-header-text,
-.creator-name,
-.wiki-button-name {
-    font-family: 'Minecraft Ten', 'Inter', sans-serif !important;
-}
+        .history-box a:hover {
+            text-decoration: underline;
+        }
 
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: stretch;
-  }
+        html {
+            scroll-padding-top: 20px;
+        }
 
-  .search-container {
-    width: 100%;
-    max-width: none;
-  }
+        h1,
+        h2,
+        .page-title,
+        .main-header,
+        .category-name,
+        .version-item-name,
+        .versions-header-text,
+        .creator-name,
+        .wiki-button-name {
+            font-family: 'Minecraft Ten', 'Inter', sans-serif !important;
+        }
 
-  .search-box {
-    width: 100%;
-  }
-}
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
 
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+            .search-container {
+                width: 100%;
+                max-width: none;
+            }
 
-  .logo {
-    margin: 10px 0;Add commentMore actions
-  }
-}	    
+            .search-box {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo {
+                margin: 10px 0;
+                Add commentMore actions
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <div class="logo">
-                <a href="https://earth-and-water.github.io">
-                    <img src="assets/wiki/earth_water_wiki.png" alt="Earth & Water Wiki">
-                </a>
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="Search Earth & Water Wiki" id="searchInput" autocomplete="off">
-                <div class="search-suggestions" id="searchSuggestions"></div>
-            </div>
+<div class="header">
+    <div class="header-content">
+        <div class="logo">
+            <a href="https://earth-and-water.github.io">
+                <img src="assets/wiki/earth_water_wiki.png" alt="Earth & Water Wiki">
+            </a>
         </div>
-    </div>
-
-    <div class="main-container">
-        <div class="content-wrapper">
-            <div class="side-stack">
-    <div class="toc">
-        <h2>Contents</h2>
-        <ul>
-            <li><a href="#concept">Concept for E&amp;W</a></li>
-            <li><a href="#v1-0">Version 1.0.0</a></li>
-            <li><a href="#scrapped">Scrapped Content</a></li>
-        </ul>
-    </div>
-
-    <div class="history-box">
-        <img src="assets/wiki/history/history.png" alt="History" />
-        <p>
-			<strong>The first scrapped idea for E&W.</strong>
-			Steel armor. The only texture made for it was the helmet before scrapping the idea.
-			The idea of Steel still stayed around though, as things like the <a href="#">Spiked Shield</a> and <a href="#">Battle Axe</a> came from it.
-        </p>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search Earth & Water Wiki" id="searchInput" autocomplete="off">
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
     </div>
 </div>
-            
-            <div class="content">
-                <h1 class="page-title">Mod Development History</h1>
 
-                <h2 id="concept" class="main-header">Concept for E&W</h2>
-                <p>The idea for <strong>Earth & Water</strong> began in early 2024 on June 9, a few days before <strong>Tricky Trials</strong> was set to release. Tricky Trials introduced the Breeze, a mob with similar features to the Blaze. This inspired the creation of the Bore and Brine, which then lead to the rest of the mod being created.</p>
+<div class="main-container">
+    <div class="content-wrapper">
+        <div class="side-stack">
+            <div class="toc">
+                <h2>Contents</h2>
+                <ul>
+                    <li><a href="#concept">Concept for E&amp;W</a></li>
+                    <li><a href="#v1-0">Version 1.0.0</a></li>
+                    <li><a href="#scrapped">Scrapped Content</a></li>
+                </ul>
+            </div>
 
-                <div class="content-section">
-                    <h2 id="v1-0" class="main-header">Version 1.0.0</h2>
-                    <p>The first major release introduced many blocks, items, and gameplay mechanics that established the identity of Earth & Water.</p>
+            <div class="history-box">
+                <img src="assets/wiki/history/history.png" alt="History" />
+                <p>
+                    <strong>The first scrapped idea for E&W.</strong>
+                    Steel armor. The only texture made for it was the helmet before scrapping the idea.
+                    The idea of Steel still stayed around though, as things like the <a href="#">Spiked Shield</a> and <a href="#">Battle Axe</a> came from it.
+                </p>
+            </div>
+        </div>
 
-                    <div class="mini-header">Blocks</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Dripstone Stairs, Slab, Wall</li>
-                            <li>Dripstone Bricks (+ Stairs, Slab, Wall)</li>
-                            <li>Polished Dripstone (+ Stairs, Slab, Wall)</li>
-                            <li>Polished Dripstone Tiles</li>
-                            <li>Dripstone Pillar</li>
-                            <li>Chiseled Dripstone Bricks</li>
-                            <li>Dark Dripstone Block (+ Stairs, Slab, Wall)</li>
-                            <li>Dark Dripstone Bricks (+ Stairs, Slab, Wall)</li>
-                            <li>Polished Dark Dripstone (+ Stairs, Slab, Wall)</li>
-                            <li>Dark Dripstone Pillar</li>
-                            <li>Pointed Dark Dripstone</li>
-                            <li>Dark Prismarine Pillar, Wall</li>
-                            <li>Chiseled Prismarine Bricks</li>
-                            <li>Prismarine Pillar, Tiles (+ Stairs, Slab, Wall)</li>
-                            <li>Oxygen Block</li>
-                            <li>Mixed Prismarine Tiles</li>
-                            <li>Chiseled Dark Prismarine</li>
-                            <li>Limestone (+ Stairs, Slab, Wall)</li>
-                            <li>Polished Limestone (+ Stairs, Slab, Wall)</li>
-                            <li>Limestone Bricks (+ Stairs, Slab, Wall)</li>
-                            <li>Chiseled Limestone Bricks</li>
-                            <li>Reinforced Spawner</li>
-                            <li>Steel Block</li>
-                        </ul>
-                    </div>
+        <div class="content">
+            <h1 class="page-title">Mod Development History</h1>
 
-                    <div class="mini-header">Items</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Bore Rod</li>
-                            <li>Brine Rod</li>
-                            <li>Reinforced Key</li>
-                            <li>Steel Ingot</li>
-                            <li>Steel Nugget</li>
-                            <li>Spiked Shield</li>
-                            <li>Whip</li>
-                            <li>Battle Axe</li>
-                        </ul>
-                    </div>
+            <h2 id="concept" class="main-header">Concept for E&W</h2>
+            <p>The idea for <strong>Earth & Water</strong> began in early 2024 on June 9, a few days before <strong>Tricky Trials</strong> was set to release. Tricky Trials introduced the Breeze, a mob with similar features to the Blaze. This inspired the creation of the Bore and Brine, which then lead to the rest of the mod being created.</p>
 
-                    <div class="mini-header">Mobs</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Brine</li>
-                            <li>Bore</li>
-                        </ul>
-                    </div>
+            <div class="content-section">
+                <h2 id="v1-0" class="main-header">Version 1.0.0</h2>
+                <p>The first major release introduced many blocks, items, and gameplay mechanics that established the identity of Earth & Water.</p>
 
-                    <div class="mini-header">Projectiles</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Earth Charge</li>
-                            <li>Water Charge</li>
-                        </ul>
-                    </div>
-
-                    <div class="mini-header">Effects</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Stun</li>
-                            <li>Breath Giving</li>
-                        </ul>
-                    </div>
-
-                    <div class="mini-header">Particles</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Light Up</li>
-                            <li>Reinforced Spawner Detection</li>
-                            <li>Reinforced Spawner Detection Outward</li>
-                            <li>Reinforced Spawner Detection Inner</li>
-                        </ul>
-                    </div>
-
-                    <div class="mini-header">Smithing</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Steel Upgrade Smithing Template</li>
-                            <li>Block Armor Trim</li>
-                            <li>Guard Armor Trim</li>
-                        </ul>
-                    </div>
-
-                    <div class="mini-header">Structures</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Ancient Ruins</li>
-                            <li>Conduit Monument</li>
-                        </ul>
-                    </div>
-
-                    <div class="mini-header">World Features</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Dark Dripstone Cluster</li>
-                            <li>Large Dark Dripstone</li>
-                            <li>Pointed Dark Dripstone</li>
-                            <li>Oxygen Cross</li>
-                            <li>Limestone Rock</li>
-                        </ul>
-                    </div>
-
-                    <div class="mini-header">Advancements</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Mob Lock</li>
-                            <li>Long Ago…</li>
-                            <li>Boreing</li>
-                            <li>Atlantean Eye</li>
-                            <li>Stalactite Sanctum</li>
-                        </ul>
-                    </div>
+                <div class="mini-header">Blocks</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Dripstone Stairs, Slab, Wall</li>
+                        <li>Dripstone Bricks (+ Stairs, Slab, Wall)</li>
+                        <li>Polished Dripstone (+ Stairs, Slab, Wall)</li>
+                        <li>Polished Dripstone Tiles</li>
+                        <li>Dripstone Pillar</li>
+                        <li>Chiseled Dripstone Bricks</li>
+                        <li>Dark Dripstone Block (+ Stairs, Slab, Wall)</li>
+                        <li>Dark Dripstone Bricks (+ Stairs, Slab, Wall)</li>
+                        <li>Polished Dark Dripstone (+ Stairs, Slab, Wall)</li>
+                        <li>Dark Dripstone Pillar</li>
+                        <li>Pointed Dark Dripstone</li>
+                        <li>Dark Prismarine Pillar, Wall</li>
+                        <li>Chiseled Prismarine Bricks</li>
+                        <li>Prismarine Pillar, Tiles (+ Stairs, Slab, Wall)</li>
+                        <li>Oxygen Block</li>
+                        <li>Mixed Prismarine Tiles</li>
+                        <li>Chiseled Dark Prismarine</li>
+                        <li>Limestone (+ Stairs, Slab, Wall)</li>
+                        <li>Polished Limestone (+ Stairs, Slab, Wall)</li>
+                        <li>Limestone Bricks (+ Stairs, Slab, Wall)</li>
+                        <li>Chiseled Limestone Bricks</li>
+                        <li>Reinforced Spawner</li>
+                        <li>Steel Block</li>
+                    </ul>
                 </div>
 
-                <div class="content-section">
-                    <h2 id="scrapped" class="main-header">Scrapped Content</h2>
-                    <p>During development, several features were conceptualized but removed or never implemented. These ideas may return in future updates, but no promises.</p>
+                <div class="mini-header">Items</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Bore Rod</li>
+                        <li>Brine Rod</li>
+                        <li>Reinforced Key</li>
+                        <li>Steel Ingot</li>
+                        <li>Steel Nugget</li>
+                        <li>Spiked Shield</li>
+                        <li>Whip</li>
+                        <li>Battle Axe</li>
+                    </ul>
+                </div>
 
-                    <div class="mini-header">Scrapped Blocks</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Andesite Bricks (+ Stairs, Slab, Wall)</li>
-                            <li>Diorite Bricks (+ Stairs, Slab, Wall)</li>
-                            <li>Granite Bricks (+ Stairs, Slab, Wall)</li>
-                        </ul>
-                    </div>
+                <div class="mini-header">Mobs</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Brine</li>
+                        <li>Bore</li>
+                    </ul>
+                </div>
 
-                    <div class="mini-header">Scrapped Items</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Spear (*Replaced by Battle Axe)</li>
-                            <li>Steel Helmet</li>
-                            <li>Weakened Trident (*Had no name)</li>
-                        </ul>
-                    </div>
+                <div class="mini-header">Projectiles</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Earth Charge</li>
+                        <li>Water Charge</li>
+                    </ul>
+                </div>
 
-                    <div class="mini-header">Scrapped Paintings</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Spawner</li>
-                        </ul>
-                    </div>
+                <div class="mini-header">Effects</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Stun</li>
+                        <li>Breath Giving</li>
+                    </ul>
+                </div>
 
-                    <div class="mini-header">Scrapped Concepts</div>
-                    <div class="feature-list">
-                        <ul>
-                            <li>Particle: Shockwave (Water Charge)</li>
-                            <li>Particle Pattern: Bubble Vortex (Water Charge)</li>
-                        </ul>
-                    </div>
+                <div class="mini-header">Particles</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Light Up</li>
+                        <li>Reinforced Spawner Detection</li>
+                        <li>Reinforced Spawner Detection Outward</li>
+                        <li>Reinforced Spawner Detection Inner</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Smithing</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Steel Upgrade Smithing Template</li>
+                        <li>Block Armor Trim</li>
+                        <li>Guard Armor Trim</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Structures</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Ancient Ruins</li>
+                        <li>Conduit Monument</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">World Features</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Dark Dripstone Cluster</li>
+                        <li>Large Dark Dripstone</li>
+                        <li>Pointed Dark Dripstone</li>
+                        <li>Oxygen Cross</li>
+                        <li>Limestone Rock</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Advancements</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Mob Lock</li>
+                        <li>Long Ago…</li>
+                        <li>Boreing</li>
+                        <li>Atlantean Eye</li>
+                        <li>Stalactite Sanctum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 id="scrapped" class="main-header">Scrapped Content</h2>
+                <p>During development, several features were conceptualized but removed or never implemented. These ideas may return in future updates, but no promises.</p>
+
+                <div class="mini-header">Scrapped Blocks</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Andesite Bricks (+ Stairs, Slab, Wall)</li>
+                        <li>Diorite Bricks (+ Stairs, Slab, Wall)</li>
+                        <li>Granite Bricks (+ Stairs, Slab, Wall)</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Scrapped Items</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Spear (*Replaced by Battle Axe)</li>
+                        <li>Steel Helmet</li>
+                        <li>Weakened Trident (*Had no name)</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Scrapped Paintings</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Spawner</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Scrapped Concepts</div>
+                <div class="feature-list">
+                    <ul>
+                        <li>Particle: Shockwave (Water Charge)</li>
+                        <li>Particle Pattern: Bubble Vortex (Water Charge)</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        let searchData = {};
+<script>
+    let searchData = {};
     let allSearchItems = [];
-
     const searchDataFiles = [
         'search-data.json'
     ];
-
     async function loadSearchData() {
         try {
             const allData = [];
             const cacheBuster = new Date().getTime();
-
             for (const file of searchDataFiles) {
                 try {
                     const response = await fetch(`${file}?v=${cacheBuster}`, {
@@ -972,7 +978,6 @@ html {
                     console.warn(`Could not load ${file}:`, error);
                 }
             }
-
             allSearchItems = allData;
             console.log(`Total search items loaded: ${allSearchItems.length}`);
         } catch (error) {
@@ -982,73 +987,64 @@ html {
     }
 
     function initializeSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchSuggestions = document.getElementById('searchSuggestions');
-
-    if (!searchInput || !searchSuggestions) {
-        console.error('Search elements not found');
-        return;
-    }
-
-    searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-
-        if (query.length === 0) {
-            searchSuggestions.style.display = 'none';
+        const searchInput = document.getElementById('searchInput');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+        if (!searchInput || !searchSuggestions) {
+            console.error('Search elements not found');
             return;
         }
-
-        const matches = allSearchItems.filter(item =>
-            item.title.toLowerCase().includes(query) ||
-            item.category.toLowerCase().includes(query)
-        ).slice(0, 8);
-
-        if (matches.length > 0) {
-            searchSuggestions.innerHTML = matches.map(item => `
-                <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
-                    <div class="suggestion-category">${item.category}</div>
-                    <div class="suggestion-title">${item.title}</div>
-                </div>
-            `).join('');
-            searchSuggestions.style.display = 'block';
-        } else {
-            searchSuggestions.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.search-container')) {
-            searchSuggestions.style.display = 'none';
-        }
-    });
-
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
+        searchInput.addEventListener('input', function() {
             const query = this.value.toLowerCase().trim();
-            const firstMatch = allSearchItems.find(item =>
+            if (query.length === 0) {
+                searchSuggestions.style.display = 'none';
+                return;
+            }
+            const matches = allSearchItems.filter(item =>
                 item.title.toLowerCase().includes(query) ||
                 item.category.toLowerCase().includes(query)
-            );
-            if (firstMatch) {
-                navigateToPage(firstMatch.page);
+            ).slice(0, 8);
+            if (matches.length > 0) {
+                searchSuggestions.innerHTML = matches.map(item => `
+        <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
+            <div class="suggestion-category">${item.category}</div>
+            <div class="suggestion-title">${item.title}</div>
+        </div>
+    `).join('');
+                searchSuggestions.style.display = 'block';
+            } else {
+                searchSuggestions.style.display = 'none';
             }
-        }
-    });
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase().trim();
+                const firstMatch = allSearchItems.find(item =>
+                    item.title.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query)
+                );
+                if (firstMatch) {
+                    navigateToPage(firstMatch.page);
+                }
+            }
+        });
     }
 
     function navigateToPage(page) {
-            if (page.startsWith('http')) {
-                window.location.href = page;
-            } else {
-                window.location.href = 'https://potatowolfie.github.io/' + page;
-            }
+        if (page.startsWith('http')) {
+            window.location.href = page;
+        } else {
+            window.location.href = 'https://potatowolfie.github.io/' + page;
         }
-
+    }
     document.addEventListener('DOMContentLoaded', async function() {
-    await loadSearchData();
-    initializeSearch();
+        await loadSearchData();
+        initializeSearch();
     });
-    </script>
+</script>
 </body>
 </html>
-

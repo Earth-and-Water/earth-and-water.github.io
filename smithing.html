@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://earth-and-water.github.io">
     <meta property="og:title" content="Earth & Water Smithing">
@@ -20,15 +20,15 @@
     <meta name="twitter:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
     <title>E&W Smithing</title>
     <link rel="icon" type="image/x-icon" href="wiki_favicon.ico" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="index.css" />
     <style>
         @font-face {
             font-family: 'Minecraft';
             src: url('assets/font/minecraft.woff2') format('woff2'),
-                 url('assets/font/minecraft.woff') format('woff');
+                url('assets/font/minecraft.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
@@ -36,17 +36,17 @@
         @font-face {
             font-family: 'Minecraft Ten';
             src: url('assets/fonts/minecraft.woff2') format('woff2'),
-                 url('assets/fonts/minecraft.woff') format('woff');
+                url('assets/fonts/minecraft.woff') format('woff');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
-        
+
         * {
             box-sizing: border-box;
         }
-		
-		img {
+
+        img {
             image-rendering: -moz-crisp-edges;
             image-rendering: -webkit-crisp-edges;
             image-rendering: pixelated;
@@ -62,7 +62,7 @@
             width: auto;
             object-fit: contain;
         }
-        
+
         body {
             background: url('assets/wiki/background.png');
             background-color: #2d2d2d;
@@ -74,7 +74,7 @@
             padding: 0;
             line-height: 1.6;
         }
-        
+
         .header {
             background: rgba(45, 45, 45, 0.9);
             border-bottom: 3px solid #4a4a4a;
@@ -82,7 +82,7 @@
             backdrop-filter: blur(10px);
             position: static;
         }
-        
+
         .header-content {
             max-width: 95vw;
             margin: 0 auto;
@@ -92,7 +92,7 @@
             padding: 0 20px;
             gap: 15px;
         }
-        
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -101,25 +101,25 @@
                 padding: 0 15px;
                 gap: 10px;
             }
-            
+
             .logo {
                 margin: 10px 0;
             }
         }
-        
+
         @media (max-width: 480px) {
             .header-content {
                 padding: 0 10px;
                 gap: 8px;
             }
         }
-        
+
         .logo {
             height: 60px;
             width: auto;
             flex-shrink: 0;
         }
-        
+
         @media (max-width: 480px) {
             .logo {
                 height: 50px;
@@ -178,7 +178,7 @@
             overflow-y: auto;
             z-index: 1000;
             display: none;
-            box-shadow: 
+            box-shadow:
                 inset 2px 2px 0 #3b3e47,
                 inset -2px -2px 0 #2e313a;
         }
@@ -224,9 +224,11 @@
             .search-suggestion:hover {
                 background: transparent;
             }
+
             .search-suggestion:active {
                 background: #4f5a75;
             }
+
             .search-suggestion:active .suggestion-title {
                 color: #0ea394;
             }
@@ -258,6 +260,7 @@
             .suggestion-category {
                 font-size: 11px;
             }
+
             .suggestion-title {
                 font-size: 15px;
                 margin-top: 3px;
@@ -293,7 +296,7 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        
+
         .nav-content {
             max-width: 95vw;
             margin: 0 auto;
@@ -301,19 +304,19 @@
             padding: 0 20px;
             min-width: max-content;
         }
-        
+
         @media (max-width: 768px) {
             .nav-content {
                 padding: 0 15px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .nav-content {
                 padding: 0 10px;
             }
         }
-        
+
         .nav-tab {
             padding: 8px 70px;
             background: #0ea394;
@@ -325,34 +328,34 @@
             color: white;
             font-family: 'Minecraft Ten', 'Inter', sans-serif;
             font-weight: 600;
-            text-shadow: 2px 2px 0px rgba(23,88,78,0.8);
-            box-shadow: 
+            text-shadow: 2px 2px 0px rgba(23, 88, 78, 0.8);
+            box-shadow:
                 inset 2px 2px 0 #20cfbe,
                 inset -2px -2px 0 #18baaa;
             white-space: nowrap;
             flex-shrink: 0;
         }
-        
+
         @media (max-width: 768px) {
             .nav-tab {
                 padding: 8px 40px;
                 font-size: 11px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .nav-tab {
                 padding: 8px 25px;
                 font-size: 10px;
             }
         }
-        
+
         .main-container {
             max-width: 1400px;
             margin: 30px auto;
             background: #2b2f39;
             padding: 30px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             border-radius: 0px;
         }
 
@@ -443,6 +446,7 @@
             .toc a:hover {
                 background: transparent;
             }
+
             .toc a:active {
                 background: rgba(14, 163, 148, 0.1);
             }
@@ -453,7 +457,8 @@
             min-width: 0;
         }
 
-        .page-title, .main-header {
+        .page-title,
+        .main-header {
             font-family: 'Minecraft Ten', 'Nunito', sans-serif;
             color: #0ea394;
             word-wrap: break-word;
@@ -575,23 +580,23 @@
         }
 
         .steel-image-container {
-    flex-shrink: 0;
-    width: 270px;
-}
+            flex-shrink: 0;
+            width: 270px;
+        }
 
-@media (max-width: 768px) {
-    .steel-image-container {
-        width: 100%;
-        max-width: 370px;
-        margin: 0 auto;
-    }
-}
+        @media (max-width: 768px) {
+            .steel-image-container {
+                width: 100%;
+                max-width: 370px;
+                margin: 0 auto;
+            }
+        }
 
-.steel-image-container img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-}
+        .steel-image-container img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
 
         .steel-recipe-image {
             width: 100%;
@@ -651,7 +656,8 @@
             }
         }
 
-        .template-showcase-image, .template-recipe-image {
+        .template-showcase-image,
+        .template-recipe-image {
             width: 100%;
             aspect-ratio: 4/3;
             object-fit: cover;
@@ -801,7 +807,8 @@
             scroll-padding-top: 20px;
         }
 
-        h1, h2,
+        h1,
+        h2,
         .page-title,
         .main-header,
         .category-name,
@@ -813,6 +820,7 @@
         }
 
         @media print {
+
             .header,
             .nav-tabs,
             .search-container {
@@ -876,7 +884,8 @@
                         <div class="steel-text-content">
                             <div class="equipment-description">
                                 <p>The <STRONG>Steel Upgrade</STRONG> is a smithing template that allows players to modify a standard shield into the Spiked Shield. This upgrade adds spikes to the shield, changing both its appearance and functionality.</p>
-                                <p>The Spiked Shield retains all normal blocking abilities of the vanilla shield while adding an offensive property. When struck by an enemy, the spikes can deflect the attack and deal damage back to the attacker.<p>
+                                <p>The Spiked Shield retains all normal blocking abilities of the vanilla shield while adding an offensive property. When struck by an enemy, the spikes can deflect the attack and deal damage back to the attacker.
+                                <p>
                             </div>
                         </div>
 
@@ -969,87 +978,78 @@
 
 <script>
     let searchData = {};
-let allSearchItems = [];
-
-async function loadSearchData() {
-try {
-    const response = await fetch('search-data.json');
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    searchData = await response.json();
-    allSearchItems = Object.values(searchData).flat();
-    console.log('Search data loaded successfully');
-} catch (error) {
-    console.error('Error loading search data:', error);
-    searchData = {};
-    allSearchItems = [];
-}
-}
-
-function initializeSearch() {
-const searchInput = document.getElementById('searchInput');
-const searchSuggestions = document.getElementById('searchSuggestions');
-
-if (!searchInput || !searchSuggestions) {
-    console.error('Search elements not found');
-    return;
-}
-
-searchInput.addEventListener('input', function() {
-    const query = this.value.toLowerCase().trim();
-
-    if (query.length === 0) {
-        searchSuggestions.style.display = 'none';
-        return;
-    }
-
-    const matches = allSearchItems.filter(item =>
-        item.title.toLowerCase().includes(query) ||
-        item.category.toLowerCase().includes(query)
-    ).slice(0, 8);
-
-    if (matches.length > 0) {
-        searchSuggestions.innerHTML = matches.map(item => `
-            <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
-                <div class="suggestion-category">${item.category}</div>
-                <div class="suggestion-title">${item.title}</div>
-            </div>
-        `).join('');
-        searchSuggestions.style.display = 'block';
-    } else {
-        searchSuggestions.style.display = 'none';
-    }
-});
-
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('.search-container')) {
-        searchSuggestions.style.display = 'none';
-    }
-});
-
-searchInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-        const query = this.value.toLowerCase().trim();
-        const firstMatch = allSearchItems.find(item =>
-            item.title.toLowerCase().includes(query) ||
-            item.category.toLowerCase().includes(query)
-        );
-        if (firstMatch) {
-            navigateToPage(firstMatch.page);
+    let allSearchItems = [];
+    async function loadSearchData() {
+        try {
+            const response = await fetch('search-data.json');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            searchData = await response.json();
+            allSearchItems = Object.values(searchData).flat();
+            console.log('Search data loaded successfully');
+        } catch (error) {
+            console.error('Error loading search data:', error);
+            searchData = {};
+            allSearchItems = [];
         }
     }
-});
-}
 
-function navigateToPage(page) {
-window.location.href = page;
-}
+    function initializeSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+        if (!searchInput || !searchSuggestions) {
+            console.error('Search elements not found');
+            return;
+        }
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            if (query.length === 0) {
+                searchSuggestions.style.display = 'none';
+                return;
+            }
+            const matches = allSearchItems.filter(item =>
+                item.title.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query)
+            ).slice(0, 8);
+            if (matches.length > 0) {
+                searchSuggestions.innerHTML = matches.map(item => `
+    <div class="search-suggestion" onclick="navigateToPage('${item.page}')">
+        <div class="suggestion-category">${item.category}</div>
+        <div class="suggestion-title">${item.title}</div>
+    </div>
+`).join('');
+                searchSuggestions.style.display = 'block';
+            } else {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase().trim();
+                const firstMatch = allSearchItems.find(item =>
+                    item.title.toLowerCase().includes(query) ||
+                    item.category.toLowerCase().includes(query)
+                );
+                if (firstMatch) {
+                    navigateToPage(firstMatch.page);
+                }
+            }
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', async function() {
-await loadSearchData();
-initializeSearch();
-});
+    function navigateToPage(page) {
+        window.location.href = page;
+    }
+    document.addEventListener('DOMContentLoaded', async function() {
+        await loadSearchData();
+        initializeSearch();
+    });
 </script>
 </body>
 </html>
