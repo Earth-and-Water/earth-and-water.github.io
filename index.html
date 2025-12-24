@@ -1943,7 +1943,7 @@ a {
                         <div class="version-item-shadow"></div>
                     </a>
 
-                    <a href="https://www.planetminecraft.com" class="version-item" target="_blank">
+                    <a href="https://www.planetminecraft.com/mod/earth-and-water/" class="version-item" target="_blank">
                         <div class="version-item-top-outline"></div>
                         <div class="version-item-left-outline"></div>
                         <div class="version-item-right-outline"></div>
@@ -2249,7 +2249,7 @@ a {
     }
 
     const navTabs = [
-        { text: 'E&W', href: 'index.html', icon: 'assets/wiki/buttons/earth_water_mini.png', active: true }
+        { text: 'E&W', href: '', icon: 'assets/wiki/buttons/earth_water_mini.png', active: true }
     ];
 
     let currentPage = 0;
@@ -2496,8 +2496,8 @@ a {
                 const buttonText = this.querySelector('.wiki-button-name').textContent;
                 if (buttonText === 'Get E&W') {
                     window.open('https://modrinth.com/mod/earth-and-water', '_blank');
-                } else if (buttonText === 'Read More') {
-                    alert('Opening featured article...');
+                } else if (buttonText === 'Learn More') {
+                    window.open('https://earth-and-water.github.io/E&W/Blocks/reinforced_spawner', '_blank');
                 }
             });
         });
