@@ -1172,7 +1172,7 @@
             <div class="toc">
                 <h2>Contents</h2>
                 <ul>
-                    <li><a href="#dripstone-pillar">Dripstone Pillar</a></li>
+                    <li><a href="#chiseled-dripstone-bricks">Chiseled Dripstone Bricks</a></li>
                     <li><a href="#obtaining">Obtaining</a></li>
                     <li><a href="#usage">Usage</a></li>
                     <li><a href="#history">History</a></li>
@@ -1185,8 +1185,8 @@
                     <button class="variant-tab" onclick="switchVariant(2)">Dark</button>
                 </div>
 
-                <img src="../../assets/blocks/dripstone_pillar.png" alt="Dripstone Pillar" class="variant-image active" id="variant1">
-                <img src="../../assets/blocks/dark_dripstone_pillar.png" alt="Dark Dripstone Pillar" class="variant-image" id="variant2">
+                <img src="../../assets/blocks/chiseled_dripstone_bricks.png" alt="Chiseled Dripstone Bricks" class="variant-image active" id="variant1">
+                <img src="../../assets/blocks/chiseled_dark_dripstone_bricks.png" alt="Chiseled Dark Dripstone Bricks" class="variant-image" id="variant2">
 
                 <div class="info-row">
                     <span class="info-label">Rarity tier</span>
@@ -1206,10 +1206,10 @@
                 <div class="info-row">
                     <span class="info-label">Tool</span>
                     <span class="info-value">
-                                <a href="https://minecraft.wiki/w/Pickaxe" target="_blank">
-                                    <img src="../../assets/sprites/Invicon_Pickaxe.png" alt="Shears to Pick it up" />
-                                </a>
-                            </span>
+                        <a href="https://minecraft.wiki/w/Pickaxe" target="_blank">
+                            <img src="../../assets/sprites/Invicon_Pickaxe.png" alt="Pickaxe" />
+                        </a>
+                    </span>
                 </div>
 
                 <div class="info-row">
@@ -1245,27 +1245,37 @@
         </div>
 
         <div class="content">
-            <h1 id="dripstone-pillar" class="page-title">Dripstone Pillar</h1>
+            <h1 id="chiseled-dripstone-bricks" class="page-title">Chiseled Dripstone Bricks</h1>
 
-            <p><strong>Dripstone Pillar</strong> is a decorative Dripstone themed pillar block that generates in Ancient Ruins.</p>
+            <p><strong>Chiseled Dripstone Bricks</strong> are decorative Dripstone-themed blocks that generate in Ancient Ruins. They have unique detection abilities that differ between their normal and dark variants.</p>
 
             <div class="content-section">
                 <h2 id="obtaining" class="main-header">Obtaining</h2>
 
                 <div class="mini-header">Crafting</div>
-                <p>Dripstone Pillar can be crafted using regular dripstone blocks in a stonecutter or crafting table:</p>
+                <p>Chiseled Dripstone Bricks can be crafted using the stonecutter from three different dripstone materials:</p>
                 <div class="feature-list">
                     <ul>
-                        <li>2 <a href="dripstone_slab.html">Dripstone Slabs</a> → 2 Dripstone Pillars (Crafting Table)</li>
-                        <li>1 <a href="https://minecraft.wiki/w/Dripstone_Block">Dripstone Block</a> → 1 Dripstone Pillar (Stonecutter)</li>
+                        <li>1 <a href="https://minecraft.wiki/w/Dripstone_Block">Dripstone Block</a> → 1 Chiseled Dripstone Bricks (Stonecutter)</li>
+                        <li>1 <a href="dripstone_bricks.html">Dripstone Bricks</a> → 1 Chiseled Dripstone Bricks (Stonecutter)</li>
+                        <li>1 <a href="polished_dripstone.html">Polished Dripstone</a> → 1 Chiseled Dripstone Bricks (Stonecutter)</li>
                     </ul>
                 </div>
-                <p>It can also be found in various places in the <a href="https://earth-and-water.github.io/structures/ancient_ruins.html">Ancient Ruins</a> structure.</p>
+                <p>They can also be found in various places in the <a href="https://earth-and-water.github.io/structures/ancient_ruins.html">Ancient Ruins</a> structure.</p>
             </div>
 
             <div class="content-section">
                 <h2 id="usage" class="main-header">Usage</h2>
-                <p>Dripstone pillars can be placed on any axis.</p>
+
+                <div class="mini-header">Detection Abilities</div>
+                <p>Chiseled Dripstone Bricks have special detection properties that vary depending on the variant:</p>
+
+                <div class="feature-list">
+                    <ul>
+                        <li><strong>Normal Variant:</strong> Detects all entities within a 5-block radius. When triggered, it emits a comparator signal of 15 and spawns light particles.</li>
+                        <li><strong>Dark Variant:</strong> Detects only players (excluding spectators and invisible players) within a 5-block radius. When triggered, it emits a comparator signal of 15 and spawns light particles.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="content-section">
@@ -1277,7 +1287,7 @@
                         <div class="timeline-content">
                             <div class="timeline-version">Version 1.0.0</div>
                             <div class="timeline-description">
-                                Added Dripstone Pillar and Dark Dripstone Pillar
+                                Added Chiseled Dripstone Bricks and Chiseled Dark Dripstone Bricks
                             </div>
                         </div>
                     </div>

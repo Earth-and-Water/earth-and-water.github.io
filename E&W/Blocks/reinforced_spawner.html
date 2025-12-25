@@ -1172,30 +1172,35 @@
             <div class="toc">
                 <h2>Contents</h2>
                 <ul>
-                    <li><a href="#dripstone-pillar">Dripstone Pillar</a></li>
+                    <li><a href="#reinforced-spawner">Reinforced Spawner</a></li>
                     <li><a href="#obtaining">Obtaining</a></li>
                     <li><a href="#usage">Usage</a></li>
+                    <li><a href="#mechanics">Mechanics</a></li>
                     <li><a href="#history">History</a></li>
                 </ul>
             </div>
 
             <div class="info-box">
                 <div class="variant-tabs">
-                    <button class="variant-tab active" onclick="switchVariant(1)">Normal</button>
-                    <button class="variant-tab" onclick="switchVariant(2)">Dark</button>
+                    <button class="variant-tab active" onclick="switchVariant(1)">Off</button>
+                    <button class="variant-tab" onclick="switchVariant(2)">Keyhole Off</button>
+                    <button class="variant-tab" onclick="switchVariant(3)">On</button>
+                    <button class="variant-tab" onclick="switchVariant(4)">Keyhole On</button>
                 </div>
 
-                <img src="../../assets/blocks/dripstone_pillar.png" alt="Dripstone Pillar" class="variant-image active" id="variant1">
-                <img src="../../assets/blocks/dark_dripstone_pillar.png" alt="Dark Dripstone Pillar" class="variant-image" id="variant2">
+                <img src="../../assets/blocks/reinforced_spawner.png" alt="Reinforced Spawner" class="variant-image active" id="variant1">
+                <img src="../../assets/blocks/reinforced_spawner_keyhole.png" alt="Reinforced Spawner Keyhole" class="variant-image" id="variant2">
+                <img src="../../assets/blocks/reinforced_spawner_on.png" alt="Active Reinforced Spawner" class="variant-image" id="variant3">
+                <img src="../../assets/blocks/reinforced_spawner_keyhole_on.png" alt="Active Reinforced Spawner Keyhole" class="variant-image" id="variant4">
 
                 <div class="info-row">
                     <span class="info-label">Rarity tier</span>
-                    <span class="info-value">Common</span>
+                    <span class="info-value">Rare</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label">Renewable</span>
-                    <span class="info-value">Yes</span>
+                    <span class="info-value">No</span>
                 </div>
 
                 <div class="info-row">
@@ -1204,32 +1209,23 @@
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">Tool</span>
-                    <span class="info-value">
-                                <a href="https://minecraft.wiki/w/Pickaxe" target="_blank">
-                                    <img src="../../assets/sprites/Invicon_Pickaxe.png" alt="Shears to Pick it up" />
-                                </a>
-                            </span>
-                </div>
-
-                <div class="info-row">
                     <span class="info-label">Blast resistance</span>
-                    <span class="info-value">1</span>
+                    <span class="info-value">50</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label">Hardness</span>
-                    <span class="info-value">1.5</span>
+                    <span class="info-value">50</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label">Luminous</span>
-                    <span class="info-value">No</span>
+                    <span class="info-value">Yes (4 when active)</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label">Transparent</span>
-                    <span class="info-value">No</span>
+                    <span class="info-value">Yes</span>
                 </div>
 
                 <div class="info-row">
@@ -1239,33 +1235,70 @@
 
                 <div class="info-row">
                     <span class="info-label">Map color</span>
-                    <span class="info-value">TERRACOTTA_BROWN</span>
+                    <span class="info-value">STONE_GRAY</span>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <h1 id="dripstone-pillar" class="page-title">Dripstone Pillar</h1>
+            <h1 id="reinforced-spawner" class="page-title">Reinforced Spawner</h1>
 
-            <p><strong>Dripstone Pillar</strong> is a decorative Dripstone themed pillar block that generates in Ancient Ruins.</p>
+            <p>The <strong>Reinforced Spawner</strong> is an advanced spawner block that generates waves of mobs when activated with a <a href="../items/reinforced_key.html">Reinforced Key</a>. Unlike regular spawners, it features a sophisticated wave-based spawning system that scales with the number of nearby players and displays the contained mob entity.</p>
 
             <div class="content-section">
                 <h2 id="obtaining" class="main-header">Obtaining</h2>
 
-                <div class="mini-header">Crafting</div>
-                <p>Dripstone Pillar can be crafted using regular dripstone blocks in a stonecutter or crafting table:</p>
-                <div class="feature-list">
-                    <ul>
-                        <li>2 <a href="dripstone_slab.html">Dripstone Slabs</a> → 2 Dripstone Pillars (Crafting Table)</li>
-                        <li>1 <a href="https://minecraft.wiki/w/Dripstone_Block">Dripstone Block</a> → 1 Dripstone Pillar (Stonecutter)</li>
-                    </ul>
-                </div>
-                <p>It can also be found in various places in the <a href="https://earth-and-water.github.io/structures/ancient_ruins.html">Ancient Ruins</a> structure.</p>
+                <div class="mini-header">Structure Generation</div>
+                <p>Reinforced Spawners can be found naturally generating in the <a href="https://earth-and-water.github.io/structures/ancient_ruins.html">Ancient Ruins</a> and <a href="https://earth-and-water.github.io/structures/conduit_monument.html">Conduit Monument</a> structure.</p>
+
+                <div class="mini-header">Breaking</div>
+                <p>Reinforced Spawners are quite difficult to mine and have extremely high blast resistance (50), making them resistant to most forms of destruction. They cannot be moved by pistons, and they do not drop anything upon breaking.</p>
             </div>
 
             <div class="content-section">
                 <h2 id="usage" class="main-header">Usage</h2>
-                <p>Dripstone pillars can be placed on any axis.</p>
+
+                <div class="mini-header">Configuration</div>
+                <p>Before activation, a Reinforced Spawner must be configured with a mob type:</p>
+                <div class="feature-list">
+                    <ul>
+                        <li>Right-click the spawner with any <strong>Spawn Egg</strong> to set the mob type</li>
+                        <li>The spawner will display the configured mob rotating inside</li>
+                        <li>The mob type can be changed at any time before or after activation with another spawn egg</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Activation with Reinforced Key</div>
+                <p>Once configured, the spawner can be activated and deactivated using a <a href="../Items/reinforced_key.html">Reinforced Key</a>:</p>
+                <div class="feature-list">
+                    <ul>
+                        <li><strong>Keyhole Detection:</strong> When a player holding a Reinforced Key comes within 3 blocks, a keyhole visual appears on the spawner</li>
+                        <li><strong>Deactivation:</strong> Right-click an active spawner with a key to deactivate it (grants advancement)</li>
+                        <li><strong>Activation:</strong> Right-click with the key while the keyhole is visible to activate the spawner</li>
+                        <li>Keys are consumed on use (except in creative mode)</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Waterlogging</div>
+                <p>Reinforced Spawners can be waterlogged, allowing them to function underwater.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 id="mechanics" class="main-header">Mechanics</h2>
+
+                <div class="mini-header">Wave System</div>
+                <p>When active, the Reinforced Spawner operates on a sophisticated wave-based system:</p>
+                <div class="feature-list">
+                    <ul>
+                        <li><strong>Player Detection:</strong> Scans for non-creative, non-spectator players within 14 blocks</li>
+                        <li><strong>Wave Size:</strong> Base wave size is 3 mobs, plus 2 additional mobs per extra player (e.g., 3 mobs for 1 player, 5 for 2 players, 7 for 3 players)</li>
+                        <li><strong>Wave Delay:</strong> After completing a wave, there is a 60-tick (3 second) delay before the next wave starts</li>
+                        <li><strong>Infinite Waves:</strong> As long as the reinforced spawner is active, waves will continue spawning</li>
+                    </ul>
+                </div>
+
+                <div class="mini-header">Redstone Properties</div>
+                <p>Reinforced Spawners do not emit redstone signals and cannot be controlled by redstone.</p>
             </div>
 
             <div class="content-section">
@@ -1277,7 +1310,7 @@
                         <div class="timeline-content">
                             <div class="timeline-version">Version 1.0.0</div>
                             <div class="timeline-description">
-                                Added Dripstone Pillar and Dark Dripstone Pillar
+                                Added Reinforced Spawner
                             </div>
                         </div>
                     </div>
@@ -1395,7 +1428,7 @@
     }
 
     function switchVariant(variantNumber) {
-        const variants = ['normal', 'dark'];
+        const variants = ['off', 'keyhole_off', 'on', 'keyhole_on'];
         const hash = variants[variantNumber - 1];
 
         document.querySelectorAll('.variant-tab').forEach(tab => tab.classList.remove('active'));
@@ -1412,7 +1445,9 @@
         const hash = window.location.hash.substring(1);
         const variants = {
             'variant1': 1,
-            'variant2': 2
+            'variant2': 2,
+            'variant3': 3,
+            'variant4': 4
         };
 
         if (variants[hash]) {
