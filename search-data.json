@@ -21,7 +21,7 @@
         { "title": "Polished Dripstone Wall", "page": "Blocks/polished_dripstone_wall.html", "category": "Blocks" },
         { "title": "Polished Dripstone Tiles", "page": "Blocks/polished_dripstone_tiles.html", "category": "Blocks" },
         { "title": "Dripstone Pillar", "page": "Blocks/dripstone_pillar.html", "category": "Blocks" },
-        { "title": "Chiseled Dripstone Bricks", "page": "Blocks/chiseled_dripstone_bricks.html", "category": "Blocks" },
+        { "title": "Chiseled Dripstone Bricks", "page": "E&W/Blocks/chiseled_dripstone_bricks.html", "category": "Blocks" },
         { "title": "Dark Dripstone Block", "page": "Blocks/dark_dripstone_block.html", "category": "Blocks" },
         { "title": "Dark Dripstone Stairs", "page": "Blocks/dark_dripstone_stairs.html", "category": "Blocks" },
         { "title": "Dark Dripstone Slab", "page": "Blocks/dark_dripstone_slab.html", "category": "Blocks" },
