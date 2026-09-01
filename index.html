@@ -2049,7 +2049,7 @@
             <div class="sidebar-title">IMPORTaNT NOTICE</div>
             <ul class="sidebar-list">
                 <div class="creator-name">THIS MOD WIKI IS NOT COMPLETE</div>
-                <li>There are multiple wiki pages that are currently missing. Only about 12 of the 91 articles exist. We apologize for the
+                <li>There are multiple wiki pages that are currently missing. Only about 14 of the 89 articles exist. We apologize for the
                     inconvenience of anyone trying to use the wiki. You can ask any questions about the mod you may have on the Github:
                 </li>
                 <li><a href="https://github.com/PotatoWolfie/earth-and-water-fabric" target="_blank">E&W Github</a></li>
@@ -2066,7 +2066,7 @@
 
         <div class="sidebar-section">
             <div class="sidebar-title">Did you know...</div>
-            <ul class="sidebar-list">
+            <ul class="sidebar-list" id="didYouKnowList">
                 <li>...that one of the mod's creators ships Bore and Dark Bore?</li>
                 <li>...that Dark Chiseled Dripstone Bricks only lights up when players are near it?</li>
                 <li>...that there was an intended "Shockwave" particle planned for the Water Charge?</li>
@@ -2120,6 +2120,35 @@
     const searchDataFiles = [
         'search-data.json'
     ];
+    async function loadDidYouKnowFacts() {
+        const listEl = document.getElementById('didYouKnowList');
+        if (!listEl) return;
+        try {
+            const cacheBuster = new Date().getTime();
+            const response = await fetch(`did-you-know.json?v=${cacheBuster}`, {
+                cache: 'no-store',
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache'
+                }
+            });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+            const facts = Array.isArray(data.facts) ? data.facts : [];
+            if (facts.length === 0) return;
+
+            const shuffled = [...facts];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            const chosen = shuffled.slice(0, Math.min(3, shuffled.length));
+
+            listEl.innerHTML = chosen.map(fact => `<li>${fact}</li>`).join('');
+        } catch (error) {
+            console.warn('Could not load did-you-know.json:', error);
+        }
+    }
     async function loadSearchData() {
         try {
             const allData = [];
@@ -2459,6 +2488,7 @@
     }
     document.addEventListener('DOMContentLoaded', async function() {
         initDownloadCounter();
+        loadDidYouKnowFacts();
         await loadSearchData();
         initializeSearch();
         renderNavigation();
