@@ -209,6 +209,96 @@
             background: #5a6580;
         }
 
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 15px;
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo {
+                margin: 10px 0;
+            }
+
+            .search-container {
+                margin: 0 10px;
+                max-width: none;
+                flex: 1;
+                width: 100%;
+            }
+
+            .search-suggestions {
+                max-height: 250px;
+                left: -2px;
+                right: -2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 10px;
+                gap: 8px;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .search-container {
+                margin: 0 5px;
+                min-width: 0;
+            }
+
+            .search-box {
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+
+            .search-suggestions {
+                max-height: 200px;
+                border-radius: 0 0 4px 4px;
+            }
+
+            .search-suggestion {
+                padding: 12px 15px;
+                min-height: 50px;
+            }
+
+            .suggestion-category {
+                font-size: 11px;
+            }
+
+            .suggestion-title {
+                font-size: 15px;
+                margin-top: 3px;
+            }
+        }
+
+        @media (hover: none) {
+            .search-suggestion:hover {
+                background: transparent;
+            }
+            .search-suggestion:active {
+                background: #4f5a75;
+            }
+            .search-suggestion:active .suggestion-title {
+                color: #0ea394;
+            }
+        }
+
+        html {
+            scroll-padding-top: 20px;
+        }
+
+        @media print {
+            .header,
+            .search-container {
+                display: none;
+            }
+        }
+
         .scroll-filler {
             width: 100%;
         }
