@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Brine</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://earth-and-water.github.io">
-    <meta property="og:title" content="Chiseled Dripstone Bricks">
+    <meta property="og:title" content="Brine">
     <meta property="og:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
     <meta property="og:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
     <meta property="og:image:width" content="1200">
@@ -15,10 +16,9 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://earth-and-water.github.io">
-    <meta name="twitter:title" content="Chiseled Dripstone Bricks">
+    <meta name="twitter:title" content="Brine">
     <meta name="twitter:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
     <meta name="twitter:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
-    <title>Chiseled Dripstone Bricks</title>
     <link rel="icon" type="image/x-icon" href="../../wiki_favicon.ico" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
@@ -60,6 +60,24 @@
             height: 100%;
             width: auto;
             object-fit: contain;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+            border: 2px solid #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #48494a;
+            border: 2px solid #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a5b5c;
         }
 
         body {
@@ -215,7 +233,7 @@
         .search-suggestion {
             padding: 10px 12px;
             cursor: pointer;
-            border-bottom: 1px solid #3a3a3a;
+            border-bottom: 1px solid #3b3e47;
             color: #cccccc;
             min-height: 44px;
             display: flex;
@@ -282,16 +300,17 @@
         }
 
         .search-suggestions::-webkit-scrollbar {
-            width: 8px;
+            width: 12px;
         }
 
         .search-suggestions::-webkit-scrollbar-track {
             background: #2e313a;
+            border: 2px solid #363b49;
         }
 
         .search-suggestions::-webkit-scrollbar-thumb {
             background: #4f5a75;
-            border-radius: 4px;
+            border: 2px solid #363b49;
         }
 
         .search-suggestions::-webkit-scrollbar-thumb:hover {
@@ -299,8 +318,6 @@
         }
 
         .search-suggestions {
-            scrollbar-width: thin;
-            scrollbar-color: #4f5a75 #2e313a;
         }
 
         .main-container {
@@ -338,6 +355,91 @@
                 flex-direction: column;
                 gap: 20px;
             }
+        }
+
+        .advancement-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #202329;
+            margin: 20px 0;
+            font-size: 13px;
+            table-layout: auto;
+        }
+
+        .advancement-table th {
+            background: #31353e;
+            color: #0ea394;
+            padding: 10px 8px;
+            text-align: left;
+            border: 1px solid #3b3e47;
+            font-family: 'Minecraft Ten', 'Inter', sans-serif;
+            font-weight: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .advancement-table td {
+            padding: 8px;
+            border: 1px solid #3b3e47;
+            color: #e6e6e6;
+            vertical-align: top;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .advancement-table tr:nth-child(even) {
+            background: #262931;
+        }
+
+        .icon-cell {
+            width: 50px;
+            max-width: 50px;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .icon-cell img {
+            width: 32px;
+            height: auto;
+            image-rendering: pixelated;
+        }
+
+        .advancement-name {
+            font-weight: 600;
+            color: #ffffff;
+            max-width: 150px;
+        }
+
+        .description-cell {
+            max-width: 200px;
+        }
+
+        .parent-cell {
+            max-width: 100px;
+        }
+
+        .requirements-cell {
+            max-width: 250px;
+        }
+
+        .requirements-cell ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .requirements-cell li {
+            margin: 3px 0;
+        }
+
+        .resource-location {
+            font-family: 'Courier New', monospace;
+            background: #31353e;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #20cfbe;
+            word-break: break-all;
         }
 
         .side-stack {
@@ -431,7 +533,7 @@
         .variant-tab {
             flex: 1;
             padding: 8px 12px;
-            background: #3a3a3a;
+            background: #3b3e47;
             border: none;
             color: #cccccc;
             cursor: pointer;
@@ -464,7 +566,7 @@
 
         .info-box img {
             width: 100%;
-            image-rendering: pixelated;
+            image-rendering: auto;
             border: none;
             margin-bottom: 10px;
         }
@@ -474,7 +576,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 8px;
-            border-bottom: 1px solid #3a3a3a;
+            border-bottom: 1px solid #3b3e47;
             padding-bottom: 4px;
         }
 
@@ -497,10 +599,35 @@
         }
 
         .info-value img {
-            width: 16px;
-            height: 16px;
+            width: auto;
+            height: 10px;
             margin: 0;
             border: none;
+            image-rendering: pixelated;
+        }
+
+        .info-value-spawn {
+            color: #cccccc;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .info-value-spawn img {
+            width: auto;
+            height: 15px;
+            margin: 0;
+            border: none;
+            image-rendering: pixelated;
+        }
+
+        .info-value-spawn a {
+            color: #0ea394;
+            text-decoration: none;
+        }
+
+        .info-value-spawn a:hover {
+            text-decoration: underline;
         }
 
         .info-value a {
@@ -536,6 +663,115 @@
                 font-size: 1.5rem;
                 margin-bottom: 20px;
                 border-bottom: 2px solid #4a4a4a;
+            }
+
+            .advancement-table {
+                font-size: 12px;
+                border: none;
+                background: transparent;
+            }
+
+            .advancement-table thead {
+                display: none;
+            }
+
+            .advancement-table tbody {
+                display: block;
+                background: transparent;
+            }
+
+            .advancement-table tr {
+                display: grid;
+                grid-template-columns: auto 1fr 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 0;
+                margin-bottom: 0;
+                padding: 0;
+                border: none;
+                background: transparent !important;
+            }
+
+            .advancement-table td {
+                padding: 8px;
+                background: #202329;
+                border: 1px solid #3b3e47;
+                display: flex;
+                align-items: center;
+            }
+
+            .icon-cell {
+                grid-column: 1;
+                grid-row: 1;
+                width: auto;
+                max-width: none;
+                justify-content: center;
+            }
+
+            .icon-cell img {
+                width: 32px;
+                height: auto;
+                flex-shrink: 0;
+            }
+
+            .advancement-name {
+                grid-column: 2;
+                grid-row: 1;
+                font-size: 14px;
+                width: auto;
+                max-width: none;
+            }
+
+            .description-cell {
+                grid-column: 3;
+                grid-row: 1;
+                font-size: 11px;
+                width: auto;
+                max-width: none;
+            }
+
+            .parent-cell {
+                grid-column: 1 / 2;
+                grid-row: 2;
+                display: block;
+                width: auto;
+                max-width: none;
+            }
+
+            .parent-cell::before {
+                content: "Parent: ";
+                color: #0ea394;
+                font-weight: 600;
+            }
+
+            .requirements-cell {
+                grid-column: 2 / 4;
+                grid-row: 2;
+                font-size: 11px;
+                display: block;
+                width: auto;
+                max-width: none;
+            }
+
+            .requirements-cell::before {
+                content: "Requirements: ";
+                color: #0ea394;
+                font-weight: 600;
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .advancement-table td:last-child {
+                grid-column: 1 / 4;
+                grid-row: 3;
+                text-align: center;
+                justify-content: center;
+                width: auto;
+            }
+
+            .advancement-table td:last-child::before {
+                content: "Actual Requirements:\00a0\00a0";
+                color: #0ea394;
+                font-weight: 600;
             }
         }
 
@@ -844,14 +1080,14 @@
             color: #0ea394;
             padding: 10px;
             text-align: left;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             font-family: 'Minecraft Ten', 'Inter', sans-serif;
             font-weight: normal;
         }
 
         .comparison-table td {
             padding: 10px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             color: #e6e6e6;
         }
 
@@ -883,7 +1119,7 @@
             color: #0ea394;
             padding: 6px 4px;
             text-align: center;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             font-family: 'Minecraft Ten', 'Inter', sans-serif;
             font-weight: normal;
             word-wrap: break-word;
@@ -893,7 +1129,7 @@
 
         .loot-table td {
             padding: 6px 4px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             color: #e6e6e6;
             vertical-align: middle;
             word-wrap: break-word;
@@ -956,7 +1192,7 @@
             .loot-table td {
                 padding: 8px;
                 background: #202125;
-                border: 1px solid #3a3a3a;
+                border: 1px solid #3b3e47;
                 display: flex;
                 align-items: center;
                 font-size: 11px;
@@ -1042,14 +1278,14 @@
             color: #0ea394;
             padding: 10px;
             text-align: center;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             font-family: 'Minecraft Ten', 'Inter', sans-serif;
             font-weight: normal;
         }
 
         .cooking-table td {
             padding: 10px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             color: #e6e6e6;
             text-align: center;
         }
@@ -1088,7 +1324,7 @@
             .cooking-table td {
                 padding: 8px;
                 background: #202125;
-                border: 1px solid #3a3a3a;
+                border: 1px solid #3b3e47;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -1149,6 +1385,23 @@
                 page-break-inside: avoid;
             }
         }
+
+        .spawn-egg-container {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .spawn-egg {
+            width: 36px !important;
+            height: auto !important;
+            image-rendering: pixelated !important;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: crisp-edges;
+            display: inline-block;
+            border: none !important;
+            margin: 0 !important;
+        }
     </style>
 </head>
 <body>
@@ -1172,114 +1425,164 @@
             <div class="toc">
                 <h2>Contents</h2>
                 <ul>
-                    <li><a href="#chiseled-dripstone-bricks">Chiseled Dripstone Bricks</a></li>
-                    <li><a href="#obtaining">Obtaining</a></li>
-                    <li><a href="#usage">Usage</a></li>
-                    <li><a href="#history">History</a></li>
+                    <li><a href="#Brine">Brine</a></li>
+                    <li><a href="#Drops">Drops</a></li>
+                    <li><a href="#Behavior">Behavior</a></li>
+                    <li><a href="#Advancements">Advancement</a></li>
+                    <li><a href="#History">History</a></li>
                 </ul>
             </div>
 
             <div class="info-box">
-                <div class="variant-tabs">
-                    <button class="variant-tab active" onclick="switchVariant(1)">Normal</button>
-                    <button class="variant-tab" onclick="switchVariant(2)">Dark</button>
-                </div>
 
-                <img src="../../assets/blocks/chiseled_dripstone_bricks.png" alt="Chiseled Dripstone Bricks" class="variant-image active" id="variant1">
-                <img src="../../assets/blocks/chiseled_dark_dripstone_bricks.png" alt="Chiseled Dark Dripstone Bricks" class="variant-image" id="variant2">
+                <img src="../../assets/mobs/Brine_Idle.gif" alt="Brine" class="variant-image active" id="variant1">
 
-                <div class="info-row">
-                    <span class="info-label">Rarity tier</span>
-                    <span class="info-value">Common</span>
+                <div class="spawn-egg-container">
+                    <img src="../../assets/items/item_frame_brine_spawn_egg.png" alt="Goose Spawn Egg" class="spawn-egg">
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">Renewable</span>
+                    <span class="info-label">Health points</span>
+                    <span class="info-value">30 <img src="../../assets/sprites/Heart.png" alt="Heart"> × 15</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Behavior</span>
+                    <span class="info-value">Hostile</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Attack damage</span>
+                    <span class="info-value">7 <img src="../../assets/sprites/Heart.png" alt="Heart"> × 3.5</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Speed</span>
+                    <span class="info-value">0.23</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Hitbox Size</span>
+                    <span class="info-value">Height: 1.8<br>Width: 0.8</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Spawn</span>
+                    <span class="info-value-spawn"> <img src="../../assets/sprites/conduit_monument_orthofront.png" alt="Heart"> <a href="../Structures/conduit_monument.html">Conduit Monument</a></span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Can be leashed</span>
+                    <span class="info-value">No</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Can ride boats</span>
                     <span class="info-value">Yes</span>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">Stackable</span>
-                    <span class="info-value">Yes (64)</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Tool</span>
-                    <span class="info-value">
-                        <a href="https://minecraft.wiki/w/Pickaxe" target="_blank">
-                            <img src="../../assets/sprites/Invicon_Pickaxe.png" alt="Pickaxe" />
-                        </a>
-                    </span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Blast resistance</span>
-                    <span class="info-value">1</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Hardness</span>
-                    <span class="info-value">1.5</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Luminous</span>
-                    <span class="info-value">No</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Transparent</span>
-                    <span class="info-value">No</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Flammable</span>
-                    <span class="info-value">No</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Map color</span>
-                    <span class="info-value">TERRACOTTA_BROWN</span>
+                    <span class="info-label">Can ride minecarts</span>
+                    <span class="info-value">Yes</span>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <h1 id="chiseled-dripstone-bricks" class="page-title">Chiseled Dripstone Bricks</h1>
+            <h1 id="Brine" class="page-title">Brine</h1>
 
-            <p><strong>Chiseled Dripstone Bricks</strong> are decorative Dripstone-themed blocks that generate in Ancient Ruins. They have unique detection abilities that differ between their normal and dark variants.</p>
+            <p>
+                <i>Not to be confused with the <a href="https://minecraft.wiki/w/Blaze">Blaze</a>,
+                    <a href="https://minecraft.wiki/w/Breeze">Breeze</a>, or <a href="bore.html">Bore</a>.</i>
+            </p>
+
+            <p>
+                The <strong>Brine</strong> is an offensive mob that will shoot <a href="../Projectiles/water_charge.html">Water Charges</a>. The Brine will dash away
+                from you and protect what it calls its home.
+            </p>
+
+            <h2 id="Drops" class="main-header">Drops</h2>
+
+            <table class="advancement-table">
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Average</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="brine_rod">
+                    <td class="icon-cell">
+                        <img src="../../assets/items/brine_rod.png" alt="Brine Rod">
+                    </td>
+                    <td class="advancement-name">Brine Rod</td>
+                    <td class="description-cell">1-2</td>
+                    <td class="requirements-cell">1.50</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2 id="Behavior" class="main-header">Behavior</h2>
+            <p>
+                The Brine is an uncoordinated soldier who wants to protect the monument by which it resides. It strictly uses
+                projectile attacks to knock back the opponent. It is hostile to the <strong>Player</strong>. However, it will only attack if it is completely
+                submerged in water. On land, it does not make any attempt to attack.
+            </p>
+
+            <div class="mini-header">Combat</div>
+            <p>
+                In any case when the Brine is above water, it will not attack. It will only pursue targets underwater.
+                When engaging a target, the Brine keeps its distance rather than swimming forward,
+                firing water charges only while the target is between 4 and 16 blocks away. It leads its shots by predicting
+                where the target will be based on its current velocity, and it won't fire again until it has
+                repositioned at least 4 blocks from where it last shot.
+            </p>
+
+            <div class="mini-header">Ranged Attacks</div>
+            <p>
+                The Brine attacks by firing <a href="../Projectiles/water_charge.html">Water Charges</a>. The Brine will only attempt to shoot if its target is between 4 and 16 blocks
+                away. It actively refuses to open fire if the target gets too close.
+            </p>
+
+            <div class="mini-header">Conduit Damage</div>
+            <p>
+                Conduits do not damage the Brine like it would for any other hostile entity.
+            </p>
+
+            <h2 id="Advancements" class="main-header">Advancements</h2>
+
+            <table class="advancement-table">
+                <thead>
+                <tr>
+                    <th>Icon</th>
+                    <th>Advancement</th>
+                    <th>In-game description</th>
+                    <th>Requirements</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="long-ago">
+                    <td class="icon-cell">
+                        <img src="../../assets/items/brine_rod.png" alt="Brine Rod">
+                    </td>
+                    <td class="advancement-name">Long Ago...</td>
+                    <td class="description-cell">Gather the elemental rods: Bore, Brine, Breeze, and Blaze</td>
+                    <td class="requirements-cell">
+                        <ul>
+                            <li>Have a Blaze Rod in your inventory</li>
+                            <li>Have a Breeze Rod in your inventory</li>
+                            <li>Have a Bore Rod in your inventory</li>
+                            <li>Have a Brine Rod in your inventory</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
             <div class="content-section">
-                <h2 id="obtaining" class="main-header">Obtaining</h2>
-
-                <div class="mini-header">Crafting</div>
-                <p>Chiseled Dripstone Bricks can be crafted using the stonecutter from three different dripstone materials:</p>
-                <div class="feature-list">
-                    <ul>
-                        <li>1 <a href="https://minecraft.wiki/w/Dripstone_Block">Dripstone Block</a> → 1 Chiseled Dripstone Bricks (Stonecutter)</li>
-                        <li>1 <a href="dripstone_bricks.html">Dripstone Bricks</a> → 1 Chiseled Dripstone Bricks (Stonecutter)</li>
-                        <li>1 <a href="polished_dripstone.html">Polished Dripstone</a> → 1 Chiseled Dripstone Bricks (Stonecutter)</li>
-                    </ul>
-                </div>
-                <p>They can also be found in various places in the <a href="https://earth-and-water.github.io/structures/ancient_ruins.html">Ancient Ruins</a> structure.</p>
-            </div>
-
-            <div class="content-section">
-                <h2 id="usage" class="main-header">Usage</h2>
-
-                <div class="mini-header">Detection Abilities</div>
-                <p>Chiseled Dripstone Bricks have special detection properties that vary depending on the variant:</p>
-
-                <div class="feature-list">
-                    <ul>
-                        <li><strong>Normal Variant:</strong> Detects all entities within a 5-block radius. When triggered, it emits a comparator signal of 15 and spawns light particles.</li>
-                        <li><strong>Dark Variant:</strong> Detects only players (excluding spectators and invisible players) within a 5-block radius. When triggered, it emits a comparator signal of 15 and spawns light particles.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="content-section">
-                <h2 id="history" class="main-header">History</h2>
+                <h2 id="History" class="main-header">History</h2>
                 <div class="history-timeline">
                     <div class="history-title">Timeline</div>
                     <div class="timeline-item">
@@ -1287,7 +1590,7 @@
                         <div class="timeline-content">
                             <div class="timeline-version">Version 1.0.0</div>
                             <div class="timeline-description">
-                                Added Chiseled Dripstone Bricks and Chiseled Dark Dripstone Bricks
+                                Added Brine
                             </div>
                         </div>
                     </div>

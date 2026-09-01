@@ -145,17 +145,36 @@
             transition: color 0.2s ease;
         }
 
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+            border: 2px solid #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #48494a;
+            border: 2px solid #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a5b5c;
+        }
+
         .search-suggestions::-webkit-scrollbar {
-            width: 8px;
+            width: 12px;
         }
 
         .search-suggestions::-webkit-scrollbar-track {
             background: #2e313a;
+            border: 2px solid #363b49;
         }
 
         .search-suggestions::-webkit-scrollbar-thumb {
             background: #4f5a75;
-            border-radius: 4px;
+            border: 2px solid #363b49;
         }
 
         .search-suggestions::-webkit-scrollbar-thumb:hover {
@@ -163,8 +182,6 @@
         }
 
         .search-suggestions {
-            scrollbar-width: thin;
-            scrollbar-color: #4f5a75 #2e313a;
         }
 
         @media (max-width: 768px) {
@@ -1737,7 +1754,7 @@
     </div>
 </div>
 
-<div class="nav-tabs">
+<div class="nav-tabs" id="navTabsContainer" style="display: none;">
     <div class="nav-scroll-wrapper" id="navWrapper">
     </div>
 </div>
@@ -2240,12 +2257,15 @@
             updateArrow();
         }
     }
+    // Tabs if I ever need them again
+
     const navTabs = [{
         text: 'E&W',
         href: '',
         icon: 'assets/wiki/buttons/earth_water_mini.png',
         active: true
     }];
+
     let currentPage = 0;
 
     function getButtonWidth() {

@@ -56,6 +56,24 @@
             object-fit: contain;
         }
 
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+            border: 2px solid #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #48494a;
+            border: 2px solid #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a5b5c;
+        }
+
         body {
             background: url('assets/wiki/background.png');
             background-color: #2d2d2d;
@@ -120,22 +138,22 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: #2e2e2e;
-            border: 2px solid #1a1a1a;
+            background: #31353e;
+            border: 2px solid #202125;
             border-top: none;
             max-height: 300px;
             overflow-y: auto;
             z-index: 1000;
             display: none;
             box-shadow:
-                inset 2px 2px 0 #3a3a3a,
-                inset -2px -2px 0 #242424;
+                inset 2px 2px 0 #3b3e47,
+                inset -2px -2px 0 #2e313a;
         }
 
         .search-suggestion {
             padding: 10px 12px;
             cursor: pointer;
-            border-bottom: 1px solid #3a3a3a;
+            border-bottom: 1px solid #3b3e47;
             color: #cccccc;
             min-height: 44px;
             display: flex;
@@ -170,16 +188,17 @@
         }
 
         .search-suggestions::-webkit-scrollbar {
-            width: 8px;
+            width: 12px;
         }
 
         .search-suggestions::-webkit-scrollbar-track {
-            background: #242424;
+            background: #2e313a;
+            border: 2px solid #363b49;
         }
 
         .search-suggestions::-webkit-scrollbar-thumb {
             background: #4f5a75;
-            border-radius: 4px;
+            border: 2px solid #363b49;
         }
 
         .search-suggestions::-webkit-scrollbar-thumb:hover {
@@ -187,14 +206,12 @@
         }
 
         .search-suggestions {
-            scrollbar-width: thin;
-            scrollbar-color: #4f5a75 #242424;
         }
 
         .main-container {
             max-width: 1400px;
             margin: 30px auto;
-            background: #262626;
+            background: #2b2f39;
             padding: 30px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
@@ -206,8 +223,8 @@
         }
 
         .toc {
-            background: #2e2e2e;
-            border: 2px solid #1a1a1a;
+            background: #31353e;
+            border: 2px solid #202125;
             padding: 15px;
             font-family: 'Nunito', sans-serif;
             width: 300px;
@@ -215,7 +232,7 @@
             align-self: flex-start;
             position: sticky;
             top: 27px;
-            box-shadow: inset 2px 2px 0 #3a3a3a, inset -2px -2px 0 #242424;
+            box-shadow: inset 2px 2px 0 #3b3e47, inset -2px -2px 0 #2e313a;
         }
 
         .toc h2 {
@@ -275,18 +292,18 @@
         .advancement-table {
             width: 100%;
             border-collapse: collapse;
-            background: #1a1a1a;
+            background: #202329;
             margin: 20px 0;
             font-size: 13px;
             table-layout: auto;
         }
 
         .advancement-table th {
-            background: #2a2a2a;
+            background: #31353e;
             color: #0ea394;
             padding: 10px 8px;
             text-align: left;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             font-family: 'Minecraft Ten', 'Inter', sans-serif;
             font-weight: normal;
             word-wrap: break-word;
@@ -295,7 +312,7 @@
 
         .advancement-table td {
             padding: 8px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #3b3e47;
             color: #e6e6e6;
             vertical-align: top;
             word-wrap: break-word;
@@ -304,7 +321,7 @@
         }
 
         .advancement-table tr:nth-child(even) {
-            background: #222222;
+            background: #262931;
         }
 
         .icon-cell {
@@ -349,7 +366,7 @@
 
         .resource-location {
             font-family: 'Courier New', monospace;
-            background: #2a2a2a;
+            background: #31353e;
             padding: 2px 6px;
             border-radius: 3px;
             font-size: 12px;
@@ -358,7 +375,7 @@
         }
 
         .minecraft-header {
-            background: #2a2a2a;
+            background: #31353e;
             padding: 5px 10px;
             margin-bottom: 10px;
             border-left: 3px solid #0ea394;
@@ -461,8 +478,8 @@
 
             .advancement-table td {
                 padding: 8px;
-                background: #1a1a1a;
-                border: 1px solid #3a3a3a;
+                background: #202329;
+                border: 1px solid #3b3e47;
                 display: flex;
                 align-items: center;
             }
@@ -760,7 +777,7 @@
             </table>
 
             <h2 id="history" class="main-header">History</h2>
-            <div style="background: #2e2e2e; border: 2px solid #1a1a1a; padding: 20px; margin-top: 20px; box-shadow: inset 2px 2px 0 #3a3a3a, inset -2px -2px 0 #242424;">
+            <div style="background: #31353e; border: 2px solid #202125; padding: 20px; margin-top: 20px; box-shadow: inset 2px 2px 0 #3b3e47, inset -2px -2px 0 #2e313a;">
                 <div style="font-size: 1.1rem; color: #0ea394; margin-bottom: 15px; font-family: 'Minecraft Ten', 'Nunito', sans-serif;">Timeline</div>
                 <div style="display: flex; gap: 15px; margin-bottom: 20px;">
                     <div style="width: 4px; background: #0ea394; flex-shrink: 0;"></div>
