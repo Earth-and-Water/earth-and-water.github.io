@@ -8,7 +8,7 @@
     <meta property="og:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
     <meta property="og:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
     <meta property="og:image:width" content="2006">
-    <meta property="og:image:height" content="736">
+    <meta property="og:image:height" content="560">
     <meta property="og:site_name" content="E&W Wiki">
     <meta name="theme-color" content="#8b4513">
     <meta property="og:locale" content="en_US">
@@ -209,9 +209,6 @@
             background: #5a6580;
         }
 
-        /* Infinite scroll filler: an ever-growing spacer div below the header.
-           Its height increases as the user nears the bottom, so the page
-           (and the tiled background) keeps extending the further you scroll. */
         .scroll-filler {
             width: 100%;
         }
@@ -338,13 +335,9 @@
         }
     }
 
-    // --- Infinite scroll logic ---
-    // Grows the filler div whenever the user scrolls near the current
-    // bottom of the page, so there's always more page to scroll into,
-    // and thus more tiled background revealed. This continues indefinitely.
     const scrollFiller = document.getElementById('scrollFiller');
-    const CHUNK_HEIGHT = window.innerHeight * 2; // grow two screens at a time
-    const THRESHOLD = window.innerHeight; // start growing when within one screen of the bottom
+    const CHUNK_HEIGHT = window.innerHeight * 2;
+    const THRESHOLD = window.innerHeight;
 
     function growIfNeeded() {
         const scrollBottom = window.scrollY + window.innerHeight;
@@ -360,7 +353,6 @@
     window.addEventListener('resize', growIfNeeded);
 
     document.addEventListener('DOMContentLoaded', async function() {
-        // Seed enough initial height to make the page scrollable right away.
         scrollFiller.style.height = CHUNK_HEIGHT + 'px';
         growIfNeeded();
 
