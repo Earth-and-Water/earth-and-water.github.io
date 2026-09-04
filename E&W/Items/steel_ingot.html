@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Brine</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://earth-and-water.github.io">
-    <meta property="og:title" content="Brine">
+    <meta property="og:title" content="Steel Ingot">
     <meta property="og:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
     <meta property="og:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
     <meta property="og:image:width" content="2006">
@@ -16,13 +15,11 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://earth-and-water.github.io">
-    <meta name="twitter:title" content="Brine">
+    <meta name="twitter:title" content="Steel Ingot">
     <meta name="twitter:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
     <meta name="twitter:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
+    <title>Steel Ingot</title>
     <link rel="icon" type="image/x-icon" href="../../wiki_favicon.ico" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         @font-face {
             font-family: 'Minecraft';
@@ -769,6 +766,7 @@
             }
 
             .advancement-table td:last-child::before {
+                content: "Per chest:\00a0\00a0";
                 color: #0ea394;
                 font-weight: 600;
             }
@@ -838,6 +836,12 @@
             margin: 10px 0;
             border-radius: 0 4px 4px 0;
             overflow-x: auto;
+        }
+
+        .feature-list img {
+            height: 130px;
+            width: auto;
+            image-rendering: pixelated;
         }
 
         @media (max-width: 480px) {
@@ -1005,7 +1009,7 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin: 15px 0;
         }
@@ -1038,6 +1042,12 @@
             font-size: 16px;
             color: #cccccc;
             font-weight: 700;
+        }
+
+        .stat-value img {
+            height: 120px;
+            width: auto;
+            image-rendering: pixelated;
         }
 
         p {
@@ -1402,6 +1412,9 @@
             margin: 0 !important;
         }
     </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 <div class="header">
@@ -1424,161 +1437,113 @@
             <div class="toc">
                 <h2>Contents</h2>
                 <ul>
-                    <li><a href="#Brine">Brine</a></li>
-                    <li><a href="#Drops">Drops</a></li>
-                    <li><a href="#Behavior">Behavior</a></li>
-                    <li><a href="#Advancements">Advancement</a></li>
+                    <li><a href="#Steel Ingot">Steel Ingot</a></li>
+                    <li><a href="#Loot">Loot</a></li>
+                    <li><a href="#Crafting">Usage</a></li>
                     <li><a href="#History">History</a></li>
                 </ul>
             </div>
 
             <div class="info-box">
 
-                <img src="../../assets/mobs/Brine_Idle.gif" alt="Brine" class="variant-image active" id="variant1">
+                <img src="../../assets/items/steel_ingot.png" alt="Steel Ingot" class="variant-image active" id="variant1">
 
-                <div class="spawn-egg-container">
-                    <img src="../../assets/items/item_frame_brine_spawn_egg.png" alt="Goose Spawn Egg" class="spawn-egg">
+                <div class="info-row">
+                    <span class="info-label">Rarity tier</span>
+                    <span class="info-value">Common</span>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">Health points</span>
-                    <span class="info-value">30 <img src="../../assets/sprites/Heart.png" alt="Heart"> × 15</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Behavior</span>
-                    <span class="info-value">Hostile</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Attack damage</span>
-                    <span class="info-value">7 <img src="../../assets/sprites/Heart.png" alt="Heart"> × 3.5</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Speed</span>
-                    <span class="info-value">0.23</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Hitbox Size</span>
-                    <span class="info-value">Height: 1.8<br>Width: 0.8</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Spawn</span>
-                    <span class="info-value-spawn"> <img src="../../assets/sprites/conduit_monument_orthofront.png" alt="Heart"> <a href="../Structures/conduit_monument.html">Conduit Monument</a></span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Can be leashed</span>
-                    <span class="info-value">No</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Can ride boats</span>
+                    <span class="info-label">Renewable</span>
                     <span class="info-value">Yes</span>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">Can ride minecarts</span>
-                    <span class="info-value">Yes</span>
+                    <span class="info-label">Stackable</span>
+                    <span class="info-value">Yes (64)</span>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <h1 id="Brine" class="page-title">Brine</h1>
+            <h1 id="Steel Ingot" class="page-title">Steel Ingot</h1>
 
             <p>
-                <i>Not to be confused with the <a href="https://minecraft.wiki/w/Blaze">Blaze</a>,
-                    <a href="https://minecraft.wiki/w/Breeze">Breeze</a>, or <a href="bore.html">Bore</a>.</i>
+                A <strong>steel ingot</strong> is an alloy that can be found in <a href="../Structures/ancient_ruins.html">Ancient Ruins</a>,
+                <a href="../Structures/conduit_monument.html">Conduit Monument</a>,
+                and <a href="https://minecraft.wiki/w/Pillager_Outpost"> Pillager Outpost</a> structures.
+                It is used to craft different tools and blocks.
             </p>
 
-            <p>
-                The <strong>Brine</strong> is an offensive mob that will shoot <a href="../Projectiles/water_charge.html">Water Charges</a>. The Brine will dash away
-                from you and protect what it calls its home.
-            </p>
-
-            <h2 id="Drops" class="main-header">Drops</h2>
-
+            <h2 id="Loot" class="main-header">Loot</h2>
             <table class="advancement-table">
                 <thead>
                 <tr>
                     <th>Item</th>
-                    <th>Name</th>
+                    <th>Structure</th>
                     <th>Quantity</th>
-                    <th>Average</th>
+                    <th>Chance (per chest)</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr id="brine_rod">
+                <tr id="ancient-ruins">
                     <td class="icon-cell">
-                        <img src="../../assets/items/brine_rod.png" alt="Brine Rod">
+                        <img src="../../assets/items/steel_ingot.png" alt="Steel Ingot">
                     </td>
-                    <td class="advancement-name">Brine Rod</td>
-                    <td class="description-cell">1-2</td>
-                    <td class="requirements-cell">1.50</td>
+                    <td class="advancement-name"><a href="../Structures/ancient_ruins.html">Ancient Ruins</a></td>
+                    <td class="description-cell">0-4</td>
+                    <td class="description-cell">25%-100%</td>
+                </tr>
+                <tr id="conduit-monument">
+                    <td class="icon-cell">
+                        <img src="../../assets/items/steel_ingot.png" alt="Steel Ingot">
+                    </td>
+                    <td class="advancement-name"><a href="../Structures/conduit_monument.html">Conduit Monument</a></td>
+                    <td class="description-cell">1-4</td>
+                    <td class="description-cell">50%-75%</td>
                 </tr>
                 </tbody>
             </table>
 
-            <h2 id="Behavior" class="main-header">Behavior</h2>
-            <p>
-                The Brine is an uncoordinated soldier who wants to protect the monument by which it resides. It strictly uses
-                projectile attacks to knock back the opponent. It is hostile to the <strong>Player</strong>. However, it will only attack if it is completely
-                submerged in water. On land, it does not make any attempt to attack.
-            </p>
-
-            <div class="mini-header">Combat</div>
-            <p>
-                In any case when the Brine is above water, it will not attack. It will only pursue targets underwater.
-                When engaging a target, the Brine keeps its distance rather than swimming forward,
-                firing water charges only while the target is between 4 and 16 blocks away. It leads its shots by predicting
-                where the target will be based on its current velocity, and it won't fire again until it has
-                repositioned at least 4 blocks from where it last shot.
-            </p>
-
-            <div class="mini-header">Ranged Attacks</div>
-            <p>
-                The Brine attacks by firing <a href="../Projectiles/water_charge.html">Water Charges</a>. The Brine will only attempt to shoot if its target is between 4 and 16 blocks
-                away. It actively refuses to open fire if the target gets too close.
-            </p>
-
-            <div class="mini-header">Conduit Damage</div>
-            <p>
-                Conduits do not damage the Brine like it would for any other hostile entity.
-            </p>
-
-            <h2 id="Advancements" class="main-header">Advancements</h2>
-
-            <table class="advancement-table">
-                <thead>
-                <tr>
-                    <th>Icon</th>
-                    <th>Advancement</th>
-                    <th>In-game description</th>
-                    <th>Requirements</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr id="long-ago">
-                    <td class="icon-cell">
-                        <img src="../../assets/items/brine_rod.png" alt="Brine Rod">
-                    </td>
-                    <td class="advancement-name">Long Ago...</td>
-                    <td class="description-cell">Gather the elemental rods: Bore, Brine, Breeze, and Blaze</td>
-                    <td class="requirements-cell">
-                        <ul>
-                            <li>Have a Blaze Rod in your inventory</li>
-                            <li>Have a Breeze Rod in your inventory</li>
-                            <li>Have a Bore Rod in your inventory</li>
-                            <li>Have a Brine Rod in your inventory</li>
-                        </ul>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <h2 id="Crafting" class="main-header">Crafting</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Steel Block</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/blocks/steel_block.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Ingots from Steel Block</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/steel_ingot_from_block.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Steel Nugget</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/steel_nugget.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Ingot from Steel Nugget</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/steel_ingot_from_nuggets.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Battle Axe</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/battle_axe.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Flint and Steel</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/flint_and_steel.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Reinforced Key Duplication</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/reinforced_key.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Steel Upgrade Duplication</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/reinforced_key.png" alt="Steel Ingot"></li></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Steel Upgrade</div>
+                    <div class="stat-value"><img src="../../assets/sprites/crafting/items/steel_upgrade.png" alt="Steel Ingot"></li></div>
+                </div>
+            </div>
 
             <div class="content-section">
                 <h2 id="History" class="main-header">History</h2>
@@ -1589,7 +1554,7 @@
                         <div class="timeline-content">
                             <div class="timeline-version">Version 1.0.0</div>
                             <div class="timeline-description">
-                                Added Brine
+                                Added Steel Ingot
                             </div>
                         </div>
                     </div>

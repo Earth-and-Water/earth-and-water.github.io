@@ -58,8 +58,8 @@
         { "title": "Steel Ingot", "page": "E&W/Items/steel_ingot.html", "category": "Items" },
         { "title": "Steel Nugget", "page": "E&W/Items/steel_nugget.html", "category": "Items" },
         { "title": "Spiked Shield", "page": "E&W/Items/spiked_shield.html", "category": "Items" },
-        { "title": "Bore Spawn Egg", "page": "E&W/Items/bore_spawn_egg.html", "category": "Items" },
-        { "title": "Brine Spawn Egg", "page": "E&W/Items/brine_spawn_egg.html", "category": "Items" }
+        { "title": "Bore Spawn Egg", "page": "E&W/Mobs/bore.html", "category": "Items" },
+        { "title": "Brine Spawn Egg", "page": "E&W/Mobs/brine.html", "category": "Items" }
     ],
     "Weapons": [
         { "title": "Whip", "page": "E&W/Items/whip.html", "category": "Weapons" },

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Brine</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://earth-and-water.github.io">
-    <meta property="og:title" content="Brine">
+    <meta property="og:title" content="Reinforced Key">
     <meta property="og:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
     <meta property="og:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
     <meta property="og:image:width" content="2006">
@@ -16,9 +15,10 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://earth-and-water.github.io">
-    <meta name="twitter:title" content="Brine">
+    <meta name="twitter:title" content="Reinforced Key">
     <meta name="twitter:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
     <meta name="twitter:image" content="https://earth-and-water.github.io/assets/wiki/earth_water_wiki.png">
+    <title>Reinforced Key</title>
     <link rel="icon" type="image/x-icon" href="../../wiki_favicon.ico" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
@@ -769,6 +769,7 @@
             }
 
             .advancement-table td:last-child::before {
+                content: "Per chest:\00a0\00a0";
                 color: #0ea394;
                 font-weight: 600;
             }
@@ -838,6 +839,12 @@
             margin: 10px 0;
             border-radius: 0 4px 4px 0;
             overflow-x: auto;
+        }
+
+        .feature-list img {
+            height: 130px;
+            width: auto;
+            image-rendering: pixelated;
         }
 
         @media (max-width: 480px) {
@@ -1424,161 +1431,90 @@
             <div class="toc">
                 <h2>Contents</h2>
                 <ul>
-                    <li><a href="#Brine">Brine</a></li>
-                    <li><a href="#Drops">Drops</a></li>
-                    <li><a href="#Behavior">Behavior</a></li>
-                    <li><a href="#Advancements">Advancement</a></li>
+                    <li><a href="#Reinforced Key">Reinforced Key</a></li>
+                    <li><a href="#Obtaining">Obtaining</a></li>
+                    <li><a href="#Usage">Usage</a></li>
                     <li><a href="#History">History</a></li>
                 </ul>
             </div>
 
             <div class="info-box">
 
-                <img src="../../assets/mobs/Brine_Idle.gif" alt="Brine" class="variant-image active" id="variant1">
+                <img src="../../assets/items/reinforced_key.png" alt="Reinforced Key" class="variant-image active" id="variant1">
 
-                <div class="spawn-egg-container">
-                    <img src="../../assets/items/item_frame_brine_spawn_egg.png" alt="Goose Spawn Egg" class="spawn-egg">
+                <div class="info-row">
+                    <span class="info-label">Rarity tier</span>
+                    <span class="info-value">Common</span>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">Health points</span>
-                    <span class="info-value">30 <img src="../../assets/sprites/Heart.png" alt="Heart"> × 15</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Behavior</span>
-                    <span class="info-value">Hostile</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Attack damage</span>
-                    <span class="info-value">7 <img src="../../assets/sprites/Heart.png" alt="Heart"> × 3.5</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Speed</span>
-                    <span class="info-value">0.23</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Hitbox Size</span>
-                    <span class="info-value">Height: 1.8<br>Width: 0.8</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Spawn</span>
-                    <span class="info-value-spawn"> <img src="../../assets/sprites/conduit_monument_orthofront.png" alt="Heart"> <a href="../Structures/conduit_monument.html">Conduit Monument</a></span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Can be leashed</span>
-                    <span class="info-value">No</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="info-label">Can ride boats</span>
+                    <span class="info-label">Renewable</span>
                     <span class="info-value">Yes</span>
                 </div>
 
                 <div class="info-row">
-                    <span class="info-label">Can ride minecarts</span>
-                    <span class="info-value">Yes</span>
+                    <span class="info-label">Stackable</span>
+                    <span class="info-value">Yes (64)</span>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <h1 id="Brine" class="page-title">Brine</h1>
+            <h1 id="Reinforced Key" class="page-title">Reinforced Key</h1>
 
             <p>
-                <i>Not to be confused with the <a href="https://minecraft.wiki/w/Blaze">Blaze</a>,
-                    <a href="https://minecraft.wiki/w/Breeze">Breeze</a>, or <a href="bore.html">Bore</a>.</i>
+                <i>Not to be confused with the <a href="https://minecraft.wiki/w/Trial_Key">Trial Key</a> or the <a href="https://minecraft.wiki/w/Ominous_Trial_Key">Ominous Trial Key</a>.</i>
             </p>
 
             <p>
-                The <strong>Brine</strong> is an offensive mob that will shoot <a href="../Projectiles/water_charge.html">Water Charges</a>. The Brine will dash away
-                from you and protect what it calls its home.
+                A <strong>Reinforced Key</strong> is an item obtained from
+                <a href="../Structures/ancient_ruins.html">Ancient Ruins</a> and <a href="../Structures/conduit_monument.html">Conduit Monument</a> structures.
+                It is used to toggle <a href="../Blocks/reinforced_spawner.html">reinforced spawners</a>.
             </p>
 
-            <h2 id="Drops" class="main-header">Drops</h2>
-
+            <h2 id="Obtaining" class="main-header">Obtaining</h2>
             <table class="advancement-table">
                 <thead>
                 <tr>
                     <th>Item</th>
-                    <th>Name</th>
+                    <th>Structure</th>
                     <th>Quantity</th>
-                    <th>Average</th>
+                    <th>Chance (per chest)</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr id="brine_rod">
+                <tr id="ancient-ruins">
                     <td class="icon-cell">
-                        <img src="../../assets/items/brine_rod.png" alt="Brine Rod">
+                        <img src="../../assets/items/reinforced_key.png" alt="Reinforced Key">
                     </td>
-                    <td class="advancement-name">Brine Rod</td>
+                    <td class="advancement-name"><a href="../Structures/ancient_ruins.html">Ancient Ruins</a></td>
+                    <td class="description-cell">1-4</td>
+                    <td class="description-cell">25%-100%</td>
+                </tr>
+                <tr id="conduit-monument">
+                    <td class="icon-cell">
+                        <img src="../../assets/items/reinforced_key.png" alt="Reinforced Key">
+                    </td>
+                    <td class="advancement-name"><a href="../Structures/conduit_monument.html">Conduit Monument</a></td>
                     <td class="description-cell">1-2</td>
-                    <td class="requirements-cell">1.50</td>
+                    <td class="description-cell">75%</td>
                 </tr>
                 </tbody>
             </table>
 
-            <h2 id="Behavior" class="main-header">Behavior</h2>
+            <h2 id="Usage" class="main-header">Usage</h2>
             <p>
-                The Brine is an uncoordinated soldier who wants to protect the monument by which it resides. It strictly uses
-                projectile attacks to knock back the opponent. It is hostile to the <strong>Player</strong>. However, it will only attack if it is completely
-                submerged in water. On land, it does not make any attempt to attack.
+                A reinforced key can be used by interacting with a <a href="../Blocks/reinforced_spawner.html">reinforced spawner</a> with it in hand.
+                After it is used, the reinforced key is consumed.
+                <br>
             </p>
-
-            <div class="mini-header">Combat</div>
-            <p>
-                In any case when the Brine is above water, it will not attack. It will only pursue targets underwater.
-                When engaging a target, the Brine keeps its distance rather than swimming forward,
-                firing water charges only while the target is between 4 and 16 blocks away. It leads its shots by predicting
-                where the target will be based on its current velocity, and it won't fire again until it has
-                repositioned at least 4 blocks from where it last shot.
-            </p>
-
-            <div class="mini-header">Ranged Attacks</div>
-            <p>
-                The Brine attacks by firing <a href="../Projectiles/water_charge.html">Water Charges</a>. The Brine will only attempt to shoot if its target is between 4 and 16 blocks
-                away. It actively refuses to open fire if the target gets too close.
-            </p>
-
-            <div class="mini-header">Conduit Damage</div>
-            <p>
-                Conduits do not damage the Brine like it would for any other hostile entity.
-            </p>
-
-            <h2 id="Advancements" class="main-header">Advancements</h2>
-
-            <table class="advancement-table">
-                <thead>
-                <tr>
-                    <th>Icon</th>
-                    <th>Advancement</th>
-                    <th>In-game description</th>
-                    <th>Requirements</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr id="long-ago">
-                    <td class="icon-cell">
-                        <img src="../../assets/items/brine_rod.png" alt="Brine Rod">
-                    </td>
-                    <td class="advancement-name">Long Ago...</td>
-                    <td class="description-cell">Gather the elemental rods: Bore, Brine, Breeze, and Blaze</td>
-                    <td class="requirements-cell">
-                        <ul>
-                            <li>Have a Blaze Rod in your inventory</li>
-                            <li>Have a Breeze Rod in your inventory</li>
-                            <li>Have a Bore Rod in your inventory</li>
-                            <li>Have a Brine Rod in your inventory</li>
-                        </ul>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="feature-list">
+                <ul>
+                    <li><strong>Duplication:</strong> The reinforced key can be duplicated in the crafting table with a
+                        reinforced key, <a href="steel_ingot.html">steel ingot</a>, and <a href="steel_nuggets.html">steel nuggets</a>.<br>
+                        <img src="../../assets/sprites/crafting/items/reinforced_key.png" alt="Reinforced Key"></li>
+                </ul>
+            </div>
 
             <div class="content-section">
                 <h2 id="History" class="main-header">History</h2>
@@ -1589,7 +1525,7 @@
                         <div class="timeline-content">
                             <div class="timeline-version">Version 1.0.0</div>
                             <div class="timeline-description">
-                                Added Brine
+                                Added Reinforced Key
                             </div>
                         </div>
                     </div>
