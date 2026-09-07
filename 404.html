@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://earth-and-water.github.io">
+    <meta property="og:title" content="404">
+    <meta property="og:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
+    <meta property="og:image" content="assets/wiki/earth_water_wiki.png">
+    <meta property="og:site_name" content="Earth & Water Wiki">
+    <meta name="theme-color" content="#0ea394">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://earth-and-water.github.io">
+    <meta name="twitter:title" content="404">
+    <meta name="twitter:description" content="The E&W Wiki is the Wiki for the Minecraft mod, Earth & Water! All information you could possibly need is probably here!">
+    <meta name="twitter:image" content="assets/wiki/earth_water_wiki.png">
+    <title>404</title>
+    <link rel="icon" type="image/x-icon" href="wiki_favicon.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+    @font-face{font-family:'Minecraft';src:url('assets/font/minecraft.woff2') format('woff2'),url('assets/font/minecraft.woff') format('woff');font-weight:normal;font-style:normal;}
+    @font-face{font-family:'Minecraft Ten';src:url('assets/fonts/minecraft.woff2') format('woff2'),url('assets/fonts/minecraft.woff') format('woff');font-weight:normal;font-style:normal;font-display:swap;}
+    *{box-sizing:border-box;}
+    img{image-rendering:-moz-crisp-edges;image-rendering:-webkit-crisp-edges;image-rendering:pixelated;image-rendering:crisp-edges;width:100%;height:100%;object-fit:cover;object-position:center;}
+    .logo img{height:100%;width:auto;object-fit:contain;}
+    ::-webkit-scrollbar{width:12px;}
+    ::-webkit-scrollbar-track{background:#0a0a0a;border:2px solid #1a1a1a;}
+    ::-webkit-scrollbar-thumb{background:#48494a;border:2px solid #1a1a1a;}
+    ::-webkit-scrollbar-thumb:hover{background:#5a5b5c;}
+    body{background:url('assets/wiki/background.png');background-color:#2d2d2d;background-repeat:repeat;background-position:top left;font-family:'Nunito','Inter',sans-serif;color:#e6e6e6;margin:0;padding:0;line-height:1.6;}
+    .header{background:rgba(45,45,45,1.0);border-bottom:3px solid #4a4a4a;padding:15px 0;backdrop-filter:blur(10px);position:static;}
+    .header-content{max-width:95vw;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 20px;gap:15px;}
+    @media (max-width:768px){.header-content{padding:0 15px;gap:10px;flex-direction:column;align-items:center;text-align:center;}.logo{margin:10px 0;}.search-container{width:100%;max-width:none;}.search-box{width:100%;}}
+    @media (max-width:480px){.header-content{padding:0 10px;gap:8px;}}
+    .logo{height:60px;width:auto;flex-shrink:0;}
+    @media (max-width:480px){.logo{height:50px;}}
+    .search-container{flex:1;max-width:500px;margin:0 20px;position:relative;}
+    @media (max-width:768px){.search-container{margin:0 10px;max-width:none;flex:1;}}
+    @media (max-width:480px){.search-container{margin:0 5px;min-width:0;}}
+    .search-box{width:100%;padding:8px 12px;background:#3a3a3a;border:none;color:#e6e6e6;font-size:14px;font-family:'Nunito',sans-serif;border-radius:4px;box-sizing:border-box;}
+    .search-box:focus{outline:2px solid #0ea394;outline-offset:-2px;}
+    @media (max-width:480px){.search-box{padding:10px 12px;font-size:16px;}}
+    .search-suggestions{position:absolute;top:100%;left:0;right:0;background:#31353e;border:2px solid #202125;border-top:none;max-height:300px;overflow-y:auto;z-index:1000;display:none;box-shadow:inset 2px 2px 0 #3b3e47,inset -2px -2px 0 #2e313a;}
+    @media (max-width:768px){.search-suggestions{max-height:250px;left:-2px;right:-2px;}}
+    @media (max-width:480px){.search-suggestions{max-height:200px;border-radius:0 0 4px 4px;}}
+    .search-suggestion{padding:10px 12px;cursor:pointer;border-bottom:1px solid #3a3a3a;color:#cccccc;min-height:44px;display:flex;flex-direction:column;justify-content:center;}
+    @media (max-width:480px){.search-suggestion{padding:12px 15px;min-height:50px;}}
+    .search-suggestion:hover{background:#4f5a75;}
+    .search-suggestion:hover .suggestion-title{color:#0ea394;}
+    .search-suggestion:last-child{border-bottom:none;}
+    .suggestion-category{font-size:12px;color:#0ea394;font-family:'Minecraft Ten','Inter',sans-serif;font-weight:normal;}
+    .suggestion-title{font-size:14px;margin-top:2px;font-family:'Nunito',sans-serif;color:#cccccc;}
+    @media (max-width:480px){.suggestion-category{font-size:11px;}.suggestion-title{font-size:15px;margin-top:3px;}}
+    .main-container{max-width:1200px;margin:30px auto;background:#2b2f39;padding:30px;box-shadow:0 0 20px rgba(0,0,0,0.5);border-radius:0px;}
+    @media (max-width:768px){.main-container{margin:20px 15px;padding:25px 20px;max-width:none;}}
+    @media (max-width:480px){.main-container{margin:15px 10px;padding:20px 15px;}}
+    .content-wrapper{display:flex;gap:30px;align-items:flex-start;}
+    @media (max-width:768px){.content-wrapper{flex-direction:column;gap:20px;}}
+    .side-stack{display:flex;flex-direction:column;gap:6px;position:sticky;top:27px;align-self:flex-start;width:300px;}
+    @media (max-width:768px){.side-stack{width:100%;position:static;margin-bottom:25px;}}
+    .toc{background:#31353e;border:2px solid #202125;padding:15px;font-family:'Nunito',sans-serif;flex-shrink:0;box-shadow:inset 2px 2px 0 #3b3e47,inset -2px -2px 0 #2e313a;}
+    .toc h2{font-size:16px;color:#0ea394;margin-bottom:10px;margin-top:0;font-family:'Minecraft Ten','Nunito',sans-serif;}
+    .toc ul{list-style-type:none;padding-left:0;margin:0;}
+    .toc li{margin-bottom:5px;}
+    .toc a{color:#cccccc;text-decoration:none;display:block;padding:5px 8px;border-radius:3px;transition:all .2s ease;}
+    .toc a:hover{color:#0ea394;background:rgba(14,163,148,.1);}
+    .info-box{background:#31353e;border:2px solid #202125;padding:15px;font-size:14px;color:#ccc;box-shadow:inset 2px 2px 0 #3b3e47,inset -2px -2px 0 #2e313a;}
+    .variant-tabs{display:flex;margin-bottom:10px;border-bottom:2px solid #202125;}
+    .variant-tab{flex:1;padding:8px 12px;background:#3a3a3a;border:none;color:#cccccc;cursor:pointer;font-size:12px;font-family:'Nunito',sans-serif;border-right:1px solid #202125;transition:all .2s ease;}
+    .variant-tab:last-child{border-right:none;}
+    .variant-tab.active{background:#0ea394;color:#ffffff;}
+    .variant-tab:hover:not(.active){background:#4a4a4a;}
+    .variant-image{display:none;}
+    .variant-image.active{display:block;}
+    .info-box img{width:100%;image-rendering:pixelated;border:none;margin-bottom:10px;}
+    .info-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border-bottom:1px solid #3a3a3a;padding-bottom:4px;}
+    .info-row:last-child{margin-bottom:0;border-bottom:none;padding-bottom:0;}
+    .info-label{font-weight:600;color:#0ea394;}
+    .info-value{color:#cccccc;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+    .info-value img{width:auto;height:16px;margin:0;border:none;image-rendering:pixelated;}
+    .info-value a{color:#0ea394;text-decoration:none;}
+    .info-value a:hover{text-decoration:underline;}
+    .info-value .icon-link{display:inline-flex;align-items:center;line-height:0;}
+    .mob-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin:20px 0;justify-items:center;}
+    .mob-item{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#cccccc;transition:all .3s ease;cursor:pointer;padding:10px;border-radius:8px;}
+    .mob-item:hover{color:#0ea394;background:rgba(14,163,148,.1);transform:translateY(-2px);}
+    .mob-face{width:96px;height:96px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .mob-face img{width:100%;height:100%;object-fit:contain;}
+    .mob-name{font-size:14px;text-align:center;font-family:'Nunito',sans-serif;font-weight:500;word-wrap:break-word;max-width:100%;}
+    .category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin:25px 0;width:100%;justify-items:center;}
+    .category-item{cursor:pointer;aspect-ratio:1;width:150px;height:150px;display:flex;flex-direction:column;position:relative;overflow:hidden;border:none;user-select:none;text-decoration:none;}
+    .category-image-container{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;display:flex;align-items:center;justify-content:center;width:32px;height:32px;margin-top:-20px;}
+    .category-top-outline{position:absolute;top:0;left:0;right:0;height:4px;background:#242424;z-index:5;}
+    .category-left-outline{position:absolute;top:0;left:0;width:4px;bottom:0;background:#242424;z-index:5;}
+    .category-right-outline{position:absolute;top:0;right:0;width:4px;bottom:0;background:#242424;z-index:5;}
+    .category-top-highlight{position:absolute;top:4px;left:4px;right:4px;height:8px;background:#33353c;z-index:4;}
+    .category-image-section{flex:2;position:relative;background:#3e414a;z-index:3;transition:transform .15s ease;overflow:hidden;margin:4px;margin-bottom:0;}
+    .category-image-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:8px;background:#565960;}
+    .category-item img{width:80px;height:80px;image-rendering:auto;object-fit:contain;object-position:center;}
+    .category-button-section{flex:0.6;background:#48494a;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:inset 2px 2px 0 #6c6d6d,inset -2px -2px 0 #5b5c5c;overflow:hidden;z-index:2;transition:transform .15s ease;margin:0 4px;border-top:4px solid #242424;}
+    .category-dark-strip{flex:0.2;background:#3b3c3c;position:relative;z-index:2;transition:transform .15s ease,opacity .15s ease;margin:0 4px;margin-top:0;}
+    .category-bottom-outline{position:absolute;bottom:0;left:0;right:0;height:4px;background:#242424;z-index:5;}
+    .category-shadow{position:absolute;bottom:-6px;left:0;right:0;height:6px;background:#1a1a1a;z-index:1;transition:transform .15s ease,opacity .15s ease;}
+    .category-name{font-size:12px;color:#ffffff;font-family:'Minecraft Ten','Inter',sans-serif;font-weight:normal;position:relative;z-index:2;white-space:nowrap;text-shadow:1px 1px 0px rgba(0,0,0,.8);text-decoration:none !important;}
+    .category-item.pressed .category-image-section{transform:scaleY(1.065);transform-origin:top;}
+    .category-item.pressed .category-button-section{transform:translateY(6px);}
+    .category-item.pressed .category-dark-strip{transform:translateY(6px);opacity:0;}
+    .category-item.pressed .category-shadow{transform:translateY(6px);opacity:0;}
+    .category-item:hover .category-image-section{background:#4b4e56;}
+    .category-item:hover .category-top-highlight{background:#39424a;}
+    .category-item:hover .category-image-section::after{background:#565960;}
+    .category-item:hover .category-button-section{background:#414242;}
+    .category-item:hover .category-dark-strip{background:#323333;}
+    .button-row{display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;}
+    .wiki-button{cursor:pointer;width:200px;height:45px;display:flex;flex-direction:column;position:relative;overflow:hidden;border:none;user-select:none;text-decoration:none;}
+    .wiki-button-left-outline{position:absolute;top:0;left:0;width:2px;bottom:0;background:#242424;z-index:5;transition:transform .15s ease;}
+    .wiki-button-right-outline{position:absolute;top:0;right:0;width:2px;bottom:0;background:#242424;z-index:5;transition:transform .15s ease;}
+    .wiki-button-section{flex:1;background:#48494a;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:inset 1px 1px 0 #6c6d6d,inset -1px -1px 0 #5b5c5c;overflow:hidden;z-index:2;transition:transform .15s ease;margin:0 2px;margin-bottom:0;border-top:2px solid #242424;}
+    .wiki-button-dark-strip{height:8px;background:#3b3c3c;position:relative;z-index:2;transition:transform .15s ease,opacity .15s ease;margin:0 2px;margin-top:0;}
+    .wiki-button-bottom-outline{position:absolute;bottom:0;left:0;right:0;height:2px;background:#242424;z-index:5;}
+    .wiki-button-shadow{position:absolute;bottom:-3px;left:0;right:0;height:3px;background:#1a1a1a;z-index:1;transition:transform .15s ease,opacity .15s ease;}
+    .wiki-button-name{font-size:15px;color:#ffffff;font-family:'Minecraft Ten','Inter',sans-serif;font-weight:normal;position:relative;z-index:2;white-space:nowrap;text-shadow:1px 1px 0px rgba(0,0,0,.8);}
+    .wiki-button.pressed .wiki-button-section{transform:translateY(6px);}
+    .wiki-button.pressed .wiki-button-left-outline{transform:translateY(6px);}
+    .wiki-button.pressed .wiki-button-right-outline{transform:translateY(6px);}
+    .wiki-button.pressed .wiki-button-dark-strip{transform:translateY(3px);opacity:0;}
+    .wiki-button.pressed .wiki-button-shadow{transform:translateY(3px);opacity:0;}
+    .wiki-button:hover .wiki-button-section{background:#414242;}
+    .wiki-button:hover .wiki-button-dark-strip{background:#323333;}
+    @media (max-width:480px){.category-item{width:120px;height:120px;}.wiki-button{width:160px;height:40px;}}
+    .content{flex:1;min-width:0;}
+    .page-title,.main-header{font-family:'Minecraft Ten','Nunito',sans-serif;color:#0ea394;word-wrap:break-word;}
+    .page-title{font-size:1.7rem;margin-bottom:25px;margin-top:0;border-bottom:2px solid #4a4a4a;}
+    @media (max-width:768px){.page-title{font-size:1.5rem;margin-bottom:20px;border-bottom:2px solid #4a4a4a;}}
+    @media (max-width:480px){.page-title{font-size:1.3rem;margin-bottom:15px;border-bottom:2px solid #4a4a4a;}}
+    .main-header{font-size:1.1rem;margin:30px 0 15px 0;}
+    .content-section{margin-bottom:30px;}
+    .mini-header{font-size:18px;color:#20cfbe;margin:20px 0 10px 0;font-weight:600;}
+    @media (max-width:480px){.mini-header{font-size:16px;margin:15px 0 8px 0;}}
+    .feature-list{background:#31353e;border-left:4px solid #0ea394;padding:15px;margin:10px 0;border-radius:0 4px 4px 0;overflow-x:auto;}
+    .feature-list ul{margin:0;padding-left:20px;}
+    .feature-list li{margin-bottom:5px;color:#cccccc;word-wrap:break-word;}
+    .content a{color:#0ea394;text-decoration:none;}
+    .content a:hover{color:#20cfbe;text-decoration:underline;}
+    .feature-list a{color:#0ea394;text-decoration:none;}
+    .feature-list a:hover{color:#20cfbe;text-decoration:underline;}
+    .history-timeline{background:#31353e;border:2px solid #202125;padding:20px;margin-top:20px;box-shadow:inset 2px 2px 0 #3b3e47,inset -2px -2px 0 #2e313a;}
+    .history-title{font-size:1.1rem;color:#0ea394;margin-bottom:15px;margin-top:0;font-family:'Minecraft Ten','Nunito',sans-serif;}
+    .timeline-item{display:flex;align-items:flex-start;gap:15px;margin-bottom:20px;}
+    .timeline-item:last-child{margin-bottom:0;}
+    .timeline-marker{width:4px;height:100%;min-height:20px;background:#0ea394;flex-shrink:0;margin-top:3px;}
+    .timeline-content{flex:1;}
+    .timeline-version{font-size:16px;color:#20cfbe;font-weight:600;margin-bottom:5px;}
+    .timeline-description{color:#cccccc;font-size:14px;line-height:1.5;}
+    .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:15px 0;}
+    @media (max-width:768px){.stats-grid{grid-template-columns:1fr;gap:10px;}}
+    .stat-card{background:#31353e;border:2px solid #202125;padding:12px;text-align:center;box-shadow:inset 2px 2px 0 #3b3e47,inset -2px -2px 0 #2e313a;}
+    .stat-label{font-size:12px;color:#0ea394;font-weight:600;margin-bottom:5px;}
+    .stat-value{font-size:16px;color:#cccccc;font-weight:700;}
+    p{margin:0 0 15px 0;word-wrap:break-word;}
+    strong,b{color:#20cfbe;}
+    html{scroll-padding-top:20px;}
+    h1,h2,.page-title,.main-header{font-family:'Minecraft Ten','Inter',sans-serif !important;}
+    .comparison-table{width:100%;border-collapse:collapse;background:#202125;margin:20px 0;font-size:13px;}
+    .comparison-table th{background:#31353e;color:#0ea394;padding:10px;text-align:left;border:1px solid #3a3a3a;font-family:'Minecraft Ten','Inter',sans-serif;font-weight:normal;}
+    .comparison-table td{padding:10px;border:1px solid #3a3a3a;color:#e6e6e6;}
+    .comparison-table tr:nth-child(even){background:#2b2f39;}
+    .loot-table{width:100%;border-collapse:collapse;background:#202125;margin:20px 0;font-size:13px;table-layout:fixed;}
+    .loot-table th{background:#31353e;color:#0ea394;padding:6px 4px;text-align:center;border:1px solid #3a3a3a;font-family:'Minecraft Ten','Inter',sans-serif;font-weight:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:11px;}
+    .loot-table td{padding:6px 4px;border:1px solid #3a3a3a;color:#e6e6e6;vertical-align:middle;word-wrap:break-word;overflow-wrap:break-word;hyphens:auto;text-align:center;font-size:12px;}
+    .loot-table tr:nth-child(even){background:#2b2f39;}
+    @media (max-width:768px){.loot-table,.cooking-table{font-size:12px;border:none;background:transparent;}.loot-table thead,.cooking-table thead{display:none;}.loot-table tbody,.cooking-table tbody{display:block;background:transparent;}.loot-table tr,.cooking-table tr{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:15px;padding:0;border:none;background:transparent !important;}.loot-table td,.cooking-table td{padding:8px;background:#202125;border:1px solid #3a3a3a;display:flex;align-items:center;font-size:11px;}.loot-table td::before,.cooking-table td::before{content:attr(data-label);color:#0ea394;font-weight:600;margin-right:8px;}}
+    .cooking-table{width:100%;border-collapse:collapse;background:#202125;margin:20px 0;font-size:13px;}
+    .cooking-table th{background:#31353e;color:#0ea394;padding:10px;text-align:center;border:1px solid #3a3a3a;font-family:'Minecraft Ten','Inter',sans-serif;font-weight:normal;}
+    .cooking-table td{padding:10px;border:1px solid #3a3a3a;color:#e6e6e6;text-align:center;}
+    .cooking-table tr:nth-child(even){background:#2b2f39;}
+    .cooking-table a,.comparison-table a,.loot-table a{color:#0ea394;text-decoration:none;}
+    .cooking-table a:hover,.comparison-table a:hover,.loot-table a:hover{color:#20cfbe;text-decoration:underline;}
+    .content-image{margin:15px 0;}
+    .content-image img{width:100%;image-rendering:pixelated;}
+    .content-image .caption{text-align:center;font-size:13px;color:#999;margin-top:6px;}
+    @media print{.header,.search-container{display:none;}.main-container{margin:0;padding:20px;box-shadow:none;background:white;color:black;}.toc{position:static;page-break-inside:avoid;}}
+    </style>
+    </head>
+    <body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="https://earth-and-water.github.io">
+                    <img src="assets/wiki/earth_water_wiki.png" alt="Earth & Water Wiki">
+                </a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search Earth & Water Wiki" id="searchInput" autocomplete="off">
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content-wrapper">
+            
+            <div class="content">
+    <h1 id="404" class="page-title">404</h1>
+<p>You're either encountering this page because you typed some nonsense into your search bar, or you clicked a link that does not yet exist.<div>You have a few options on what to do next:</div></p>
+<div class="feature-list"><ul><li>Stay here, enjoy the nothing.</li><li>Go to the home page.</li><li>Find a different page.</li><li><a href="earth-and-water.github.io/builder.html" style="">Create a page</a> and send a pull request for it to be added. (WIP)</li></ul></div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+    function switchVariant(){} function loadVariantFromHash(){}
+    
+    let allSearchItems = [];
+    async function loadSearchData(){
+        try{
+            const res = await fetch('search-data.json?v='+Date.now(), {cache:'no-store'});
+            if(res.ok){ const data = await res.json(); allSearchItems = Object.values(data).flat(); }
+        }catch(e){ console.warn('search-data.json not found (expected while previewing in the builder)'); }
+    }
+    function initializeSearch(){
+        const input = document.getElementById('searchInput');
+        const box = document.getElementById('searchSuggestions');
+        if(!input||!box) return;
+        input.addEventListener('input', function(){
+            const q = this.value.toLowerCase().trim();
+            if(!q){ box.style.display='none'; return; }
+            const matches = allSearchItems.filter(i=> i.title.toLowerCase().includes(q) || i.category.toLowerCase().includes(q)).slice(0,8);
+            if(matches.length){
+                box.innerHTML = matches.map(i=>'<div class="search-suggestion" onclick="navigateToPage(\''+i.page+'\')"><div class="suggestion-category">'+i.category+'</div><div class="suggestion-title">'+i.title+'</div></div>').join('');
+                box.style.display='block';
+            } else box.style.display='none';
+        });
+        document.addEventListener('click', e=>{ if(!e.target.closest('.search-container')) box.style.display='none'; });
+    }
+    function navigateToPage(page){
+        window.location.href = page.startsWith('http') ? page : 'https://earth-and-water.github.io/' + page;
+    }
+    document.addEventListener('DOMContentLoaded', async function(){ await loadSearchData(); initializeSearch(); loadVariantFromHashSafe(); });
+    function loadVariantFromHashSafe(){ if(typeof loadVariantFromHash==='function') loadVariantFromHash(); }
+    
+    
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.category-item, .wiki-button').forEach(function(btn){
+            btn.addEventListener('mousedown', function(){ this.classList.add('pressed'); });
+            btn.addEventListener('mouseup', function(){ this.classList.remove('pressed'); });
+            btn.addEventListener('mouseleave', function(){ this.classList.remove('pressed'); });
+            btn.addEventListener('touchstart', function(){ this.classList.add('pressed'); }, {passive:true});
+            btn.addEventListener('touchend', function(){ this.classList.remove('pressed'); });
+        });
+    });
+    
+    </script>
+    </body>
+    </html>
