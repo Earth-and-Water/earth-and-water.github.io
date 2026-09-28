@@ -67,11 +67,11 @@
     ],
     "Features": [
         { "title": "Features", "page": "world_features.html", "category": "Category" },
-        { "title": "Oxygen Cross", "page": "E&W/Features/oxygen_cross.html", "category": "Biomes" },
-        { "title": "Limestone Rock", "page": "E&W/Features/limestone_rock.html", "category": "Biomes" },
-        { "title": "Dark Dripstone Cluster", "page": "E&W/Features/dark_dripstone_cluster.html", "category": "Biomes" },
-        { "title": "Large Dark Dripstone", "page": "E&W/Features/large_dark_dripstone.html", "category": "Biomes" },
-        { "title": "Pointed Dark Dripstone", "page": "E&W/Features/pointed_dark_dripstone.html", "category": "Biomes" }
+        { "title": "Oxygen Cross", "page": "E&W/Features/oxygen_cross.html", "category": "Features" },
+        { "title": "Limestone Rock", "page": "E&W/Features/limestone_rock.html", "category": "Features" },
+        { "title": "Dark Dripstone Cluster", "page": "E&W/Features/dark_dripstone_cluster.html", "category": "Features" },
+        { "title": "Large Dark Dripstone", "page": "E&W/Features/large_dark_dripstone.html", "category": "Features" },
+        { "title": "Pointed Dark Dripstone", "page": "E&W/Features/pointed_dark_dripstone.html", "category": "Features" }
     ],
     "Effects": [
         { "title": "Effect", "page": "effects.html", "category": "Category" },
