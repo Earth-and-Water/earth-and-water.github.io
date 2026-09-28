@@ -47,7 +47,7 @@
         { "title": "Mixed Prismarine Tiles", "page": "E&W/Blocks/mixed_prismarine_tiles.html", "category": "Blocks" },
         { "title": "Chiseled Dark Prismarine", "page": "E&W/Blocks/chiseled_dripstone_bricks.html#dark", "category": "Blocks" },
         { "title": "Steel Block", "page": "E&W/Blocks/steel_block.html", "category": "Blocks" },
-        { "title": "Oxygen Block", "page": "E&W/Blocks/oxygen_block.html", "category": "Blocks" },
+        { "title": "Liquid Oxygen Block", "page": "E&W/Blocks/liquid_oxygen_block.html", "category": "Blocks" },
         { "title": "Reinforced Spawner", "page": "E&W/Blocks/reinforced_spawner.html", "category": "Blocks" }
     ],
     "Items": [
